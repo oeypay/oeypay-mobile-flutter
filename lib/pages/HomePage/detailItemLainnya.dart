@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/containerItem.dart';
 import 'package:oepay/common/constant/colors.dart';
@@ -6,7 +7,7 @@ import 'package:oepay/common/constant/colors.dart';
 class ItemDetailPage extends StatelessWidget {
   final CustomGridItemPage item;
 
-  const ItemDetailPage({Key? key, required this.item}) : super(key: key);
+  const ItemDetailPage({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ItemDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Image.asset(
+              child: SvgPicture.asset(
                 item.images,
                 width: 100,
                 height: 100,

@@ -1,12 +1,21 @@
-import 'package:banner_carousel/banner_carousel.dart';
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/gridComponents.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/ItemLainnyaPage.dart';
+import 'package:oepay/pages/HomePage/NotoficationPage.dart';
+import 'package:oepay/pages/HomePage/TopUpScreen.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/isiUlang.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,11 +25,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    // Mengatur warna status bar ketika halaman diinisialisasi
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: ColorName.light, // Warna background status bar
+        statusBarIconBrightness: Brightness.light, // Warna ikon status bar
+      ),
+    );
+  }
+
   final List<String> images = [
-    "assets/images/1.png",
-    "assets/images/2.png",
-    "assets/images/3.png",
-    "assets/images/4.png",
+    "assets/images/banner1.png",
+    "assets/images/banner2.png",
+    "assets/images/banner3.png",
   ];
 
   @override
@@ -28,63 +48,68 @@ class _HomePageState extends State<HomePage> {
     final List<CustomGridItem> gridItems = [
       CustomGridItem(
         color: Colors.redAccent,
-        images: 'assets/images/wifi-square.png',
-        title: 'Internet',
+        images: 'assets/icons/point-of-sale-signal.svg',
+        title: 'Isi Ulang',
         onTap: () {
-          print('Internet tapped');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PulsaScreen(),
+            ),
+          );
         },
       ),
       CustomGridItem(
         color: Colors.amber,
-        images: 'assets/images/flashh.png',
+        images: 'assets/icons/lightbulb-on.svg',
         title: 'Listrik',
         onTap: () {
           print('Listrik tapped');
         },
       ),
       CustomGridItem(
-        color: Colors.lightGreen,
-        images: 'assets/images/ticket.png',
-        title: 'Voucher',
+        color: Colors.teal,
+        images: 'assets/icons/ticket-airline.svg',
+        title: 'Tiket',
         onTap: () {
-          print('Voucher tapped');
+          print('Help tapped');
         },
       ),
       CustomGridItem(
         color: Colors.black,
-        images: 'assets/images/phone.png',
-        title: 'Pulsa',
+        images: 'assets/icons/house-building.svg',
+        title: 'Hotel',
         onTap: () {
           print('Pulsa tapped');
         },
       ),
       CustomGridItem(
         color: Colors.purpleAccent.shade700,
-        images: 'assets/images/mobile.png',
-        title: 'Kredit',
+        images: 'assets/icons/insert-credit-card.svg',
+        title: 'Pinjaman',
         onTap: () {
           print('Kredit tapped');
         },
       ),
       CustomGridItem(
         color: Colors.lightBlue.shade800,
-        images: 'assets/images/receipt-text.png',
-        title: 'Tagihan',
+        images: 'assets/icons/point-of-sale-bill.svg',
+        title: 'Pembayaran',
         onTap: () {
           print('Tagihan tapped');
         },
       ),
       CustomGridItem(
-        color: Colors.teal,
-        images: 'assets/images/topup.png',
-        title: 'Help',
+        color: Colors.lightGreen,
+        images: 'assets/icons/ticket.svg',
+        title: 'Voucher',
         onTap: () {
-          print('Help tapped');
+          print('Voucher tapped');
         },
       ),
       CustomGridItem(
         color: Colors.pink,
-        images: 'assets/images/category.png',
+        images: 'assets/icons/apps.svg',
         title: 'Lainnya',
         onTap: () {
           Navigator.push(
@@ -97,69 +122,120 @@ class _HomePageState extends State<HomePage> {
       ),
     ];
 
-    return Scaffold(
-      backgroundColor: ColorName.yellowColor,
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              const SizedBox(height: 30),
-              const Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    FaIcon(
-                      FontAwesomeIcons.userAstronaut,
-                      size: 30,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorName.light,
+        body: Stack(
+          children: [
+            SvgPicture.asset(
+              'assets/images/oeypay-logo.svg',
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+            ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 180, left: 15, right: 15),
+                    width: MediaQuery.of(context).size.width,
+                    // margin: const EdgeInsets.only(left: 10, right: 10),
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: Colors.white),
                     ),
-                    FaIcon(
-                      FontAwesomeIcons.solidBell,
-                      size: 30,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/icons/paper-plane.svg',
+                              width: 25,
+                            ),
+                            // Image.asset(
+                            //   'assets/icons/paper-plane.svg',
+                            //   width: 30,
+                            // ),
+                            const Text('Kirim', style: TextStyle(fontSize: 12)),
+                          ],
+                        ),
+                        const Column(
+                          children: [
+                            Icon(Icons.add_circle_outline_outlined, size: 30),
+                            Text('Tambah', style: TextStyle(fontSize: 12)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/icons/expense.svg',
+                              width: 25,
+                            ),
+                            const Text('Minta', style: TextStyle(fontSize: 12)),
+                          ],
+                        ),
+                        const Column(
+                          children: [
+                            Icon(Icons.account_balance_wallet_outlined,
+                                size: 30),
+                            Text('Tarik', style: TextStyle(fontSize: 12)),
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              Text(
-                'Total Saldo',
-                style: CustomTextStyles.verifikasiTitle,
-              ),
-              Text(
-                'Rp 5.000.000',
-                style: GoogleFonts.rubik(
-                    fontSize: 20.0,
-                    color: const Color.fromARGB(255, 0, 0, 51),
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 50),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(28),
-                      topRight: Radius.circular(28),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        spreadRadius: 5,
-                        blurRadius: 10,
-                        offset: const Offset(0, 5),
-                      ),
-                    ],
                   ),
-                  child: SingleChildScrollView(
+                  const SizedBox(height: 20),
+                  CarouselSlider(
+                    options: CarouselOptions(
+                      height: 120,
+                      autoPlay: false,
+                      enableInfiniteScroll: true,
+                      viewportFraction: 0.7,
+                    ),
+                    items: images.map((imagePath) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            height: 120,
+                            width: double.infinity,
+                            margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                image: AssetImage(imagePath),
+                                fit: BoxFit
+                                    .contain, // Mengatur gambar agar tidak tercrop
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    }).toList(),
+                  ),
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 50),
                         Text(
                           'Payment List',
                           style: CustomTextStyles.titlesection,
                         ),
-                        CustomGrid(items: gridItems),
+                        const SizedBox(height: 5),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: ColorName.light,
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              width: 2,
+                              color: Colors.white,
+                            ),
+                          ),
+                          child: CustomGrid(items: gridItems),
+                        ),
                         const SizedBox(height: 20),
                         Text(
                           'Promo & Discount',
@@ -168,10 +244,10 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 10),
                         CarouselSlider(
                           options: CarouselOptions(
-                            height: 160.0,
+                            height: 120.0,
                             enlargeCenterPage: true,
                             autoPlay: true,
-                            aspectRatio: 16 / 9,
+                            aspectRatio: 16 / 10,
                             autoPlayCurve: Curves.fastOutSlowIn,
                             enableInfiniteScroll: true,
                             autoPlayAnimationDuration:
@@ -182,11 +258,10 @@ class _HomePageState extends State<HomePage> {
                             return Builder(
                               builder: (BuildContext context) {
                                 return Container(
-                                  width: MediaQuery.of(context).size.width,
+                                  width: double.infinity,
                                   margin: const EdgeInsets.symmetric(
                                       horizontal: 5.0),
                                   decoration: BoxDecoration(
-                                    color: Colors.amber,
                                     borderRadius: BorderRadius.circular(10),
                                     image: DecorationImage(
                                       image: AssetImage(imagePath),
@@ -198,82 +273,121 @@ class _HomePageState extends State<HomePage> {
                             );
                           }).toList(),
                         ),
+                        const SizedBox(height: 15),
+                        const Text('data')
                       ],
                     ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-            top: 170,
-            left: 20,
-            right: 20,
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20.0),
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blueGrey.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    children: [
-                      Icon(Icons.add_circle,
-                          color: ColorName.yellowColor, size: 30),
-                      Text('Topup', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Icon(Icons.send, color: ColorName.yellowColor, size: 30),
-                      Text('Send', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Icon(Icons.request_page,
-                          color: ColorName.yellowColor, size: 30),
-                      Text('Request', style: TextStyle(fontSize: 12)),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Icon(Icons.history,
-                          color: ColorName.yellowColor, size: 30),
-                      Text('History', style: TextStyle(fontSize: 12)),
-                    ],
                   ),
                 ],
               ),
             ),
-          ),
-        ],
+
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Container(
+                height: 155,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.white, // Sesuaikan warna border
+                      width: 1.0, // Sesuaikan lebar border
+                    ),
+                  ),
+                  color: ColorName.light.withOpacity(0.7),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 15, top: 10, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SvgPicture.asset(
+                            'assets/icons/logo.svg',
+                            width: 100,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => NotificationsScreen(),
+                                ),
+                              );
+                            },
+                            child: const FaIcon(
+                              FontAwesomeIcons.solidBell,
+                              size: 25,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 30, left: 20, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 10),
+                              Text(
+                                'Total Saldo',
+                                style: GoogleFonts.rubik(
+                                  fontSize: 14.0,
+                                  color: Color(0xff606060),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                'Rp 5.000.000',
+                                style: GoogleFonts.rubik(
+                                  fontSize: 18,
+                                  color: const Color.fromARGB(255, 0, 0, 51),
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/point.svg',
+                                width: 22,
+                                // color: Colors.orange,
+                              ),
+                              // Image.asset(
+                              //   'assets/icons/paper-plane.svg',
+                              //   width: 30,
+                              // ),
+                              const Text(
+                                'Points',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }
-}
-
-class BannerImages {
-  static const String banner1 = "assets/images/1.png";
-  static const String banner2 = "assets/images/2.png";
-  static const String banner3 = "assets/images/3.png";
-  static const String banner4 = "assets/images/4.png";
-
-  // static List<BannerModel> listBanners = [
-  //   BannerModel(imagePath: banner1, id: "1"),
-  //   BannerModel(imagePath: banner2, id: "2"),
-  //   BannerModel(imagePath: banner3, id: "3"),
-  //   BannerModel(imagePath: banner4, id: "4"),
-  // ];
 }

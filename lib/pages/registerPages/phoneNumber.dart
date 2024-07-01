@@ -134,14 +134,18 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
                                                         .spaceEvenly,
                                                 children: [
                                                   ButtonCustom.filled(
+                                                      height: 40,
+                                                      width: 130,
                                                       color: ColorName.light,
                                                       textColor:
                                                           ColorName.yellowColor,
                                                       onPressed: () {
                                                         Navigator.pop(context);
                                                       },
-                                                      label: 'Kemabali'),
+                                                      label: 'Kembali'),
                                                   ButtonCustom.filled(
+                                                      width: 130,
+                                                      height: 40,
                                                       color:
                                                           ColorName.yellowColor,
                                                       textColor:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/registerPages/createdPassword.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
@@ -17,7 +18,7 @@ class _OtpPagesState extends State<OtpPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade50,
+      backgroundColor: ColorName.light,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

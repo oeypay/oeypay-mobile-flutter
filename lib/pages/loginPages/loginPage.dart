@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:oepay/common/components/bottomCustomBar.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/constant/colors.dart';
@@ -32,7 +31,7 @@ class _LoginPagesState extends State<LoginPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade50,
+      backgroundColor: ColorName.light,
       body: SafeArea(
         child: Form(
           key: _formKey,

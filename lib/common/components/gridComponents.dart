@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/constant/styleText.dart';
 
 class CustomGridItem {
@@ -12,6 +13,7 @@ class CustomGridItem {
     required this.title,
     required this.color,
     required this.onTap,
+    // required CustomGridItem item,
   });
 }
 
@@ -26,46 +28,31 @@ class CustomGrid extends StatelessWidget {
       physics:
           const NeverScrollableScrollPhysics(), // Disable scrolling for GridView
       shrinkWrap: true, // Ensure GridView takes only the space it needs
-      padding: const EdgeInsets.all(10.0),
+      // padding: const EdgeInsets.all(10.0),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4, // Number of columns
-        crossAxisSpacing: 0.0, // Space between columns
-        mainAxisSpacing: 0.0, // Space between rows
+        crossAxisSpacing: 4.0, // Space between columns
+        mainAxisSpacing: 4.0, // Space between rows
         // childAspectRatio: 1, // Aspect ratio of each item
       ),
       children: items.map((item) {
         return GestureDetector(
           onTap: item.onTap,
-          child: Container(
-            margin: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.blueGrey.withOpacity(0.2),
-                  blurRadius: 5.0,
-                  spreadRadius: 2.0,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  item.images,
-                  width: 30,
-                  color: item.color,
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  item.title,
-                  textAlign: TextAlign.center,
-                  style: CustomTextStyles.titleItem,
-                ),
-              ],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                item.images,
+                width: 25,
+                color: item.color,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                item.title,
+                textAlign: TextAlign.center,
+                style: CustomTextStyles.titleItem,
+              ),
+            ],
           ),
         );
       }).toList(),

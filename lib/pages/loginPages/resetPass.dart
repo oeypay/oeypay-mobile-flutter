@@ -22,7 +22,7 @@ class _ResetPaswordState extends State<ResetPasword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade50,
+      backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
         elevation: 0,

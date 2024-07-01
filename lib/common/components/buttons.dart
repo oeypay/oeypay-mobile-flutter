@@ -86,6 +86,7 @@ class ButtonCustom extends StatelessWidget {
     required this.color,
     required this.textColor,
     this.height = 50.0,
+    this.width = 150.0,
     this.borderRadius = 20.0,
     this.icon,
   });
@@ -96,6 +97,7 @@ class ButtonCustom extends StatelessWidget {
   final Color color;
   final Color textColor;
   final double height;
+  final double width;
   final double borderRadius;
   final Widget? icon;
 
@@ -103,6 +105,7 @@ class ButtonCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
+      width: width,
       child: style == ButtonStyle.filled
           ? ElevatedButton(
               onPressed: onPressed,
@@ -115,8 +118,8 @@ class ButtonCustom extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // icon ?? const SizedBox.shrink(),
-                  // if (icon != null) const SizedBox(width: 10.0),
+                  icon ?? const SizedBox.shrink(),
+                  if (icon != null) const SizedBox(width: 10.0),
                   Text(
                     label,
                     style: CustomTextStyles.textButton,

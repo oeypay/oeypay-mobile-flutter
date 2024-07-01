@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/constant/colors.dart';
+import 'package:oepay/pages/HomePage/History.dart';
 import 'package:oepay/pages/HomePage/Home.dart';
-import 'package:oepay/pages/HomePage/ProfilePage.dart';
+import 'package:oepay/pages/HomePage/MerchanPage.dart';
+import 'package:oepay/pages/HomePage/porfilScreen/ProfilePage.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
 class ButtonCustomBar extends StatefulWidget {
@@ -26,30 +28,26 @@ class _ButtonCustomBarState extends State<ButtonCustomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // extendBody: true, //to make floating action button notch transparent
+      extendBody: true, //to make floating action button notch transparent
       bottomNavigationBar: StylishBottomBar(
-        backgroundColor: const Color.fromARGB(229, 255, 255, 255),
-        // elevation: 10,
+        backgroundColor: Color(0xffFEF7dd),
+        // backgroundColor: Colors.indigo,
+        elevation: 1,
         iconSpace: 1.2,
         option: AnimatedBarOptions(
           iconSize: 32,
           inkColor: Colors.yellow.shade50,
-          inkEffect: true,
-          barAnimation: BarAnimation.blink,
+          // inkEffect: true,
+          // barAnimation: BarAnimation.fade,
           iconStyle: IconStyle.animated,
-          opacity: 0.5,
+          // opacity: 0.5,
         ),
         items: [
           BottomBarItem(
-            icon: const FaIcon(
-              FontAwesomeIcons.house,
-              size: 25,
-              // color: Colors.grey,
-            ),
-            selectedIcon: const FaIcon(
-              FontAwesomeIcons.house,
-              size: 25,
-              color: ColorName.yellowColor,
+            icon: SvgPicture.asset(
+              'assets/icons/home.svg',
+              width: 25,
+              color: Colors.black45,
             ),
             selectedColor: ColorName.yellowColor,
             unSelectedColor: Colors.black54,
@@ -58,70 +56,61 @@ class _ButtonCustomBarState extends State<ButtonCustomBar> {
               style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
-                  color: Color.fromARGB(255, 255, 191, 0)),
+                  color: Colors.black),
             ),
           ),
           BottomBarItem(
-            icon: const FaIcon(
-              FontAwesomeIcons.squarePollVertical,
-              size: 25,
-              // color: Colors.grey,
+            icon: SvgPicture.asset(
+              'assets/icons/badge-percent.svg',
+              width: 25,
+              color: Colors.black45,
             ),
-            selectedIcon: const FaIcon(
-              FontAwesomeIcons.squarePollVertical,
-              size: 25,
-              color: ColorName.yellowColor,
-            ),
-            selectedColor: ColorName.yellowColor,
-            unSelectedColor: Colors.black54,
-            title: const Text(
-              'Activity',
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: Color.fromARGB(255, 255, 191, 0)),
-            ),
-          ),
-          BottomBarItem(
-            icon: const FaIcon(
-              FontAwesomeIcons.solidCreditCard,
-              size: 25,
-              // color: Colors.grey,
-            ),
-            selectedIcon: const FaIcon(
-              FontAwesomeIcons.solidCreditCard,
-              size: 25,
-              color: ColorName.yellowColor,
-            ),
+            // selectedIcon: Image.asset(
+            //   'assets/images/merchant.png',
+            //   color: Colors.pink,
+            // ),
             selectedColor: ColorName.yellowColor,
             unSelectedColor: Colors.black54,
             title: const Text(
               'Merchan',
               style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: Color.fromARGB(255, 255, 191, 0)),
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
             ),
           ),
           BottomBarItem(
-            icon: const FaIcon(
-              FontAwesomeIcons.solidCircleUser,
-              size: 25,
-              // color: Colors.grey,
+            icon: SvgPicture.asset(
+              'assets/icons/time-past.svg',
+              width: 25,
+              color: Colors.black45,
             ),
-            selectedIcon: const FaIcon(
-              FontAwesomeIcons.solidCircleUser,
-              size: 25,
-              color: ColorName.yellowColor,
+            unSelectedColor: Colors.black54,
+            title: const Text(
+              'History',
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
             ),
-            selectedColor: ColorName.yellowColor,
+          ),
+          BottomBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/user.svg',
+              width: 25,
+              color: Colors.black45,
+            ),
+            // selectedColor: ColorName.yellowColor,
             unSelectedColor: Colors.black54,
             title: const Text(
               'Profile',
               style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: Color.fromARGB(255, 255, 191, 0)),
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
             ),
           ),
         ],
@@ -156,8 +145,8 @@ class _ButtonCustomBarState extends State<ButtonCustomBar> {
         controller: controller,
         children: const [
           HomePage(),
-          Center(child: Text('Activity')),
-          Center(child: Text('Merchan')),
+          Merchanpage(),
+          HistoryPage(),
           ProfilePage(),
         ],
       ),
