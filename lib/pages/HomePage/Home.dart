@@ -5,17 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/gridComponents.dart';
+import 'package:oepay/common/components/rekomendasiPilihan.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/ItemLainnyaPage.dart';
 import 'package:oepay/pages/HomePage/NotoficationPage.dart';
-import 'package:oepay/pages/HomePage/TopUpScreen.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/isiUlang.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/penarikan/penarikanDetails.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/riwayat/riwayatDetail.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/topUp/metodeLainnya/metodeLainnya.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/isiUlangDetail.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/tiketDetail.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/topUp/virtualAccount/virtualAccountPages.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/transfer/transferDetails.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -63,16 +67,19 @@ class _HomePageState extends State<HomePage> {
         color: Colors.amber,
         images: 'assets/icons/lightbulb-on.svg',
         title: 'Listrik',
-        onTap: () {
-          print('Listrik tapped');
-        },
+        onTap: () {},
       ),
       CustomGridItem(
         color: Colors.teal,
         images: 'assets/icons/ticket-airline.svg',
         title: 'Tiket',
         onTap: () {
-          print('Help tapped');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FlightBookingScreen(),
+            ),
+          );
         },
       ),
       CustomGridItem(
@@ -146,43 +153,97 @@ class _HomePageState extends State<HomePage> {
                       border: Border.all(color: Colors.white),
                     ),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Column(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/icons/paper-plane.svg',
-                              width: 25,
-                            ),
-                            // Image.asset(
-                            //   'assets/icons/paper-plane.svg',
-                            //   width: 30,
-                            // ),
-                            const Text('Kirim', style: TextStyle(fontSize: 12)),
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Virtualaccountpages(),
+                              ),
+                            );
+                          },
+                          child: const Column(
+                            children: [
+                              Icon(Icons.add_circle_outline_outlined, size: 30),
+                              Text('TopUp', style: TextStyle(fontSize: 12)),
+                            ],
+                          ),
                         ),
-                        const Column(
-                          children: [
-                            Icon(Icons.add_circle_outline_outlined, size: 30),
-                            Text('Tambah', style: TextStyle(fontSize: 12)),
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TransferDetails(),
+                              ),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/expense.svg',
+                                width: 30,
+                              ),
+                              const Text('Transfer',
+                                  style: TextStyle(fontSize: 12)),
+                            ],
+                          ),
                         ),
-                        Column(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/icons/expense.svg',
-                              width: 25,
-                            ),
-                            const Text('Minta', style: TextStyle(fontSize: 12)),
-                          ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Penarikandetails(),
+                              ),
+                            );
+                          },
+                          child: const Column(
+                            children: [
+                              Icon(Icons.account_balance_wallet_outlined,
+                                  size: 30),
+                              Text('Penarikan', style: TextStyle(fontSize: 12)),
+                            ],
+                          ),
                         ),
-                        const Column(
-                          children: [
-                            Icon(Icons.account_balance_wallet_outlined,
-                                size: 30),
-                            Text('Tarik', style: TextStyle(fontSize: 12)),
-                          ],
+
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RiwayatPage(),
+                              ),
+                            );
+                          },
+                          child: Column(
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/paper-plane.svg',
+                                width: 25,
+                              ),
+                              // Image.asset(
+                              //   'assets/icons/paper-plane.svg',
+                              //   width: 30,
+                              // ),
+                              const Text('Riwayat',
+                                  style: TextStyle(fontSize: 12)),
+                            ],
+                          ),
                         ),
+
+                        // Column(
+                        //   children: [
+                        //     SvgPicture.asset(
+                        //       'assets/icons/expense.svg',
+                        //       width: 25,
+                        //     ),
+                        //     const Text('Minta', style: TextStyle(fontSize: 12)),
+                        //   ],
+                        // ),
                       ],
                     ),
                   ),
@@ -226,6 +287,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(height: 5),
                         Container(
+                          padding: EdgeInsets.only(top: 10),
                           decoration: BoxDecoration(
                             color: ColorName.light,
                             borderRadius: BorderRadius.circular(15),
@@ -274,7 +336,7 @@ class _HomePageState extends State<HomePage> {
                           }).toList(),
                         ),
                         const SizedBox(height: 15),
-                        const Text('data')
+                        RekomendasiPilihan(),
                       ],
                     ),
                   ),

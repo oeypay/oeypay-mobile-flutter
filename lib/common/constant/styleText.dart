@@ -29,9 +29,29 @@ class CustomTextStyles {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle textVirtualAccount = poppins(
+    size: 25.0,
+    color: ColorName.black,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle titleShowModal = poppins(
+    size: 18.0,
+    color: ColorName.black,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle textCard = poppins(color: Colors.black54, size: 12);
+
   static TextStyle textZone = poppins(
     size: 12.0,
     color: Colors.white,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle textNominal = poppins(
+    size: 12.0,
+    color: Colors.black,
     fontWeight: FontWeight.w500,
   );
 

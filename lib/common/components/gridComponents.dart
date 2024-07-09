@@ -39,7 +39,8 @@ class CustomGrid extends StatelessWidget {
         return GestureDetector(
           onTap: item.onTap,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SvgPicture.asset(
                 item.images,

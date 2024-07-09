@@ -3,6 +3,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/buttons.dart';
+import 'package:oepay/common/components/customTextField.dart';
+import 'package:oepay/common/components/widgetAppBar.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/porfilScreen/Bantuan.dart';
@@ -23,7 +25,7 @@ class ProfilePage extends StatelessWidget {
           children: [
             Container(
               margin: EdgeInsets.only(bottom: 40),
-              height: 340,
+              height: 320,
               padding: EdgeInsets.only(left: 20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -31,14 +33,6 @@ class ProfilePage extends StatelessWidget {
                   bottomRight: Radius.circular(200),
                 ),
                 color: Color.fromARGB(255, 252, 220, 93),
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.blueGrey,
-                //     offset: const Offset(0, 3),
-                //     blurRadius: 2,
-                //     spreadRadius: 1,
-                //   ),
-                // ],
               ),
             ),
             Padding(
@@ -363,64 +357,4 @@ class CurvedContainerClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
-
-class CustomTextFormField extends StatelessWidget {
-  final String? labelText;
-  final String? hintText;
-  final bool isPassword;
-  final TextEditingController? controller;
-  final FormFieldValidator<String>? validator;
-  final TextInputType? keyboardType;
-  final IconData? prefixIcon;
-  final IconData? suffixIcon;
-  final VoidCallback? onSuffixIconPressed;
-  final bool readOnly;
-
-  const CustomTextFormField({
-    Key? key,
-    this.labelText,
-    this.hintText,
-    this.isPassword = false,
-    this.controller,
-    this.validator,
-    this.keyboardType,
-    this.prefixIcon,
-    this.suffixIcon,
-    this.onSuffixIconPressed,
-    this.readOnly = false,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      obscureText: isPassword,
-      validator: validator,
-      keyboardType: keyboardType,
-      readOnly: readOnly,
-      decoration: InputDecoration(
-        labelText: labelText,
-        hintText: hintText,
-        prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
-        suffixIcon: suffixIcon != null
-            ? IconButton(
-                icon: Icon(suffixIcon),
-                onPressed: onSuffixIconPressed,
-              )
-            : null,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.yellow),
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-  }
 }

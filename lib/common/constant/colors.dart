@@ -13,4 +13,5 @@ class ColorName {
   static const Color deskBlueColor = Color.fromARGB(213, 0, 0, 87);
   static const Color profilIconColor = Color.fromARGB(255, 85, 68, 0);
   static const Color backgroundColors = Color.fromARGB(240, 241, 241, 241);
+  static const Color yellowSmoth = Color(0xffFEF7dd);
 }

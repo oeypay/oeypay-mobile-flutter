@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/garisPutus.dart';
+import 'package:oepay/common/components/widgetAlurTopUp.dart';
 import 'package:oepay/common/constant/colors.dart';
+import 'package:oepay/common/constant/styleText.dart';
 
 void showCustomBottomSheet({
   required BuildContext context,
@@ -162,4 +165,99 @@ void showCustomBottomSheet({
       );
     },
   );
+}
+
+class CustomShowModalBottomSheet extends StatelessWidget {
+  final String _virtualAccountTitle;
+  final String _virtualAccountNumber;
+  final String _topUpTitle;
+  final String iconik;
+  final List<String> _topUpSteps;
+
+  CustomShowModalBottomSheet({
+    required this.iconik,
+    required String virtualAccountTitle,
+    required String virtualAccountNumber,
+    required String topUpTitle,
+    required List<String> topUpSteps,
+  })  : _virtualAccountTitle = virtualAccountTitle,
+        _virtualAccountNumber = virtualAccountNumber,
+        _topUpTitle = topUpTitle,
+        _topUpSteps = topUpSteps;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+          color: ColorName.light,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          )),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SvgPicture.asset(
+                iconik,
+                width: 50,
+              ),
+              Text(
+                _virtualAccountTitle,
+                style: CustomTextStyles.titlesection,
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  Icons.close_rounded,
+                  color: Colors.red,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Center(
+            child: Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                border: Border.all(color: ColorName.yellowColor),
+                color: ColorName.yellowSmoth,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                _virtualAccountNumber,
+                style: CustomTextStyles.textVirtualAccount,
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          Center(
+            child: SizedBox(
+              height: 30,
+              width: 160,
+              child: ButtonCustom.filled(
+                  onPressed: () {},
+                  label: 'salin nomor',
+                  color: ColorName.yellowColor,
+                  textColor: Colors.black),
+            ),
+          ),
+          SizedBox(height: 20),
+          Text(
+            _topUpTitle,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10),
+          ..._topUpSteps.map(
+            (step) => CustomListTitle(title: step),
+          ),
+        ],
+      ),
+    );
+  }
 }
