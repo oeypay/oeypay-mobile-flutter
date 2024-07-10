@@ -9,7 +9,8 @@ import 'package:oepay/common/constant/styleText.dart';
 void showCustomBottomSheet({
   required BuildContext context,
   required String noHp,
-  required String pulsaData,
+  required String? titleHarga,
+  String? pulsaData,
   required String transaksi,
   required String hargaPulsa,
   required String totalPembayaran,
@@ -29,115 +30,137 @@ void showCustomBottomSheet({
           ),
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: 10),
-            const Text(
-              'Informasi',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-              ),
+            Text(
+              'Informasi Pelanggan',
+              style: CustomTextStyles.titleShowModal,
             ),
-            const SizedBox(height: 16.0),
-            DashedLineExample(),
             SizedBox(height: 20),
             Row(
               children: [
-                const Text(
-                  'No Hp:',
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                Text(
+                  'Nomor Ponsel',
+                  style: CustomTextStyles.titlesection,
                 ),
                 Spacer(),
                 Text(
                   noHp,
-                  style: TextStyle(fontSize: 15.0, color: Colors.blueGrey),
+                  style: CustomTextStyles.titlesection,
                 ),
               ],
             ),
             const SizedBox(height: 10.0),
+            if (pulsaData != null)
+              Row(
+                children: [
+                  Text(
+                    'Voucher Telkomsel',
+                    style: CustomTextStyles.titlesection,
+                  ),
+                  Spacer(),
+                  Text(
+                    pulsaData,
+                    style: CustomTextStyles.titlesection,
+                  ),
+                ],
+              )
+            else
+              Container(),
+            SizedBox(height: 20),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Telkomsel:',
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                ),
-                Spacer(),
                 Text(
-                  pulsaData,
-                  style: TextStyle(fontSize: 15.0, color: Colors.blueGrey),
+                  'Sumber Dana',
+                  style: CustomTextStyles.textCard,
+                ),
+                Text(
+                  'Saldo OeyPay',
+                  style: CustomTextStyles.textCard,
                 ),
               ],
             ),
-            SizedBox(height: 10),
-            DashedLineExample(),
-            SizedBox(height: 10),
-            const Text(
-              'Pembayaran',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SvgPicture.asset(
+                  'assets/icons/logo.svg',
+                  width: 70,
+                ),
+                Text(
+                  'Rp 2.000.000',
+                  style: CustomTextStyles.titlesection,
+                ),
+              ],
             ),
             SizedBox(height: 20),
+            Text(
+              'Detail Pembayaran',
+              style: CustomTextStyles.titleShowModal,
+            ),
+            SizedBox(height: 10),
             Row(
               children: [
-                const Text(
-                  'Transaksi:',
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                Text(
+                  titleHarga!,
+                  style: CustomTextStyles.titlesection,
                 ),
                 Spacer(),
                 Text(
                   transaksi,
-                  style: TextStyle(fontSize: 15.0, color: Colors.blueGrey),
+                  style: CustomTextStyles.titlesection,
                 ),
               ],
             ),
             const SizedBox(height: 10.0),
             Row(
               children: [
-                const Text(
-                  'Harga:',
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                Text(
+                  'Biaya Transaksi',
+                  style: CustomTextStyles.titlesection,
                 ),
                 Spacer(),
                 Text(
                   hargaPulsa,
-                  style: TextStyle(fontSize: 15.0, color: Colors.blueGrey),
+                  style: CustomTextStyles.titlesection,
                 ),
               ],
             ),
             const SizedBox(height: 16.0),
-            Row(
-              children: [
-                const Text(
-                  'Total Pembayaran:',
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                ),
-                Spacer(),
-                Text(
-                  totalPembayaran,
-                  style: TextStyle(fontSize: 15.0, color: Colors.blueGrey),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10.0),
             DashedLineExample(),
             const SizedBox(height: 30.0),
             Row(
               children: [
                 Text(
-                  'Saldo OeyPay Anda:',
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  'Total Pembayaran:',
+                  style: CustomTextStyles.titlesection,
                 ),
                 Spacer(),
                 Text(
-                  saldoOeyPay,
-                  style: TextStyle(fontSize: 15.0, color: Colors.blueGrey),
+                  totalPembayaran,
+                  style: CustomTextStyles.titlesection,
                 ),
               ],
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 26.0),
+
+            // Row(
+            //   children: [
+            //     Text(
+            //       'Saldo OeyPay Anda:',
+            //       style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+            //     ),
+            //     Spacer(),
+            //     Text(
+            //       saldoOeyPay,
+            //       style: TextStyle(fontSize: 15.0, color: Colors.blueGrey),
+            //     ),
+            //   ],
+            // ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -153,7 +176,7 @@ void showCustomBottomSheet({
                 ButtonCustom.filled(
                   height: 40,
                   onPressed: onPayPressed,
-                  label: 'Bayar',
+                  label: 'Konfirmasi',
                   color: ColorName.yellowColor,
                   textColor: Colors.black,
                 ),

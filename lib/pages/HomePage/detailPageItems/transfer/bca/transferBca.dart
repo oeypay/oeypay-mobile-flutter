@@ -41,162 +41,165 @@ class _TransferBcaState extends State<TransferBca> {
       body: Stack(
         children: [
           Widgetappbar(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomContainerCard(
-                color: Colors.blueGrey.shade200,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/Bank/bca.svg',
-                        width: 50,
-                      ),
-                      SizedBox(width: 15),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('ATM BCA'),
-                          Text(
-                            'Metode Penarikan',
-                            style: CustomTextStyles.textCard,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  'Sumber Dana',
-                  style: CustomTextStyles.titlesection,
-                ),
-              ),
-              CustomContainerCard(
-                color: Colors.transparent,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/merch.svg',
-                        width: 35,
-                        color: ColorName.yellowColor,
-                      ),
-                      SizedBox(width: 15),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SvgPicture.asset(
-                            'assets/icons/logo.svg',
-                            width: 70,
-                          ),
-                          Text(
-                            'Saldo Rp 5.000.000',
-                            style: CustomTextStyles.titlesection,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 20, right: 20, bottom: 10),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: CustomTextFormField(
-                  labelText: 'Nomor rekening tujuan',
-                  enabledBorderColor: Colors.transparent,
-                  focusedBorderColor: Colors.transparent,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10),
-                margin: EdgeInsets.only(left: 20, right: 20),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: TextFormField(
-                  controller: _nominalController,
-                  style: CustomTextStyles.textVirtualAccount,
-                  decoration: InputDecoration(
-                    label: Text(
-                      'Nominal Penarikan',
-                      style: CustomTextStyles.verifikasiDeskripsi,
-                    ),
-                    error: Text(
-                      'Min penarikan Rp. 50.000',
-                      style: GoogleFonts.poppins(
-                        color: Colors.red.shade800,
-                        fontSize: 11,
-                      ),
-                    ),
-                    enabledBorder: InputBorder.none,
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: CustomTextFormField(
-                  maxlength: 30,
-                  labelText: 'Pesan (opsional)',
-                  enabledBorderColor: Colors.transparent,
-                  focusedBorderColor: Colors.transparent,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: ButtonCustom.filled(
-                  height: 40,
-                  width: double.infinity,
-                  onPressed: () {
-                    showDialogPenarikan(
-                        context: context,
-                        title: 'Detail Transaksi',
-                        nama: 'Ah*a*',
-                        namaBank: 'BANK BCA',
-                        kodeId: '0987665669',
-                        img: 'assets/icons/Bank/bca.svg',
-                        nTransfer: 'Rp 200.000',
-                        bTransaksi: 'Rp 0',
-                        total: 'Rp 200.000',
-                        ontab: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Konfirmasipenarikanotp(
-                                onConfirmation: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => HasiltransferBca(),
-                                    ),
-                                  );
-                                },
-                              ),
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomContainerCard(
+                  color: Colors.blueGrey.shade200,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/Bank/bca.svg',
+                          width: 50,
+                        ),
+                        SizedBox(width: 15),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('ATM BCA'),
+                            Text(
+                              'Metode Penarikan',
+                              style: CustomTextStyles.textCard,
                             ),
-                          );
-                        });
-                  },
-                  label: 'Lanjutkan',
-                  color: ColorName.yellowColor,
-                  textColor: Colors.black,
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text(
+                    'Sumber Dana',
+                    style: CustomTextStyles.titlesection,
+                  ),
+                ),
+                CustomContainerCard(
+                  color: Colors.transparent,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/merch.svg',
+                          width: 35,
+                          color: ColorName.yellowColor,
+                        ),
+                        SizedBox(width: 15),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SvgPicture.asset(
+                              'assets/icons/logo.svg',
+                              width: 70,
+                            ),
+                            Text(
+                              'Saldo Rp 5.000.000',
+                              style: CustomTextStyles.titlesection,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: CustomTextFormField(
+                    labelText: 'Nomor rekening tujuan',
+                    enabledBorderColor: Colors.transparent,
+                    focusedBorderColor: Colors.transparent,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    controller: _nominalController,
+                    style: CustomTextStyles.textVirtualAccount,
+                    decoration: InputDecoration(
+                      label: Text(
+                        'Nominal Penarikan',
+                        style: CustomTextStyles.verifikasiDeskripsi,
+                      ),
+                      error: Text(
+                        'Min penarikan Rp. 50.000',
+                        style: GoogleFonts.poppins(
+                          color: Colors.red.shade800,
+                          fontSize: 11,
+                        ),
+                      ),
+                      enabledBorder: InputBorder.none,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: CustomTextFormField(
+                    maxlength: 30,
+                    labelText: 'Pesan (opsional)',
+                    enabledBorderColor: Colors.transparent,
+                    focusedBorderColor: Colors.transparent,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: ButtonCustom.filled(
+                    height: 40,
+                    width: double.infinity,
+                    onPressed: () {
+                      showDialogPenarikan(
+                          context: context,
+                          title: 'Detail Transaksi',
+                          nama: 'Ah*a*',
+                          namaBank: 'BANK BCA',
+                          kodeId: '0987665669',
+                          img: 'assets/icons/Bank/bca.svg',
+                          nTransfer: 'Rp 200.000',
+                          bTransaksi: 'Rp 0',
+                          total: 'Rp 200.000',
+                          ontab: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Konfirmasipenarikanotp(
+                                  onConfirmation: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            HasiltransferBca(),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            );
+                          });
+                    },
+                    label: 'Lanjutkan',
+                    color: ColorName.yellowColor,
+                    textColor: Colors.black,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

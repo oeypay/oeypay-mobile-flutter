@@ -5,6 +5,7 @@ import 'package:oepay/common/components/customContainerCard.dart';
 import 'package:oepay/common/components/garisPutus.dart';
 import 'package:oepay/common/components/widgetAlurTopUp.dart';
 import 'package:oepay/common/components/widgetAppBar.dart';
+import 'package:oepay/common/components/widgetListHasilTransaksi.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/transfer/transferDetails.dart';
@@ -54,6 +55,7 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
       color: Colors.blueGrey.shade200,
       child: Column(
         children: [
+          SizedBox(height: 20),
           Icon(
             Icons.check_circle,
             color: Colors.teal,
@@ -128,23 +130,23 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
                 children: [
                   CustomLis(
                     title: 'Tanggal',
-                    tanggal: widget.tanggal,
+                    deskripsi: widget.tanggal,
                   ),
                   CustomLis(
                     title: 'Waktu',
-                    tanggal: widget.waktu,
+                    deskripsi: widget.waktu,
                   ),
                   CustomLis(
                     title: 'No. Referensi',
-                    tanggal: widget.nReferensi,
+                    deskripsi: widget.nReferensi,
                   ),
                   CustomLis(
                     title: 'Nominal Transfer',
-                    tanggal: widget.nTransfer,
+                    deskripsi: widget.nTransfer,
                   ),
                   CustomLis(
                     title: 'Biaya Transaksi',
-                    tanggal: widget.bTransaksi,
+                    deskripsi: widget.bTransaksi,
                   ),
                   SizedBox(height: 7),
                   DashedLineExample(),
@@ -169,41 +171,6 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
                 ],
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomLis extends StatelessWidget {
-  final String title;
-  final String tanggal;
-
-  const CustomLis({
-    super.key,
-    required this.title,
-    required this.tanggal,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Text(
-              title,
-              style: CustomTextStyles.titlesection,
-            ),
-          ),
-          Text(
-            tanggal,
-            style: CustomTextStyles.titlesection,
           ),
         ],
       ),

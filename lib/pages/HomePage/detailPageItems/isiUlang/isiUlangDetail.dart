@@ -1,10 +1,11 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
+import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/garisPutus.dart';
-import 'package:oepay/common/components/paketData.dart';
-import 'package:oepay/common/components/paketPulsa.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/paketData.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/paketPulsa.dart';
 import 'package:oepay/common/components/showDialogPembayaran.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
@@ -18,8 +19,13 @@ class PulsaScreen extends StatefulWidget {
 }
 
 class _PulsaScreenState extends State<PulsaScreen> {
+  final FlutterContactPicker _contactPicker = new FlutterContactPicker();
+  List<Contact>? _contacts;
   bool isPaketDataSelected = false;
   int? selectedPulsaOption;
+  String kontak = '';
+  final TextEditingController _contactController =
+      TextEditingController(text: '08767786673');
 
   void toggleSelection() {
     setState(() {
@@ -88,7 +94,9 @@ class _PulsaScreenState extends State<PulsaScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: TextField(
+                      child: TextFormField(
+                        // initialValue: kontak,
+                        controller: _contactController,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(left: 30),
                           filled: true,
@@ -97,6 +105,18 @@ class _PulsaScreenState extends State<PulsaScreen> {
                             borderRadius: BorderRadius.circular(50.0),
                             borderSide: BorderSide
                                 .none, // Menghilangkan border outline default
+                          ),
+                          prefixIcon: IconButton(
+                            onPressed: () async {
+                              Contact? contact =
+                                  await _contactPicker.selectContact();
+                              setState(() {
+                                _contacts = contact == null ? null : [contact];
+                                _contactController.text =
+                                    contact!.phoneNumbers!.single;
+                              });
+                            },
+                            icon: Icon(Icons.contacts),
                           ),
                           hintText: 'Nomor Ponsel',
                           suffixIcon: IconButton(
@@ -168,56 +188,56 @@ class _PulsaScreenState extends State<PulsaScreen> {
                   spacing: 17.0,
                   runSpacing: 17.0,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(16.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Color(0xffFEF7dd),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Cashback 5% s.d. 1.500',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                          const SizedBox(height: 8.0),
-                          const Text('Berakhir dalam 3 hari'),
-                          const SizedBox(height: 8.0),
-                          const Text(
-                            'Min. penggunaan OVO Cash Rp25.000',
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              color: Colors.grey,
-                            ),
-                          ),
-                          const SizedBox(height: 8.0),
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: Container(
-                              padding: const EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50.0),
-                                color: Colors.red,
-                              ),
-                              child: const Icon(Icons.credit_card,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // Container(
+                    //   padding: const EdgeInsets.all(16.0),
+                    //   decoration: BoxDecoration(
+                    //     borderRadius: BorderRadius.circular(15),
+                    //     color: Color(0xffFEF7dd),
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.grey.withOpacity(0.2),
+                    //         spreadRadius: 2,
+                    //         blurRadius: 5,
+                    //         offset: const Offset(0, 3),
+                    //       ),
+                    //     ],
+                    //   ),
+                    //   child: Column(
+                    //     crossAxisAlignment: CrossAxisAlignment.start,
+                    //     children: [
+                    //       const Text(
+                    //         'Cashback 5% s.d. 1.500',
+                    //         style: TextStyle(
+                    //           fontWeight: FontWeight.bold,
+                    //           fontSize: 18.0,
+                    //         ),
+                    //       ),
+                    //       const SizedBox(height: 8.0),
+                    //       const Text('Berakhir dalam 3 hari'),
+                    //       const SizedBox(height: 8.0),
+                    //       const Text(
+                    //         'Min. penggunaan OVO Cash Rp25.000',
+                    //         style: TextStyle(
+                    //           fontSize: 14.0,
+                    //           color: Colors.grey,
+                    //         ),
+                    //       ),
+                    //       const SizedBox(height: 8.0),
+                    //       Align(
+                    //         alignment: Alignment.bottomRight,
+                    //         child: Container(
+                    //           padding: const EdgeInsets.all(15),
+                    //           decoration: BoxDecoration(
+                    //             borderRadius: BorderRadius.circular(50.0),
+                    //             color: Colors.red,
+                    //           ),
+                    //           child: const Icon(Icons.credit_card,
+                    //               color: Colors.white),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     Paketpulsa(),
                     Paketpulsa(),
                   ],
@@ -230,10 +250,6 @@ class _PulsaScreenState extends State<PulsaScreen> {
                   children: [
                     PaketData(),
                     PaketData(),
-                    // _buildPulsaOption('1 GB', 'Rp. 20.000'),
-                    // _buildPulsaOption('2 GB', 'Rp. 20.000'),
-                    // _buildPulsaOption('3 GB', 'Rp. 20.000'),
-                    // _buildPulsaOption('4 GB', 'Rp. 20.000'),
                   ],
                 ),
             ],
