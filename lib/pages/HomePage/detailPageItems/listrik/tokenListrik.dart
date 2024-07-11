@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/containerListHarga.dart';
 import 'package:oepay/common/components/showDialogPembayaran.dart';
-import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/hasilTransaksiPulsa.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/listrik/hasilTransaksiListrik.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/penarikan/bca/konfirmasiPenarikanOtp.dart';
 
-class Paketpulsa extends StatelessWidget {
-  const Paketpulsa({super.key});
+class TokenListrik extends StatelessWidget {
+  const TokenListrik({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => showCustomBottomSheet(
           context: context,
-          titleHarga: 'Harga',
-          noHp: '085676445776',
-          pulsaData: '10.000',
+          nomorMeter: 091391290198919012,
+          iDPelanggan: 334124231,
+          namaPelanggan: 'Ahmad',
+          titleHarga: 'Token Listrik',
+          tarifDaya: 'R1M/900VA',
+          hargaPrice: 'Rp 20.000',
           transaksi: 'Rp.0',
-          hargaPrice: 'Rp.15.000',
           totalPembayaran: 'Rp.15.000',
           saldoOeyPay: 'Rp.20.000',
           onPayPressed: () {
@@ -31,7 +32,7 @@ class Paketpulsa extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Hasiltransaksipulsa(),
+                        builder: (context) => HasilTransaksiListrik(),
                       ),
                     );
                   },
@@ -40,11 +41,9 @@ class Paketpulsa extends StatelessWidget {
             );
           }),
       child: Containerlistharga(
-        price: '10.000',
-        harga: 'Harga',
-        totalHarga: 'Rp 12.000',
-        discount: '10%',
-        discountedPrice: 'Rp 7.000',
+        namaPln: 'PLN Prepaid',
+        hargaVoucher: 'Rp 20.000',
+        totalhargaVoucher: 'Rp 22.000',
       ),
     );
   }

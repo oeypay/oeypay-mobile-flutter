@@ -188,47 +188,52 @@ class HasiltransferBca extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Icon(Icons.close_rounded),
         ),
       ),
       body: Stack(
         children: [
           Widgetappbar(),
-          Column(
-            children: [
-              CustomHasilTransferBca(
-                image: 'assets/icons/Group 16.png',
-                nama: 'Ahmad Kardawi',
-                namaBank: 'BANK BCA',
-                kodeID: '098098987',
-                nTransfer: 'Rp 200.000',
-                bTransaksi: 'Rp 2.000',
-                total: 'Rp 202.000',
-                tanggal: '01 November 2025',
-                waktu: '12:00',
-                nReferensi: 'tR9889sss',
-              ),
-              HelpSection(),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: ButtonCustom.filled(
-                  height: 40,
-                  width: double.infinity,
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => TransferDetails(),
-                      ),
-                    );
-                  },
-                  label: 'Tutup',
-                  color: ColorName.yellowColor,
-                  textColor: Colors.black,
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                CustomHasilTransferBca(
+                  image: 'assets/icons/Group 16.png',
+                  nama: 'Ahmad Kardawi',
+                  namaBank: 'BANK BCA',
+                  kodeID: '098098987',
+                  nTransfer: 'Rp 200.000',
+                  bTransaksi: 'Rp 2.000',
+                  total: 'Rp 202.000',
+                  tanggal: '01 November 2025',
+                  waktu: '12:00',
+                  nReferensi: 'tR9889sss',
                 ),
-              ),
-            ],
+                HelpSection(),
+                SizedBox(height: 20),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  child: ButtonCustom.filled(
+                    height: 40,
+                    width: double.infinity,
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => TransferDetails(),
+                        ),
+                      );
+                    },
+                    label: 'Tutup',
+                    color: ColorName.yellowColor,
+                    textColor: Colors.black,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

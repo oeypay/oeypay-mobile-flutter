@@ -13,9 +13,9 @@ import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/ItemLainnyaPage.dart';
 import 'package:oepay/pages/HomePage/NotoficationPage.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/listrik/listrikDetails.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/penarikan/penarikanDetails.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/riwayat/riwayatDetail.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/topUp/metodeLainnya/metodeLainnya.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/isiUlangDetail.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/tiket/tiketDetail.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/topUp/virtualAccount/virtualAccountPages.dart';
@@ -67,7 +67,14 @@ class _HomePageState extends State<HomePage> {
         color: Colors.amber,
         images: 'assets/icons/lightbulb-on.svg',
         title: 'Listrik',
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ListrikDetails(),
+            ),
+          );
+        },
       ),
       CustomGridItem(
         color: Colors.teal,

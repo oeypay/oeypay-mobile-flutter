@@ -191,99 +191,101 @@ class _TransferDetailsState extends State<TransferDetails> {
       body: Stack(
         children: [
           Widgetappbar(),
-          Column(
-            children: [
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 170,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (isVirtualAccount) toggleSelection();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: !isVirtualAccount
-                            ? ColorName.yellowColor
-                            : Colors.white,
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: !isVirtualAccount
-                                ? Colors.white
-                                : ColorName.light,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      child: Text(
-                        'Rekening Bank',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 16.0),
-                  SizedBox(
-                    width: 170,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (!isVirtualAccount) toggleSelection();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: isVirtualAccount
-                            ? ColorName.yellowColor
-                            : Colors.white,
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: isVirtualAccount
-                                ? Colors.white
-                                : ColorName.yellowSmoth,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      child: Text(
-                        'Sesama OeyPay',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 16),
-              if (!isVirtualAccount)
-                Wrap(
-                  // spacing: 10.0,
-                  // runSpacing: 10.0,
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // ListView.builder(
-                    //   shrinkWrap: true,
-                    //   physics: NeverScrollableScrollPhysics(),
-                    //   itemCount: items.length,
-                    //   itemBuilder: (context, index) {
-                    //     return Widgetitemtopup(item: items[index]);
-                    //   },
-                    // ),
-                    Column(
-                      children: items
-                          .map((item) => Widgetitemtopup(item: item))
-                          .toList(),
+                    SizedBox(
+                      width: 170,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (isVirtualAccount) toggleSelection();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: !isVirtualAccount
+                              ? ColorName.yellowColor
+                              : Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: !isVirtualAccount
+                                  ? Colors.white
+                                  : ColorName.light,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        child: Text(
+                          'Rekening Bank',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16.0),
+                    SizedBox(
+                      width: 170,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (!isVirtualAccount) toggleSelection();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: isVirtualAccount
+                              ? ColorName.yellowColor
+                              : Colors.white,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: isVirtualAccount
+                                  ? Colors.white
+                                  : ColorName.yellowSmoth,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        child: Text(
+                          'Sesama OeyPay',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
-                )
-              else
-                Wrap(
-                  children: [
-                    Sesamaoeypay(),
-                  ],
-                )
-            ],
+                ),
+                SizedBox(height: 16),
+                if (!isVirtualAccount)
+                  Wrap(
+                    // spacing: 10.0,
+                    // runSpacing: 10.0,
+                    children: [
+                      // ListView.builder(
+                      //   shrinkWrap: true,
+                      //   physics: NeverScrollableScrollPhysics(),
+                      //   itemCount: items.length,
+                      //   itemBuilder: (context, index) {
+                      //     return Widgetitemtopup(item: items[index]);
+                      //   },
+                      // ),
+                      Column(
+                        children: items
+                            .map((item) => Widgetitemtopup(item: item))
+                            .toList(),
+                      ),
+                    ],
+                  )
+                else
+                  Wrap(
+                    children: [
+                      Sesamaoeypay(),
+                    ],
+                  )
+              ],
+            ),
           ),
         ],
       ),

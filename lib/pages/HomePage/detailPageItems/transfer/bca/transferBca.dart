@@ -222,134 +222,136 @@ void showDialogPenarikan({
   showModalBottomSheet(
     context: context,
     builder: (BuildContext context) {
-      return Container(
-        height: 460,
-        padding: const EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
-          color: ColorName.light,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15.0),
-            topRight: Radius.circular(15.0),
+      return SingleChildScrollView(
+        child: Container(
+          height: 460,
+          padding: const EdgeInsets.all(20.0),
+          decoration: BoxDecoration(
+            color: ColorName.light,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15.0),
+              topRight: Radius.circular(15.0),
+            ),
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: CustomTextStyles.titleShowModal,
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Penerima',
-              style: CustomTextStyles.textCard,
-            ),
-            Text(
-              nama,
-              style: CustomTextStyles.titlesection,
-            ),
-            Row(
-              children: [
-                if (img != null)
-                  Padding(
-                    padding: EdgeInsets.only(right: 5),
-                    child: SvgPicture.asset(
-                      img,
-                      width: 50,
-                    ),
-                  )
-                else
-                  Container(),
-                Text(
-                  '${namaBank} - ',
-                  style: CustomTextStyles.titleItem,
-                ),
-                Text(
-                  kodeId,
-                  style: CustomTextStyles.titleItem,
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Sumber Dana',
-              style: CustomTextStyles.textCard,
-            ),
-            SvgPicture.asset(
-              'assets/icons/logo.svg',
-              width: 70,
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Detail',
-              style: CustomTextStyles.titleShowModal,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Nominal Transfer',
-                  style: CustomTextStyles.titlesection,
-                ),
-                Text(
-                  nTransfer,
-                  style: CustomTextStyles.titlesection,
-                ),
-              ],
-            ),
-            SizedBox(height: 7),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Biaya Transaksi',
-                  style: CustomTextStyles.titlesection,
-                ),
-                Text(
-                  bTransaksi,
-                  style: CustomTextStyles.titlesection,
-                ),
-              ],
-            ),
-            SizedBox(height: 30),
-            DashedLineExample(),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Total',
-                  style: CustomTextStyles.titlesection,
-                ),
-                Text(
-                  total,
-                  style: CustomTextStyles.titlesection,
-                ),
-              ],
-            ),
-            SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ButtonCustom.filled(
-                  height: 40,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  label: 'Batalkan',
-                  color: Colors.white,
-                  textColor: Colors.black,
-                ),
-                ButtonCustom.filled(
-                  height: 40,
-                  onPressed: ontab,
-                  label: 'Konfirmasi',
-                  color: ColorName.yellowColor,
-                  textColor: Colors.black,
-                ),
-              ],
-            ),
-          ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: CustomTextStyles.titleShowModal,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Penerima',
+                style: CustomTextStyles.textCard,
+              ),
+              Text(
+                nama,
+                style: CustomTextStyles.titlesection,
+              ),
+              Row(
+                children: [
+                  if (img != null)
+                    Padding(
+                      padding: EdgeInsets.only(right: 5),
+                      child: SvgPicture.asset(
+                        img,
+                        width: 50,
+                      ),
+                    )
+                  else
+                    Container(),
+                  Text(
+                    '${namaBank} - ',
+                    style: CustomTextStyles.titleItem,
+                  ),
+                  Text(
+                    kodeId,
+                    style: CustomTextStyles.titleItem,
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Sumber Dana',
+                style: CustomTextStyles.textCard,
+              ),
+              SvgPicture.asset(
+                'assets/icons/logo.svg',
+                width: 70,
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Detail',
+                style: CustomTextStyles.titleShowModal,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Nominal Transfer',
+                    style: CustomTextStyles.titlesection,
+                  ),
+                  Text(
+                    nTransfer,
+                    style: CustomTextStyles.titlesection,
+                  ),
+                ],
+              ),
+              SizedBox(height: 7),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Biaya Transaksi',
+                    style: CustomTextStyles.titlesection,
+                  ),
+                  Text(
+                    bTransaksi,
+                    style: CustomTextStyles.titlesection,
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+              DashedLineExample(),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total',
+                    style: CustomTextStyles.titlesection,
+                  ),
+                  Text(
+                    total,
+                    style: CustomTextStyles.titlesection,
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ButtonCustom.filled(
+                    height: 40,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    label: 'Batalkan',
+                    color: Colors.white,
+                    textColor: Colors.black,
+                  ),
+                  ButtonCustom.filled(
+                    height: 40,
+                    onPressed: ontab,
+                    label: 'Konfirmasi',
+                    color: ColorName.yellowColor,
+                    textColor: Colors.black,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       );
     },

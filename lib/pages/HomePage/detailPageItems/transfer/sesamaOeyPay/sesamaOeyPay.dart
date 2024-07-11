@@ -296,13 +296,14 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          child: Container(
-            // color: Colors.white,
-            height: 500,
+          insetPadding: EdgeInsets.only(left: 15, right: 15),
+          child: SingleChildScrollView(
             child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 25, top: 25, right: 25),
+                  padding: const EdgeInsets.only(left: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -319,12 +320,14 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                     ],
                   ),
                 ),
-                Icon(
-                  Icons.qr_code_2_sharp,
-                  size: 350,
+                Center(
+                  child: Icon(
+                    Icons.qr_code_2_sharp,
+                    size: 350,
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 20, bottom: 10),
                   child: Row(
                     children: [
                       Text(

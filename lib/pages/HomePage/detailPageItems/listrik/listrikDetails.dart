@@ -3,26 +3,24 @@ import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/paketData.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/paketPulsa.dart';
 import 'package:oepay/common/constant/colors.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/listrik/tagihanListrik.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/listrik/tokenListrik.dart';
 
-class PulsaScreen extends StatefulWidget {
-  const PulsaScreen({Key? key}) : super(key: key);
+class ListrikDetails extends StatefulWidget {
+  const ListrikDetails({Key? key}) : super(key: key);
 
   @override
-  State<PulsaScreen> createState() => _PulsaScreenState();
+  State<ListrikDetails> createState() => _ListrikDetailsState();
 }
 
-class _PulsaScreenState extends State<PulsaScreen> {
-  final FlutterContactPicker _contactPicker = new FlutterContactPicker();
-  List<Contact>? _contacts;
-  bool isPaketDataSelected = false;
+class _ListrikDetailsState extends State<ListrikDetails> {
+  bool isTokenListrik = false;
   int? selectedPulsaOption;
-  String kontak = '';
-  final TextEditingController _contactController =
-      TextEditingController(text: '08767786673');
+  final TextEditingController _controller = TextEditingController();
 
   void toggleSelection() {
     setState(() {
-      isPaketDataSelected = !isPaketDataSelected;
+      isTokenListrik = !isTokenListrik;
       selectedPulsaOption = null; // Reset selection when switching tabs
     });
   }
@@ -44,7 +42,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
             Navigator.pop(context);
           },
         ),
-        title: const Text('Pulsa & Paket Data'),
+        title: const Text('Listrik'),
         centerTitle: true,
         backgroundColor: ColorName.yellowColor,
         elevation: 0,
@@ -72,24 +70,11 @@ class _PulsaScreenState extends State<PulsaScreen> {
                 ),
                 child: Column(
                   children: [
-                    const Row(
-                      children: [
-                        Icon(Icons.phone_android, color: Colors.red),
-                        SizedBox(width: 16.0),
-                        Text(
-                          'Telkomsel',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                          ),
-                        ),
-                      ],
-                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         // initialValue: kontak,
-                        controller: _contactController,
+                        controller: _controller,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(left: 30),
                           filled: true,
@@ -99,19 +84,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                             borderSide: BorderSide
                                 .none, // Menghilangkan border outline default
                           ),
-                          prefixIcon: IconButton(
-                            onPressed: () async {
-                              Contact? contact =
-                                  await _contactPicker.selectContact();
-                              setState(() {
-                                _contacts = contact == null ? null : [contact];
-                                _contactController.text =
-                                    contact!.phoneNumbers!.single;
-                              });
-                            },
-                            icon: Icon(Icons.contacts),
-                          ),
-                          hintText: 'Nomor Ponsel',
+                          hintText: 'Nomor Meter',
                           suffixIcon: IconButton(
                             onPressed: () {},
                             icon: const Icon(Icons.close),
@@ -129,10 +102,10 @@ class _PulsaScreenState extends State<PulsaScreen> {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        if (isPaketDataSelected) toggleSelection();
+                        if (isTokenListrik) toggleSelection();
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: !isPaketDataSelected
+                        backgroundColor: !isTokenListrik
                             ? ColorName.yellowColor
                             : Colors.white,
                         shape: RoundedRectangleBorder(
@@ -140,7 +113,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                         ),
                       ),
                       child: Text(
-                        'Isi Pulsa',
+                        'Token Listrik',
                         style: TextStyle(
                           color: Colors.black,
                         ),
@@ -151,10 +124,10 @@ class _PulsaScreenState extends State<PulsaScreen> {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        if (!isPaketDataSelected) toggleSelection();
+                        if (!isTokenListrik) toggleSelection();
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: isPaketDataSelected
+                        backgroundColor: isTokenListrik
                             ? ColorName.yellowColor
                             : Colors.white,
                         shape: RoundedRectangleBorder(
@@ -162,7 +135,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                         ),
                       ),
                       child: Text(
-                        'Paket Data',
+                        'Tagihan Listrik',
                         style: TextStyle(
                           color: Colors.black,
                         ),
@@ -171,15 +144,18 @@ class _PulsaScreenState extends State<PulsaScreen> {
                   ),
                 ],
               ),
+
+              // Cashback banner
+
               const SizedBox(height: 16.0),
               // Pulsa options
-              if (!isPaketDataSelected)
+              if (!isTokenListrik)
                 Wrap(
                   spacing: 17.0,
                   runSpacing: 17.0,
                   children: [
-                    Paketpulsa(),
-                    Paketpulsa(),
+                    TokenListrik(),
+                    TokenListrik(),
                   ],
                 )
               else
@@ -188,8 +164,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                   spacing: 16.0,
                   runSpacing: 16.0,
                   children: [
-                    PaketData(),
-                    PaketData(),
+                    TagihanListrik(),
                   ],
                 ),
             ],

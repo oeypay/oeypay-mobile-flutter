@@ -43,7 +43,7 @@ class _PaketDataState extends State<PaketData> {
           noHp: '085676445776',
           // pulsaData: '10GB + 20GB',
           transaksi: 'Rp.0',
-          hargaPulsa: 'Rp.15.000',
+          hargaPrice: 'Rp.15.000',
           totalPembayaran: 'Rp.15.000',
           saldoOeyPay: 'Rp.20.000',
           onPayPressed: () {
