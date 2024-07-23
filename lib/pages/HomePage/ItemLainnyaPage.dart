@@ -8,40 +8,40 @@ class Itemlainnyapage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<CustomGridItemPage> gridItems = [
-      CustomGridItemPage(
-        images: 'assets/icons/send-money.svg',
-        title: 'Berbagi',
-        color: Colors.red,
-        onTap: () {
-          print('Item 1 tapped');
-        },
-      ),
-      CustomGridItemPage(
-        images: 'assets/icons/bank.svg',
-        title: 'Kirim ke Bank',
-        color: Colors.green,
-        onTap: () {
-          print('Item 2 tapped');
-        },
-      ),
-      CustomGridItemPage(
-        images: 'assets/icons/deposit.svg',
-        title: 'Tarik Tunai',
-        color: Colors.blue,
-        onTap: () {
-          print('Item 3 tapped');
-        },
-      ),
-      CustomGridItemPage(
-        images: 'assets/icons/send-money-smartphone.svg',
-        title: 'Tarik Saldo',
-        color: Colors.orange,
-        onTap: () {
-          print('Item 4 tapped');
-        },
-      ),
-    ];
+    // final List<CustomGridItemPage> gridItems = [
+    //   CustomGridItemPage(
+    //     images: 'assets/icons/expense.svg',
+    //     title: 'Transfer',
+    //     color: Colors.red,
+    //     onTap: () {
+    //       print('Item 1 tapped');
+    //     },
+    //   ),
+    //   CustomGridItemPage(
+    //     images: 'assets/icons/bank.svg',
+    //     title: 'Kirim ke Bank',
+    //     color: Colors.green,
+    //     onTap: () {
+    //       print('Item 2 tapped');
+    //     },
+    //   ),
+    //   CustomGridItemPage(
+    //     images: 'assets/icons/deposit.svg',
+    //     title: 'Penarikan',
+    //     color: Colors.blue,
+    //     onTap: () {
+    //       print('Item 3 tapped');
+    //     },
+    //   ),
+    //   // CustomGridItemPage(
+    //   //   images: 'assets/icons/send-money-smartphone.svg',
+    //   //   title: 'Tarik Saldo',
+    //   //   color: Colors.orange,
+    //   //   onTap: () {
+    //   //     print('Item 4 tapped');
+    //   //   },
+    //   // ),
+    // ];
 
     final List<CustomGridItemPage> layananDigital = [
       CustomGridItemPage(
@@ -213,26 +213,26 @@ class Itemlainnyapage extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 10),
-              CustomGridPage(
-                sectionTitle: 'Transfer',
-                items: gridItems
-                    .map((item) => CustomGridItemPage(
-                          color: ColorName.green,
-                          images: item.images,
-                          title: item.title,
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    ItemDetailPage(item: item),
-                              ),
-                            );
-                          },
-                        ))
-                    .toList(),
-              ),
-              Divider(),
+              // CustomGridPage(
+              //   sectionTitle: 'Transfer',
+              //   items: gridItems
+              //       .map((item) => CustomGridItemPage(
+              //             color: ColorName.green,
+              //             images: item.images,
+              //             title: item.title,
+              //             onTap: () {
+              //               Navigator.push(
+              //                 context,
+              //                 MaterialPageRoute(
+              //                   builder: (context) =>
+              //                       ItemDetailPage(item: item),
+              //                 ),
+              //               );
+              //             },
+              //           ))
+              //       .toList(),
+              // ),
+              // Divider(),
               CustomGridPage(
                 sectionTitle: 'Layanan Digital',
                 items: layananDigital

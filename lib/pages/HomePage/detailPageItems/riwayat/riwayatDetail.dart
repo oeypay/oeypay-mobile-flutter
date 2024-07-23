@@ -17,7 +17,10 @@ class _RiwayatPageState extends State<RiwayatPage> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Riwayat'),
+        title: Text(
+          'Riwayat',
+          style: CustomTextStyles.titleProfilApp,
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.filter_list),
@@ -253,7 +256,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       ),
                       child: Text(
                         _selectedReturnDate != null
-                            ? '${DateFormat('dd/MM/yyyy').format(_selectedDate!)}'
+                            ? '${DateFormat('dd/MM/yyyy').format(_selectedReturnDate!)}'
                             : '${formattedDate}',
                         style: const TextStyle(
                           color: Colors.black,

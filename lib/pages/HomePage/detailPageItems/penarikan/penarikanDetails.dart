@@ -139,7 +139,10 @@ class _PenarikandetailsState extends State<Penarikandetails> {
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: ColorName.yellowColor,
-        title: Text('Penarikan'),
+        title: Text(
+          'Penarikan',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [

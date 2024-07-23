@@ -15,7 +15,10 @@ class Indomartdetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Top Up Indomaret'),
+        title: Text(
+          'Top Up Indomaret',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
 
 class Widgetappbar extends StatelessWidget {
-  const Widgetappbar({super.key});
+  String? image;
+
+  Widgetappbar({super.key, this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +13,8 @@ class Widgetappbar extends StatelessWidget {
       height: 180,
       padding: EdgeInsets.only(left: 20),
       decoration: BoxDecoration(
+        image:
+            image != null ? DecorationImage(image: AssetImage(image!)) : null,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(200),
           bottomRight: Radius.circular(200),

@@ -75,7 +75,10 @@ class _VisamasterState extends State<Visamaster> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Top Up Debit Visa'),
+        title: Text(
+          'Top Up Debit Visa',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [

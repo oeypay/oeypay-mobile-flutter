@@ -36,7 +36,10 @@ class _TransferBcaState extends State<TransferBca> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Transfer Ke Rekening Bank'),
+        title: Text(
+          'Transfer Ke Rekening Bank',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [

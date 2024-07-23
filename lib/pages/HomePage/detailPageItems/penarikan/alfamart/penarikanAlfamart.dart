@@ -19,7 +19,10 @@ class PenarikanalFamart extends StatelessWidget {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Penarikan Tunai Alfamart, Alfamidi, Lawson'),
+        title: Text(
+          'Penarikan Tunai Alfamart, Alfamidi, Lawson',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: CustomTopUpCard(),
     );

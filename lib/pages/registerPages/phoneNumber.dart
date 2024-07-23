@@ -15,6 +15,13 @@ class PhoneNumberForm extends StatefulWidget {
 class _PhoneNumberFormState extends State<PhoneNumberForm> {
   final _formKey = GlobalKey<FormState>();
   final _phoneController = TextEditingController(text: '+62');
+
+  @override
+  void dispose() {
+    _phoneController.dispose();
+    super.dispose();
+  }
+
   bool _agreeToTerms = false;
   @override
   Widget build(BuildContext context) {
@@ -226,11 +233,5 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _phoneController.dispose();
-    super.dispose();
   }
 }

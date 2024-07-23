@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
+import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/paketData.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/paketPulsa.dart';
 import 'package:oepay/common/constant/colors.dart';
@@ -42,7 +43,10 @@ class _ListrikDetailsState extends State<ListrikDetails> {
             Navigator.pop(context);
           },
         ),
-        title: const Text('Listrik'),
+        title: Text(
+          'Listrik',
+          style: CustomTextStyles.titleProfilApp,
+        ),
         centerTitle: true,
         backgroundColor: ColorName.yellowColor,
         elevation: 0,

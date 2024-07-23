@@ -31,7 +31,10 @@ class _AtmPageState extends State<AtmPage> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Top Up ATM'),
+        title: Text(
+          'Top Up ATM',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [

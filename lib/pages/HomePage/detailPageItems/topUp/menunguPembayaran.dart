@@ -1,4 +1,3 @@
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expanded_tile/flutter_expanded_tile.dart';
 import 'package:flutter_svg/svg.dart';
@@ -179,42 +178,6 @@ class _TopUpCardState extends State<TopUpCard> {
   }
 }
 
-class CustomListTile extends StatelessWidget {
-  final String title;
-
-  const CustomListTile({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10),
-      child: Row(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(3.0),
-            child: Icon(
-              Icons.check_circle,
-              color: Color(0xff039E8F),
-              size: 20,
-            ),
-          ),
-          Expanded(
-            child: Text(
-              title,
-              style: TextStyle(fontSize: 14),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class Menungupembayaran extends StatelessWidget {
   // late TopUpModel topUpModel;
   @override
@@ -223,7 +186,10 @@ class Menungupembayaran extends StatelessWidget {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Top Up'),
+        title: Text(
+          'Top Up',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: SingleChildScrollView(
         child: Stack(

@@ -33,7 +33,10 @@ class _BankbcadetailsState extends State<Bankbcadetails> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Penarikan Dari ATM Bank'),
+        title: Text(
+          'Penarikan Dari ATM Bank',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [

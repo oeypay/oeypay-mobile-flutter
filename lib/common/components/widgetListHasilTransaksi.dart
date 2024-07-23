@@ -23,7 +23,7 @@ class CustomLis extends StatelessWidget {
             padding: const EdgeInsets.only(right: 8),
             child: Text(
               title,
-              style: CustomTextStyles.titlesection,
+              style: CustomTextStyles.titleProfil,
             ),
           ),
           Text(

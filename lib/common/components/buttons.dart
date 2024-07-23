@@ -122,7 +122,7 @@ class ButtonCustom extends StatelessWidget {
                   if (icon != null) const SizedBox(width: 10.0),
                   Text(
                     label,
-                    style: CustomTextStyles.textButton,
+                    style: CustomTextStyles.titlesection,
                   ),
                 ],
               ),
@@ -143,7 +143,7 @@ class ButtonCustom extends StatelessWidget {
                   // if (icon != null) const SizedBox(width: 10.0),
                   Text(
                     label,
-                    style: CustomTextStyles.textButton,
+                    style: CustomTextStyles.titlesection,
                   ),
                 ],
               ),

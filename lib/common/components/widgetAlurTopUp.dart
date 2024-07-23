@@ -54,9 +54,12 @@ class CustomExpandedTile extends StatelessWidget {
       title: Row(
         children: [
           if (imag != null) // Check if imag is not null
-            SvgPicture.asset(
-              imag!,
-              width: 50,
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: SvgPicture.asset(
+                imag!,
+                width: 50,
+              ),
             )
           else
             Container(),

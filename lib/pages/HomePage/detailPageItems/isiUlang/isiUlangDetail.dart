@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
+import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/paketData.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/paketPulsa.dart';
 import 'package:oepay/common/constant/colors.dart';
@@ -44,7 +45,10 @@ class _PulsaScreenState extends State<PulsaScreen> {
             Navigator.pop(context);
           },
         ),
-        title: const Text('Pulsa & Paket Data'),
+        title: Text(
+          'Pulsa & Paket Data',
+          style: CustomTextStyles.titleProfilApp,
+        ),
         centerTitle: true,
         backgroundColor: ColorName.yellowColor,
         elevation: 0,
@@ -113,7 +117,9 @@ class _PulsaScreenState extends State<PulsaScreen> {
                           ),
                           hintText: 'Nomor Ponsel',
                           suffixIcon: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              _contactController.clear();
+                            },
                             icon: const Icon(Icons.close),
                           ),
                         ),

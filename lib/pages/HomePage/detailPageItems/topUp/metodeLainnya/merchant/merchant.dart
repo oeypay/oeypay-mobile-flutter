@@ -31,7 +31,10 @@ class _MerchantPageState extends State<MerchantPage> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Top Up Merchant'),
+        title: Text(
+          'Top Up Merchant',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [

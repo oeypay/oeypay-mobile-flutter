@@ -186,7 +186,10 @@ class _TransferDetailsState extends State<TransferDetails> {
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: ColorName.yellowColor,
-        title: Text('Transfer'),
+        title: Text(
+          'Transfer',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [

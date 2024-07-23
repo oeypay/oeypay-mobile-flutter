@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/buttons.dart';
@@ -320,15 +319,7 @@ class ProfilePage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ButtonCustom.filled(
-                onPressed: () => AwesomeDialog(
-                  context: context,
-                  dialogType: DialogType.success,
-                  animType: AnimType.rightSlide,
-                  title: 'Berhasil',
-                  desc: 'Profil anda berhasil di ubah',
-                  // btnCancelOnPress: () {},
-                  btnOkOnPress: () {},
-                )..show(),
+                onPressed: () {},
                 borderRadius: 50,
                 label: 'Simpan',
                 color: ColorName.yellowColor,

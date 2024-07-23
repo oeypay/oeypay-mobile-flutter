@@ -17,7 +17,10 @@ class Alfamartdetail extends StatelessWidget {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Top Up'),
+        title: Text(
+          'Top Up',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: CustomTopUpCard(),
     );

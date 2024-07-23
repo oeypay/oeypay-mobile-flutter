@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
+import 'package:oepay/common/constant/styleText.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class ScanIdOeypay extends StatefulWidget {
@@ -19,7 +20,10 @@ class _ScanIdOeypayState extends State<ScanIdOeypay> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Scan Id OeyPay'),
+        title: Text(
+          'Scan Id OeyPay',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Column(
         children: [

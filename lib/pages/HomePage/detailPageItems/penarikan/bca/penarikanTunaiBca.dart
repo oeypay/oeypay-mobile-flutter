@@ -31,7 +31,10 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Penarikan Tunai BCA'),
+        title: Text(
+          'Penarikan Tunai BCA',
+          style: CustomTextStyles.titleProfilApp,
+        ),
       ),
       body: Stack(
         children: [
