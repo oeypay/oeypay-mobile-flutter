@@ -16,6 +16,9 @@ class CustomTextFormField extends StatelessWidget {
   final bool readOnly;
   final Color? enabledBorderColor;
   final Color? focusedBorderColor;
+  final Color? focusedErrorBorderColor;
+  final Color? errorBorderColor;
+  final ValueChanged<String>? onChange;
 
   const CustomTextFormField({
     Key? key,
@@ -33,6 +36,9 @@ class CustomTextFormField extends StatelessWidget {
     this.readOnly = false,
     this.enabledBorderColor,
     this.focusedBorderColor,
+    this.errorBorderColor,
+    this.focusedErrorBorderColor,
+    this.onChange,
   }) : super(key: key);
 
   @override
@@ -44,33 +50,43 @@ class CustomTextFormField extends StatelessWidget {
       validator: validator,
       keyboardType: keyboardType,
       readOnly: readOnly,
+      onChanged: onChange,
       initialValue: initialValue,
       decoration: InputDecoration(
-        labelText: labelText,
-        hintText: hintText,
-        prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
-        suffixIcon: suffixIcon != null
-            ? IconButton(
-                icon: Icon(
-                  suffixIcon,
-                  color: Colors.black,
-                ),
-                onPressed: onSuffixIconPressed,
-              )
-            : null,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: enabledBorderColor ?? Colors.grey),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: focusedBorderColor ?? ColorName.yellowColor),
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
+          labelText: labelText,
+          hintText: hintText,
+          prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
+          suffixIcon: suffixIcon != null
+              ? IconButton(
+                  icon: Icon(
+                    suffixIcon,
+                    color: Colors.black,
+                  ),
+                  onPressed: onSuffixIconPressed,
+                )
+              : null,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+                color: focusedErrorBorderColor ?? ColorName.yellowColor),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: enabledBorderColor ?? Colors.grey),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: focusedBorderColor ?? ColorName.yellowColor),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: errorBorderColor ?? ColorName.yellowColor),
+            borderRadius: BorderRadius.circular(10),
+          )),
     );
   }
 }

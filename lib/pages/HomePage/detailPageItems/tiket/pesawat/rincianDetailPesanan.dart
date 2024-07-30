@@ -6,7 +6,7 @@ import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/listrik/hasilTransaksiListrik.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/penarikan/bca/konfirmasiPenarikanOtp.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/tiket/hasilTransaksiTiket.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/pesawat/hasilTransaksiTiketPesawat.dart';
 
 class RincianDetailPesananPage extends StatelessWidget {
   @override
@@ -79,13 +79,10 @@ class RincianDetailPesananPage extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 16, left: 20),
                     child: Row(
                       children: [
-                        Transform.rotate(
-                          angle: 1.57,
-                          child: SvgPicture.asset(
-                            'assets/icons/ticket (1).svg',
-                            width: 20,
-                            color: Colors.red.shade600,
-                          ),
+                        SvgPicture.asset(
+                          'assets/icons/kupon.svg',
+                          width: 20,
+                          color: Colors.red.shade600,
                         ),
                         SizedBox(width: 15),
                         Text(
@@ -121,7 +118,10 @@ class RincianDetailPesananPage extends StatelessWidget {
                     color: Colors.grey.shade200,
                   ),
                   ListTile(
-                    leading: Icon(Icons.payment, color: Colors.black),
+                    leading: SvgPicture.asset(
+                      'assets/icons/dompet.svg',
+                      width: 20,
+                    ),
                     title: Text(
                       'Detail Pembayaran',
                       style: CustomTextStyles.titlesection,

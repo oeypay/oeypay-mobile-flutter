@@ -17,7 +17,7 @@ import 'package:oepay/pages/HomePage/detailPageItems/listrik/listrikDetails.dart
 import 'package:oepay/pages/HomePage/detailPageItems/penarikan/penarikanDetails.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/riwayat/riwayatDetail.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/isiUlangDetail.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/tiket/tiketDetail.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/pemesananTiket.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/topUp/virtualAccount/virtualAccountPages.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/transfer/transferDetails.dart';
 
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => TiketPage(),
+              builder: (context) => PemesananTiketPage(),
             ),
           );
         },
@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
         body: Stack(
           children: [
             SvgPicture.asset(
-              'assets/images/oeypay-logo.svg',
+              'assets/icons/oeypay-favicon.svg',
               fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
             ),
@@ -372,7 +372,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsets.only(left: 15, top: 10, right: 20),
+                          const EdgeInsets.only(left: 15, top: 10, right: 25),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -431,9 +431,9 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SvgPicture.asset(
-                                'assets/icons/point.svg',
+                                'assets/icons/oeypay-favicon.svg',
                                 width: 22,
-                                // color: Colors.orange,
+                                color: Colors.black,
                               ),
                               // Image.asset(
                               //   'assets/icons/paper-plane.svg',

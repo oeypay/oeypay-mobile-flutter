@@ -37,18 +37,16 @@ class ProfilePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 100, left: 20),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  InkWell(
-                    onTap: () => _showBottomSheet(context),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      child: const CircleAvatar(
-                        radius: 40,
-                        backgroundImage:
-                            AssetImage('assets/images/Financialdata.png'),
-                      ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: const CircleAvatar(
+                      radius: 40,
+                      backgroundImage:
+                          AssetImage('assets/images/Financialdata.png'),
                     ),
                   ),
                   const SizedBox(width: 20),
@@ -95,6 +93,17 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, top: 3),
+                    child: InkWell(
+                      onTap: () => _showBottomSheet(context),
+                      child: Icon(
+                        Icons.edit_square,
+                        size: 20,
+                        color: colorIcons,
+                      ),
+                    ),
                   ),
                 ],
               ),

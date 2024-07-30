@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
+import 'package:oepay/common/constant/styleText.dart';
 
-class PencarianKeberangkatan extends StatelessWidget {
+import '../pesawat/cariBandara.dart';
+
+class PencarianStasiun extends StatelessWidget {
   final String title;
 
-  const PencarianKeberangkatan({super.key, required this.title});
+  const PencarianStasiun({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class PencarianKeberangkatan extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20),
+          ListBandara(),
         ],
       ),
     );

@@ -5,8 +5,6 @@ PODS:
   - local_auth_darwin (0.0.1):
     - Flutter
   - MTBBarcodeScanner (5.0.11)
-  - "otp_pin_field (1.2.0+2)":
-    - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -18,7 +16,6 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_native_contact_picker (from `.symlinks/plugins/flutter_native_contact_picker/ios`)
   - local_auth_darwin (from `.symlinks/plugins/local_auth_darwin/darwin`)
-  - otp_pin_field (from `.symlinks/plugins/otp_pin_field/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
 
@@ -33,8 +30,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_native_contact_picker/ios"
   local_auth_darwin:
     :path: ".symlinks/plugins/local_auth_darwin/darwin"
-  otp_pin_field:
-    :path: ".symlinks/plugins/otp_pin_field/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   qr_code_scanner:
@@ -45,7 +40,6 @@ SPEC CHECKSUMS:
   flutter_native_contact_picker: bd430ba0fbf82768bb50c2c52a69a65759a8f907
   local_auth_darwin: 4d56c90c2683319835a61274b57620df9c4520ab
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
-  otp_pin_field: 0f0935fafc56252e6a48a5a045ac689b6bad3857
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   qr_code_scanner: bb67d64904c3b9658ada8c402e8b4d406d5d796e
 

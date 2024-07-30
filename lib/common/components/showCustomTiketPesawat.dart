@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/widgetAlurTopUp.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/pages/HomePage/porfilScreen/Tentang.dart';
-
 import '../constant/styleText.dart';
 
 class TicketSelectionBottomSheet extends StatefulWidget {
@@ -11,12 +9,16 @@ class TicketSelectionBottomSheet extends StatefulWidget {
   final int childCount;
   final int infantCount;
   final Function(int, int, int) onCountsUpdated;
+  final bool showChildOption; // Tambahkan parameter ini
+  final bool showMessage; // Tambahkan parameter ini
 
   TicketSelectionBottomSheet({
     this.adultCount = 0,
     this.childCount = 0,
     this.infantCount = 0,
     required this.onCountsUpdated,
+    this.showChildOption = true, // Default true
+    this.showMessage = true, // Default true
   });
 
   @override
@@ -92,19 +94,23 @@ class _TicketSelectionBottomSheetState
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Divider(),
           ),
-          _buildTicketOption(
-              'Anak', ' (Usia 2 - 11 thn)', _childCount, 'child'),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Divider(),
-          ),
+          if (widget.showChildOption) // Kondisi untuk menampilkan bagian Anak
+            _buildTicketOption(
+                'Anak', ' (Usia 2 - 11 thn)', _childCount, 'child'),
+          if (widget.showChildOption) // Kondisi untuk menampilkan Divider
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Divider(),
+            ),
           _buildTicketOption(
               'Bayi', ' (Di bawah 2 thn)', _infantCount, 'infant'),
           SizedBox(height: 10),
-          CustomMessageContainer(
-            message:
-                'Bayi harus berusia minimal 6 minggu untuk naik ke pesewat dan harus duduk di pangkuan orang dewasa atau menempati kursi bayi',
-          ),
+          if (widget
+              .showMessage) // Kondisi untuk menampilkan CustomMessageContainer
+            CustomMessageContainer(
+              message:
+                  'Bayi harus berusia minimal 6 minggu untuk naik ke pesawat dan harus duduk di pangkuan orang dewasa atau menempati kursi bayi',
+            ),
           SizedBox(height: 16.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -125,7 +131,6 @@ class _TicketSelectionBottomSheetState
   Widget _buildTicketOption(String label, String usia, int count, String type) {
     return ListTile(
       title: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
             label,

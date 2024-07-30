@@ -5,7 +5,7 @@ import 'package:oepay/common/components/widgetAlurTopUp.dart';
 import 'package:oepay/common/components/widgetListHasilTransaksi.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/tiket/rincianData.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/pesawat/rincianDataPesawat.dart';
 
 class ShowModalPenerbangan extends StatefulWidget {
   @override
@@ -171,7 +171,7 @@ class _ShowModalPenerbanganState extends State<ShowModalPenerbangan> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => RincianDataPages(),
+                      builder: (context) => RincianDataPesawat(),
                     ),
                   );
                 },
@@ -233,92 +233,15 @@ class FlightDetailsTab extends StatelessWidget {
             ],
           ),
           Divider(),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                children: [
-                  Image.asset(
-                    'assets/icons/landing.png',
-                    width: 20,
-                  ),
-                  Dash(
-                    direction: Axis.vertical,
-                    length: 150,
-                  ),
-                  Image.asset(
-                    'assets/icons/mendarat.png',
-                    width: 20,
-                  ),
-                ],
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Jakarta (CGK)',
-                                style: CustomTextStyles.titlesection,
-                              ),
-                              Text(
-                                'Soekarno-Hatta International Airport',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: CustomTextStyles.titleProfil,
-                              ),
-                            ],
-                          ),
-                          Text(
-                            '12:00',
-                            style: CustomTextStyles.titleItem,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 50),
-                      Text(
-                        '7j 30m',
-                        style: CustomTextStyles.textCard,
-                      ),
-                      SizedBox(height: 50),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Surabaya (SBY)',
-                                style: CustomTextStyles.titlesection,
-                              ),
-                              Text(
-                                'Soekarno-Hatta International Airport',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: CustomTextStyles.titleProfil,
-                              ),
-                            ],
-                          ),
-                          Text(
-                            '12:00',
-                            style: CustomTextStyles.titleItem,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+          FlightSegmentDetails(
+            icon: 'assets/icons/landing.png',
+            departureCity: 'Jakarta (CGK)',
+            departureAirport: 'Soekarno Hatta International Airport',
+            departureTime: '12:00',
+            duration: '7j 30m',
+            arrivalCity: 'Surabaya (SUB)',
+            arrivalAirport: 'Juanda, Terminal 1A',
+            arrivalTime: '20:00',
           ),
           Divider(),
         ],
@@ -413,6 +336,122 @@ class HargaPenerbangan extends StatelessWidget {
           Divider(),
         ],
       ),
+    );
+  }
+}
+
+class FlightSegmentDetails extends StatelessWidget {
+  final String departureCity;
+  final String departureAirport;
+  final String departureTime;
+  final String duration;
+  final String arrivalCity;
+  final String arrivalAirport;
+  final String arrivalTime;
+  final String icon;
+
+  const FlightSegmentDetails({
+    Key? key,
+    required this.departureCity,
+    required this.departureAirport,
+    required this.departureTime,
+    required this.duration,
+    required this.arrivalCity,
+    required this.arrivalAirport,
+    required this.arrivalTime,
+    required this.icon,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Column(
+          children: [
+            Image.asset(
+              // 'assets/icons/landing.png',
+              icon,
+              width: 20,
+            ),
+            Dash(
+              direction: Axis.vertical,
+              length: 150,
+            ),
+            Image.asset(
+              // 'assets/icons/mendarat.png',
+              icon,
+              width: 20,
+            ),
+          ],
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          departureCity,
+                          style: CustomTextStyles.titlesection,
+                        ),
+                        Text(
+                          departureAirport,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: CustomTextStyles.titleProfil,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      departureTime,
+                      style: CustomTextStyles.titleItem,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 50),
+                Text(
+                  duration,
+                  style: CustomTextStyles.textCard,
+                ),
+                SizedBox(height: 50),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          arrivalCity,
+                          style: CustomTextStyles.titlesection,
+                        ),
+                        Text(
+                          arrivalAirport,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: CustomTextStyles.titleProfil,
+                        ),
+                      ],
+                    ),
+                    Text(
+                      arrivalTime,
+                      style: CustomTextStyles.titleItem,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

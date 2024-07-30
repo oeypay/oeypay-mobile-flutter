@@ -5,10 +5,12 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/customContainerCard.dart';
 import 'package:oepay/common/components/widgetAppBar.dart';
+import 'package:oepay/common/components/widgetRincianData.dart';
+import 'package:oepay/common/components/widgetValueRincianData.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/tiket/rincianData.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/tiket/showModalPenerbangan.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/pesawat/rincianDataPesawat.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/pesawat/showModalPenerbangan.dart';
 
 class HasiltransaksitiketPesawat extends StatelessWidget {
   const HasiltransaksitiketPesawat({super.key});
@@ -100,79 +102,20 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Container(
-                        color: ColorName.yellowSmoth,
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 16),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Sab, 8 Jul 2024',
-                                  style: text,
-                                ),
-                                Text(
-                                  '12.00 - 7j 30m - 16.00',
-                                  style: text,
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'Langsung . Ekonomi',
-                              style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                color: Colors.lime.shade900,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.check_circle,
-                                  color: Colors.teal,
-                                  size: 18,
-                                ),
-                                SizedBox(width: 8),
-                                Text(
-                                  'Dana dapat dikembalikan',
-                                  style: CustomTextStyles.poppins(
-                                    size: 13,
-                                    color: Colors.teal,
-                                  ),
-                                ),
-                                Spacer(),
-                                GestureDetector(
-                                  onTap: () => showBarModalBottomSheet(
-                                    expand: false,
-                                    context: context,
-                                    backgroundColor: Colors.transparent,
-                                    builder: (context) =>
-                                        ShowModalPenerbangan(),
-                                  ),
-                                  child: Container(
-                                    width: 100,
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 5),
-                                    decoration: BoxDecoration(
-                                      color: ColorName.yellowColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Lihat Detail',
-                                        style: CustomTextStyles.textNominal,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                      RouteDetail(
+                        icon: Icons.train,
+                        route: 'Bandung (BD) > Pasar Senen (PS)',
+                        date: 'Sab, 8 Jul 2024',
+                        timeDetails: '12.00 - 7j 30m - 16.00',
+                        ticketClass: 'Langsung . Ekonomi',
+                        onViewDetails: () {
+                          showBarModalBottomSheet(
+                            expand: false,
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            builder: (context) => ShowModalPenerbangan(),
+                          );
+                        },
                       ),
                       ListTile(
                         leading: Icon(Icons.phone_android),
@@ -182,7 +125,7 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                         ),
                       ),
                       Divider(),
-                      ValueRincian(
+                      ValueRincianData(
                         nama: 'Ahmad Kardawi',
                         data1: 'Email: ahmad@gmail.com',
                         data2: 'No Hp: 089787576565',
@@ -201,7 +144,7 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                         ),
                       ),
                       Divider(),
-                      ValueRincian(
+                      ValueRincianData(
                         tuan: 'Dewasa',
                         nama: 'Ahmad Kardawi',
                         data1: 'Nomor KTP/NIK: 5675345365645345',
@@ -209,7 +152,7 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Divider(),
-                      ValueRincian(
+                      ValueRincianData(
                         tuan: 'Dewasa',
                         nama: 'Ahmad Kardawi',
                         data1: 'Nomor KTP/NIK: 5675345365645345',
@@ -217,7 +160,7 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Divider(),
-                      ValueRincian(
+                      ValueRincianData(
                         tuan: 'Dewasa',
                         nama: 'Ahmad Kardawi',
                         data1: 'Nomor KTP/NIK: 5675345365645345',
@@ -225,7 +168,7 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Divider(),
-                      ValueRincian(
+                      ValueRincianData(
                         tuan: 'Dewasa',
                         nama: 'Ahmad Kardawi',
                         data1: 'Nomor KTP/NIK: 5675345365645345',

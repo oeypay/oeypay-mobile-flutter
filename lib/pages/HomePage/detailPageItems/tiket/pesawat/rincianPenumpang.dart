@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/tiket/rincianKontak.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/pesawat/rincianKontak.dart';
 
 class RincianPenumpangPage extends StatelessWidget {
   final TextEditingController _judulController =
