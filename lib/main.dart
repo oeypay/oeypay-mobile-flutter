@@ -6,7 +6,7 @@ import 'package:oepay/common/components/bottomCustomBar.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/intro/intro.dart';
-import 'package:oepay/pages/registerPages/phoneNumber.dart';
+import 'package:oepay/pages/registerPages/phone_number.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           shape: CircleBorder(),
         ),
       ),
-      home: SplashScreen(),
+      home: ButtonCustomBar(),
     );
   }
 }

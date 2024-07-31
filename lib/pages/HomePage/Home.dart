@@ -11,15 +11,15 @@ import 'package:oepay/common/components/gridComponents.dart';
 import 'package:oepay/common/components/rekomendasiPilihan.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/pages/HomePage/ItemLainnyaPage.dart';
-import 'package:oepay/pages/HomePage/NotoficationPage.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/listrik/listrikDetails.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/penarikan/penarikanDetails.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/riwayat/riwayatDetail.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/isiUlangDetail.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/tiket/pemesananTiket.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/topUp/virtualAccount/virtualAccountPages.dart';
+import 'package:oepay/pages/HomePage/Item_lainnya_page.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/listrik/listrik_details.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/penarikan/penarikan_details.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/riwayat/riwayat_detail.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/isiUlang/isi_ulang_detail.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/pemesanan_tiket.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/topUp/virtualAccount/virtual_account_pages.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/transfer/transferDetails.dart';
+import 'package:oepay/pages/HomePage/notofication_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

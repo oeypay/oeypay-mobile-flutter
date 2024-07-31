@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/widgetValueRincianData.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/tiket/pesawat/rincianDataPesawat.dart';
+import 'package:oepay/pages/HomePage/detailPageItems/tiket/pesawat/rincian_data_pesawat.dart';
 
 class RouteDetail extends StatelessWidget {
   final IconData icon;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/pages/HomePage/History.dart';
-import 'package:oepay/pages/HomePage/Home.dart';
-import 'package:oepay/pages/HomePage/MerchanPage.dart';
+import 'package:oepay/pages/HomePage/history.dart';
+import 'package:oepay/pages/HomePage/home.dart';
+import 'package:oepay/pages/HomePage/merchan_page.dart';
 import 'package:oepay/pages/HomePage/porfilScreen/ProfilePage.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 

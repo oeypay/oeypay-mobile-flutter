@@ -5,21 +5,18 @@ import 'package:oepay/common/components/widgetAppBar.dart';
 import 'package:oepay/common/components/widgetItemTopUp.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/penarikan/alfamart/penarikan_alfamart.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/topUp/metodeLainnya/metode_lainnya.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/topUp/metodeLainnya/alfamart/alfamart_detail.dart';
 import 'package:oepay/pages/HomePage/detailPageItems/topUp/menungu_pembayaran.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/transfer/bca/transferBca.dart';
-import 'package:oepay/pages/HomePage/detailPageItems/transfer/sesamaOeyPay/sesamaOeyPay.dart';
 
-class TransferDetails extends StatefulWidget {
-  const TransferDetails({super.key});
+class Virtualaccountpages extends StatefulWidget {
+  const Virtualaccountpages({super.key});
 
   @override
-  State<TransferDetails> createState() => _TransferDetailsState();
+  State<Virtualaccountpages> createState() => _VirtualaccountpagesState();
 }
 
-class _TransferDetailsState extends State<TransferDetails> {
+class _VirtualaccountpagesState extends State<Virtualaccountpages> {
   bool isVirtualAccount = false;
 
   void toggleSelection() {
@@ -37,9 +34,22 @@ class _TransferDetailsState extends State<TransferDetails> {
           width: 50,
         ),
         'title': 'BANK BCA',
-        'tag': '',
-        'action': 'page',
-        'page': TransferBca(),
+        'tag': 'Instan',
+        'action': 'show',
+        'page': CustomShowModalBottomSheet(
+          iconik: 'assets/icons/Bank/bca.svg',
+          virtualAccountTitle: 'Nomor Virtual Account BCA',
+          virtualAccountNumber: '8883 82392 9823 3882',
+          topUpTitle: 'Cara Top Up',
+          topUpSteps: [
+            'Login ke akun m-BCA Anda',
+            'Pilih menu m-Transfer',
+            'Pilih menu BCA Virtual Account',
+            'Masukan 329482 + Nomor ponsel Anda (329482 08xx-xxxx-xxxx)',
+            'Masukan Nominal Top Up',
+            'Ikuti instruksi untuk menyelesaikan transaksi',
+          ],
+        ),
       },
       {
         'icon': SvgPicture.asset(
@@ -158,137 +168,140 @@ class _TransferDetailsState extends State<TransferDetails> {
       },
     ];
 
-    final List<Map<String, dynamic>> metode = [
-      {
-        'icon': SvgPicture.asset(
-          'assets/icons/provider/alfa.svg',
-          width: 50,
-        ),
-        'title': 'Alfmart, Alfamidi, Lawson',
-        'tag': '',
-        'action': 'page',
-        'page': PenarikanalFamart(),
-      },
-      {
-        'icon': SvgPicture.asset(
-          'assets/icons/provider/indomart.svg',
-          width: 50,
-        ),
-        'title': 'Indomaret',
-        'tag': '',
-        'action': 'page',
-        'page': PenarikanalFamart(),
-      },
-    ];
-
     return Scaffold(
       backgroundColor: ColorName.light,
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: ColorName.yellowColor,
-        title: Text(
-          'Transfer',
-          style: CustomTextStyles.titleProfilApp,
-        ),
+        title: Text('Top Up'),
       ),
       body: Stack(
         children: [
           Widgetappbar(),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 170,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (isVirtualAccount) toggleSelection();
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: !isVirtualAccount
-                              ? ColorName.yellowColor
-                              : Colors.white,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              color: !isVirtualAccount
-                                  ? Colors.white
-                                  : ColorName.light,
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
+          Column(
+            children: [
+              // Row(
+              //   children: [
+              //     IconButton(
+              //       onPressed: () {},
+              //       icon: Icon(Icons.arrow_back),
+              //     ),
+              //     SizedBox(width: 10),
+              //     Text('Top Up'),
+              //   ],
+              // ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(width: 70),
+                  Icon(
+                    Icons.wallet,
+                    size: 40,
+                  ),
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Saldo'),
+                      Text(
+                        'Rp. 5.000',
+                        style: CustomTextStyles.titlesection,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 170,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (isVirtualAccount) toggleSelection();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: !isVirtualAccount
+                            ? ColorName.yellowColor
+                            : Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: !isVirtualAccount
+                                ? Colors.white
+                                : ColorName.light,
+                            width: 2,
                           ),
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text(
-                          'Rekening Bank',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
+                      ),
+                      child: Text(
+                        'Virtual Account',
+                        style: TextStyle(
+                          color: Colors.black,
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16.0),
-                    SizedBox(
-                      width: 170,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (!isVirtualAccount) toggleSelection();
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: isVirtualAccount
-                              ? ColorName.yellowColor
-                              : Colors.white,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              color: isVirtualAccount
-                                  ? Colors.white
-                                  : ColorName.yellowSmoth,
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
+                  ),
+                  const SizedBox(width: 16.0),
+                  SizedBox(
+                    width: 170,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (!isVirtualAccount) toggleSelection();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: isVirtualAccount
+                            ? ColorName.yellowColor
+                            : Colors.white,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: isVirtualAccount
+                                ? Colors.white
+                                : ColorName.yellowSmoth,
+                            width: 2,
                           ),
-                        ),
-                        child: Text(
-                          'Sesama OeyPay',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
+                          borderRadius: BorderRadius.circular(20),
                         ),
                       ),
+                      child: Text(
+                        'Metode Lainnya',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16),
+              if (!isVirtualAccount)
+                Wrap(
+                  // spacing: 10.0,
+                  // runSpacing: 10.0,
+                  children: [
+                    // ListView.builder(
+                    //   shrinkWrap: true,
+                    //   physics: NeverScrollableScrollPhysics(),
+                    //   itemCount: items.length,
+                    //   itemBuilder: (context, index) {
+                    //     return Widgetitemtopup(item: items[index]);
+                    //   },
+                    // ),
+                    Column(
+                      children: items
+                          .map((item) => Widgetitemtopup(item: item))
+                          .toList(),
                     ),
                   ],
-                ),
-                SizedBox(height: 16),
-                if (!isVirtualAccount)
-                  Wrap(
-                    // spacing: 10.0,
-                    // runSpacing: 10.0,
-                    children: [
-                      // ListView.builder(
-                      //   shrinkWrap: true,
-                      //   physics: NeverScrollableScrollPhysics(),
-                      //   itemCount: items.length,
-                      //   itemBuilder: (context, index) {
-                      //     return Widgetitemtopup(item: items[index]);
-                      //   },
-                      // ),
-                      Column(
-                        children: items
-                            .map((item) => Widgetitemtopup(item: item))
-                            .toList(),
-                      ),
-                    ],
-                  )
-                else
-                  Wrap(
-                    children: [
-                      Sesamaoeypay(),
-                    ],
-                  )
-              ],
-            ),
+                )
+              else
+                Wrap(
+                  children: [
+                    TopUpScreen(),
+                  ],
+                )
+            ],
           ),
         ],
       ),

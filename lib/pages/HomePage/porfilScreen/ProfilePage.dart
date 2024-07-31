@@ -9,7 +9,7 @@ import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/HomePage/porfilScreen/Bantuan.dart';
 import 'package:oepay/pages/HomePage/porfilScreen/Tentang.dart';
 import 'package:oepay/pages/HomePage/porfilScreen/syaratKetentuanDetails.dart';
-import 'package:oepay/pages/Settings/securityPage.dart';
+import 'package:oepay/pages/Settings/security_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

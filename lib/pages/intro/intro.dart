@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/pages/registerPages/phoneNumber.dart';
+import 'package:oepay/pages/registerPages/phone_number.dart';
 
 class Introduction extends StatelessWidget {
   const Introduction({super.key});
