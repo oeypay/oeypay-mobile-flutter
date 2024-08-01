@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,8 +10,8 @@ import 'package:oepay/pages/registerPages/otp.dart';
 
 import '../../data/auth/bloc/kodeOTP/kode_otp_bloc.dart';
 import '../../data/auth/bloc/register/register_bloc.dart';
-import '../../data/models/requests/otpRequestModel.dart';
-import '../../data/models/requests/registerRequestModel.dart';
+import '../../data/models/requests/otp_request_model.dart';
+import '../../data/models/requests/register_request_model.dart';
 
 class KonfirmasiNama extends StatefulWidget {
   final String phone;
@@ -22,6 +24,8 @@ class KonfirmasiNama extends StatefulWidget {
 class _KonfirmasiNamaState extends State<KonfirmasiNama> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
+  String _errorMessage = '';
+  String _message = '';
 
   @override
   void dispose() {
@@ -52,6 +56,24 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
             ),
           );
     }
+  }
+
+  void handleError(String errorResponse) {
+    final Map<String, dynamic> errorData = jsonDecode(errorResponse);
+    final String errorMessage = errorData['message'] ?? 'An error occurred';
+
+    setState(() {
+      _errorMessage = errorMessage; // Update the error message
+    });
+  }
+
+  void handleSuccess(String successResponse) {
+    final Map<String, dynamic> successData = jsonDecode(successResponse);
+    final String message = successData['message'] ?? 'No message available';
+
+    setState(() {
+      _message = message; // Update the state with the message
+    });
   }
 
   @override
@@ -164,6 +186,7 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
                             ),
                           ),
                         );
+                        print(_message);
                       },
                       error: (msg) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -173,6 +196,7 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
                           ),
                         );
                         print(msg);
+                        print(_errorMessage);
                       },
                     );
                   },
@@ -191,7 +215,14 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
                                 ),
                               ),
                               onPressed: _submitForm,
-                              child: Text('Submit'),
+                              child: Text(
+                                'Lanjut',
+                                style: CustomTextStyles.poppins(
+                                  size: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           );
                         },

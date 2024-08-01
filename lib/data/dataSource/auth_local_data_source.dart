@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../models/response/authResponseModel.dart';
+import '../models/response/auth_response_model.dart';
 
 class Authlocaldatasource {
   Future<void> saveAuthData(AuthResponseModel authResponseModel) async {

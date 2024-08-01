@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../dataSource/authRemoteDataSource.dart';
-import '../../../models/requests/otpRequestModel.dart';
-import '../../../models/response/otpResponseModel.dart';
+import '../../../dataSource/auth_remote_data_source.dart';
+import '../../../models/requests/otp_request_model.dart';
+import '../../../models/response/otp_response_model.dart';
 
 part 'kode_otp_event.dart';
 part 'kode_otp_state.dart';

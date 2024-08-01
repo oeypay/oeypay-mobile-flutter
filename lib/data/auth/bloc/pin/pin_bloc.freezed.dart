@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'category_bloc.dart';
+part of 'pin_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,58 +15,63 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CategoryEvent {
+mixin _$PinEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAll,
+    required TResult Function(PinRequestModel requestModel) sendPin,
+    required TResult Function(PinRequestModel requestModel) verifyPin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAll,
+    TResult? Function(PinRequestModel requestModel)? sendPin,
+    TResult? Function(PinRequestModel requestModel)? verifyPin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAll,
+    TResult Function(PinRequestModel requestModel)? sendPin,
+    TResult Function(PinRequestModel requestModel)? verifyPin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_SendPin value) sendPin,
+    required TResult Function(_VerifyPin value) verifyPin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_SendPin value)? sendPin,
+    TResult? Function(_VerifyPin value)? verifyPin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_GetAll value)? getAll,
+    TResult Function(_SendPin value)? sendPin,
+    TResult Function(_VerifyPin value)? verifyPin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoryEventCopyWith<$Res> {
-  factory $CategoryEventCopyWith(
-          CategoryEvent value, $Res Function(CategoryEvent) then) =
-      _$CategoryEventCopyWithImpl<$Res, CategoryEvent>;
+abstract class $PinEventCopyWith<$Res> {
+  factory $PinEventCopyWith(PinEvent value, $Res Function(PinEvent) then) =
+      _$PinEventCopyWithImpl<$Res, PinEvent>;
 }
 
 /// @nodoc
-class _$CategoryEventCopyWithImpl<$Res, $Val extends CategoryEvent>
-    implements $CategoryEventCopyWith<$Res> {
-  _$CategoryEventCopyWithImpl(this._value, this._then);
+class _$PinEventCopyWithImpl<$Res, $Val extends PinEvent>
+    implements $PinEventCopyWith<$Res> {
+  _$PinEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -83,7 +88,7 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$CategoryEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$PinEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
@@ -97,7 +102,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'CategoryEvent.started()';
+    return 'PinEvent.started()';
   }
 
   @override
@@ -113,7 +118,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAll,
+    required TResult Function(PinRequestModel requestModel) sendPin,
+    required TResult Function(PinRequestModel requestModel) verifyPin,
   }) {
     return started();
   }
@@ -122,7 +128,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAll,
+    TResult? Function(PinRequestModel requestModel)? sendPin,
+    TResult? Function(PinRequestModel requestModel)? verifyPin,
   }) {
     return started?.call();
   }
@@ -131,7 +138,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAll,
+    TResult Function(PinRequestModel requestModel)? sendPin,
+    TResult Function(PinRequestModel requestModel)? verifyPin,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -144,7 +152,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_SendPin value) sendPin,
+    required TResult Function(_VerifyPin value) verifyPin,
   }) {
     return started(this);
   }
@@ -153,7 +162,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_SendPin value)? sendPin,
+    TResult? Function(_VerifyPin value)? verifyPin,
   }) {
     return started?.call(this);
   }
@@ -162,7 +172,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_GetAll value)? getAll,
+    TResult Function(_SendPin value)? sendPin,
+    TResult Function(_VerifyPin value)? verifyPin,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -172,72 +183,103 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements CategoryEvent {
+abstract class _Started implements PinEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$GetAllImplCopyWith<$Res> {
-  factory _$$GetAllImplCopyWith(
-          _$GetAllImpl value, $Res Function(_$GetAllImpl) then) =
-      __$$GetAllImplCopyWithImpl<$Res>;
+abstract class _$$SendPinImplCopyWith<$Res> {
+  factory _$$SendPinImplCopyWith(
+          _$SendPinImpl value, $Res Function(_$SendPinImpl) then) =
+      __$$SendPinImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PinRequestModel requestModel});
 }
 
 /// @nodoc
-class __$$GetAllImplCopyWithImpl<$Res>
-    extends _$CategoryEventCopyWithImpl<$Res, _$GetAllImpl>
-    implements _$$GetAllImplCopyWith<$Res> {
-  __$$GetAllImplCopyWithImpl(
-      _$GetAllImpl _value, $Res Function(_$GetAllImpl) _then)
+class __$$SendPinImplCopyWithImpl<$Res>
+    extends _$PinEventCopyWithImpl<$Res, _$SendPinImpl>
+    implements _$$SendPinImplCopyWith<$Res> {
+  __$$SendPinImplCopyWithImpl(
+      _$SendPinImpl _value, $Res Function(_$SendPinImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? requestModel = freezed,
+  }) {
+    return _then(_$SendPinImpl(
+      requestModel: freezed == requestModel
+          ? _value.requestModel
+          : requestModel // ignore: cast_nullable_to_non_nullable
+              as PinRequestModel,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$GetAllImpl implements _GetAll {
-  const _$GetAllImpl();
+class _$SendPinImpl implements _SendPin {
+  const _$SendPinImpl({required this.requestModel});
+
+  @override
+  final PinRequestModel requestModel;
 
   @override
   String toString() {
-    return 'CategoryEvent.getAll()';
+    return 'PinEvent.sendPin(requestModel: $requestModel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetAllImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SendPinImpl &&
+            const DeepCollectionEquality()
+                .equals(other.requestModel, requestModel));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(requestModel));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendPinImplCopyWith<_$SendPinImpl> get copyWith =>
+      __$$SendPinImplCopyWithImpl<_$SendPinImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() getAll,
+    required TResult Function(PinRequestModel requestModel) sendPin,
+    required TResult Function(PinRequestModel requestModel) verifyPin,
   }) {
-    return getAll();
+    return sendPin(requestModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? getAll,
+    TResult? Function(PinRequestModel requestModel)? sendPin,
+    TResult? Function(PinRequestModel requestModel)? verifyPin,
   }) {
-    return getAll?.call();
+    return sendPin?.call(requestModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? getAll,
+    TResult Function(PinRequestModel requestModel)? sendPin,
+    TResult Function(PinRequestModel requestModel)? verifyPin,
     required TResult orElse(),
   }) {
-    if (getAll != null) {
-      return getAll();
+    if (sendPin != null) {
+      return sendPin(requestModel);
     }
     return orElse();
   }
@@ -246,62 +288,213 @@ class _$GetAllImpl implements _GetAll {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_SendPin value) sendPin,
+    required TResult Function(_VerifyPin value) verifyPin,
   }) {
-    return getAll(this);
+    return sendPin(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_SendPin value)? sendPin,
+    TResult? Function(_VerifyPin value)? verifyPin,
   }) {
-    return getAll?.call(this);
+    return sendPin?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_GetAll value)? getAll,
+    TResult Function(_SendPin value)? sendPin,
+    TResult Function(_VerifyPin value)? verifyPin,
     required TResult orElse(),
   }) {
-    if (getAll != null) {
-      return getAll(this);
+    if (sendPin != null) {
+      return sendPin(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetAll implements CategoryEvent {
-  const factory _GetAll() = _$GetAllImpl;
+abstract class _SendPin implements PinEvent {
+  const factory _SendPin({required final PinRequestModel requestModel}) =
+      _$SendPinImpl;
+
+  PinRequestModel get requestModel;
+  @JsonKey(ignore: true)
+  _$$SendPinImplCopyWith<_$SendPinImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$CategoryState {
+abstract class _$$VerifyPinImplCopyWith<$Res> {
+  factory _$$VerifyPinImplCopyWith(
+          _$VerifyPinImpl value, $Res Function(_$VerifyPinImpl) then) =
+      __$$VerifyPinImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PinRequestModel requestModel});
+}
+
+/// @nodoc
+class __$$VerifyPinImplCopyWithImpl<$Res>
+    extends _$PinEventCopyWithImpl<$Res, _$VerifyPinImpl>
+    implements _$$VerifyPinImplCopyWith<$Res> {
+  __$$VerifyPinImplCopyWithImpl(
+      _$VerifyPinImpl _value, $Res Function(_$VerifyPinImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? requestModel = freezed,
+  }) {
+    return _then(_$VerifyPinImpl(
+      requestModel: freezed == requestModel
+          ? _value.requestModel
+          : requestModel // ignore: cast_nullable_to_non_nullable
+              as PinRequestModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifyPinImpl implements _VerifyPin {
+  const _$VerifyPinImpl({required this.requestModel});
+
+  @override
+  final PinRequestModel requestModel;
+
+  @override
+  String toString() {
+    return 'PinEvent.verifyPin(requestModel: $requestModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyPinImpl &&
+            const DeepCollectionEquality()
+                .equals(other.requestModel, requestModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(requestModel));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifyPinImplCopyWith<_$VerifyPinImpl> get copyWith =>
+      __$$VerifyPinImplCopyWithImpl<_$VerifyPinImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(PinRequestModel requestModel) sendPin,
+    required TResult Function(PinRequestModel requestModel) verifyPin,
+  }) {
+    return verifyPin(requestModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(PinRequestModel requestModel)? sendPin,
+    TResult? Function(PinRequestModel requestModel)? verifyPin,
+  }) {
+    return verifyPin?.call(requestModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(PinRequestModel requestModel)? sendPin,
+    TResult Function(PinRequestModel requestModel)? verifyPin,
+    required TResult orElse(),
+  }) {
+    if (verifyPin != null) {
+      return verifyPin(requestModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SendPin value) sendPin,
+    required TResult Function(_VerifyPin value) verifyPin,
+  }) {
+    return verifyPin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SendPin value)? sendPin,
+    TResult? Function(_VerifyPin value)? verifyPin,
+  }) {
+    return verifyPin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SendPin value)? sendPin,
+    TResult Function(_VerifyPin value)? verifyPin,
+    required TResult orElse(),
+  }) {
+    if (verifyPin != null) {
+      return verifyPin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VerifyPin implements PinEvent {
+  const factory _VerifyPin({required final PinRequestModel requestModel}) =
+      _$VerifyPinImpl;
+
+  PinRequestModel get requestModel;
+  @JsonKey(ignore: true)
+  _$$VerifyPinImplCopyWith<_$VerifyPinImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$PinState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CategoryResponseModel categoryResponse) loaded,
-    required TResult Function(String msg) error,
+    required TResult Function(PinResponseModel response) success,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult? Function(String msg)? error,
+    TResult? Function(PinResponseModel response)? success,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult Function(String msg)? error,
+    TResult Function(PinResponseModel response)? success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -309,7 +502,7 @@ mixin _$CategoryState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -317,7 +510,7 @@ mixin _$CategoryState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -325,7 +518,7 @@ mixin _$CategoryState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -333,16 +526,15 @@ mixin _$CategoryState {
 }
 
 /// @nodoc
-abstract class $CategoryStateCopyWith<$Res> {
-  factory $CategoryStateCopyWith(
-          CategoryState value, $Res Function(CategoryState) then) =
-      _$CategoryStateCopyWithImpl<$Res, CategoryState>;
+abstract class $PinStateCopyWith<$Res> {
+  factory $PinStateCopyWith(PinState value, $Res Function(PinState) then) =
+      _$PinStateCopyWithImpl<$Res, PinState>;
 }
 
 /// @nodoc
-class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
-    implements $CategoryStateCopyWith<$Res> {
-  _$CategoryStateCopyWithImpl(this._value, this._then);
+class _$PinStateCopyWithImpl<$Res, $Val extends PinState>
+    implements $PinStateCopyWith<$Res> {
+  _$PinStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -359,7 +551,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$CategoryStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$PinStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -373,7 +565,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'CategoryState.initial()';
+    return 'PinState.initial()';
   }
 
   @override
@@ -390,8 +582,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CategoryResponseModel categoryResponse) loaded,
-    required TResult Function(String msg) error,
+    required TResult Function(PinResponseModel response) success,
+    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -401,8 +593,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult? Function(String msg)? error,
+    TResult? Function(PinResponseModel response)? success,
+    TResult? Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -412,8 +604,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult Function(String msg)? error,
+    TResult Function(PinResponseModel response)? success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -427,7 +619,7 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -438,7 +630,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -449,7 +641,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -460,7 +652,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements CategoryState {
+abstract class _Initial implements PinState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -473,7 +665,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$CategoryStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$PinStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -487,7 +679,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'CategoryState.loading()';
+    return 'PinState.loading()';
   }
 
   @override
@@ -504,8 +696,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CategoryResponseModel categoryResponse) loaded,
-    required TResult Function(String msg) error,
+    required TResult Function(PinResponseModel response) success,
+    required TResult Function(String message) error,
   }) {
     return loading();
   }
@@ -515,8 +707,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult? Function(String msg)? error,
+    TResult? Function(PinResponseModel response)? success,
+    TResult? Function(String message)? error,
   }) {
     return loading?.call();
   }
@@ -526,8 +718,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult Function(String msg)? error,
+    TResult Function(PinResponseModel response)? success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -541,7 +733,7 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -552,7 +744,7 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -563,7 +755,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -574,81 +766,81 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements CategoryState {
+abstract class _Loading implements PinState {
   const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({CategoryResponseModel categoryResponse});
+  $Res call({PinResponseModel response});
 }
 
 /// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$CategoryStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$PinStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoryResponse = null,
+    Object? response = freezed,
   }) {
-    return _then(_$LoadedImpl(
-      null == categoryResponse
-          ? _value.categoryResponse
-          : categoryResponse // ignore: cast_nullable_to_non_nullable
-              as CategoryResponseModel,
+    return _then(_$SuccessImpl(
+      freezed == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as PinResponseModel,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl(this.categoryResponse);
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(this.response);
 
   @override
-  final CategoryResponseModel categoryResponse;
+  final PinResponseModel response;
 
   @override
   String toString() {
-    return 'CategoryState.loaded(categoryResponse: $categoryResponse)';
+    return 'PinState.success(response: $response)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedImpl &&
-            (identical(other.categoryResponse, categoryResponse) ||
-                other.categoryResponse == categoryResponse));
+            other is _$SuccessImpl &&
+            const DeepCollectionEquality().equals(other.response, response));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categoryResponse);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(response));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CategoryResponseModel categoryResponse) loaded,
-    required TResult Function(String msg) error,
+    required TResult Function(PinResponseModel response) success,
+    required TResult Function(String message) error,
   }) {
-    return loaded(categoryResponse);
+    return success(response);
   }
 
   @override
@@ -656,10 +848,10 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult? Function(String msg)? error,
+    TResult? Function(PinResponseModel response)? success,
+    TResult? Function(String message)? error,
   }) {
-    return loaded?.call(categoryResponse);
+    return success?.call(response);
   }
 
   @override
@@ -667,12 +859,12 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult Function(String msg)? error,
+    TResult Function(PinResponseModel response)? success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(categoryResponse);
+    if (success != null) {
+      return success(response);
     }
     return orElse();
   }
@@ -682,10 +874,10 @@ class _$LoadedImpl implements _Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
-    return loaded(this);
+    return success(this);
   }
 
   @override
@@ -693,10 +885,10 @@ class _$LoadedImpl implements _Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
-    return loaded?.call(this);
+    return success?.call(this);
   }
 
   @override
@@ -704,24 +896,23 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (success != null) {
+      return success(this);
     }
     return orElse();
   }
 }
 
-abstract class _Loaded implements CategoryState {
-  const factory _Loaded(final CategoryResponseModel categoryResponse) =
-      _$LoadedImpl;
+abstract class _Success implements PinState {
+  const factory _Success(final PinResponseModel response) = _$SuccessImpl;
 
-  CategoryResponseModel get categoryResponse;
+  PinResponseModel get response;
   @JsonKey(ignore: true)
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -731,12 +922,12 @@ abstract class _$$ErrorImplCopyWith<$Res> {
           _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
       __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String msg});
+  $Res call({String message});
 }
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$CategoryStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$PinStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -745,12 +936,12 @@ class __$$ErrorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? msg = null,
+    Object? message = null,
   }) {
     return _then(_$ErrorImpl(
-      null == msg
-          ? _value.msg
-          : msg // ignore: cast_nullable_to_non_nullable
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -759,14 +950,14 @@ class __$$ErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.msg);
+  const _$ErrorImpl(this.message);
 
   @override
-  final String msg;
+  final String message;
 
   @override
   String toString() {
-    return 'CategoryState.error(msg: $msg)';
+    return 'PinState.error(message: $message)';
   }
 
   @override
@@ -774,11 +965,11 @@ class _$ErrorImpl implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorImpl &&
-            (identical(other.msg, msg) || other.msg == msg));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, msg);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -791,10 +982,10 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(CategoryResponseModel categoryResponse) loaded,
-    required TResult Function(String msg) error,
+    required TResult Function(PinResponseModel response) success,
+    required TResult Function(String message) error,
   }) {
-    return error(msg);
+    return error(message);
   }
 
   @override
@@ -802,10 +993,10 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult? Function(String msg)? error,
+    TResult? Function(PinResponseModel response)? success,
+    TResult? Function(String message)? error,
   }) {
-    return error?.call(msg);
+    return error?.call(message);
   }
 
   @override
@@ -813,12 +1004,12 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(CategoryResponseModel categoryResponse)? loaded,
-    TResult Function(String msg)? error,
+    TResult Function(PinResponseModel response)? success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(msg);
+      return error(message);
     }
     return orElse();
   }
@@ -828,7 +1019,7 @@ class _$ErrorImpl implements _Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -839,7 +1030,7 @@ class _$ErrorImpl implements _Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -850,7 +1041,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -861,10 +1052,10 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements CategoryState {
-  const factory _Error(final String msg) = _$ErrorImpl;
+abstract class _Error implements PinState {
+  const factory _Error(final String message) = _$ErrorImpl;
 
-  String get msg;
+  String get message;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;

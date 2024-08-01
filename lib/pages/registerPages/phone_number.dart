@@ -39,8 +39,8 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
           ),
         ),
       );
-      _phoneController.clear();
-      _undanganController.clear();
+      // _phoneController.clear();
+      // _undanganController.clear();
     }
   }
 
@@ -165,7 +165,7 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    onPressed: () => _submitForm,
+                    onPressed: () => _submitForm(),
                     child: Text(
                       'Lanjut',
                       style: CustomTextStyles.poppins(

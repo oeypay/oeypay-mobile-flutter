@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 
 import '../../common/constant/variables.dart';
-import '../models/response/categoryResponseModel.dart';
+import '../models/response/category_response_model.dart';
 
 class Categoryremotedatasource {
   Future<Either<String, CategoryResponseModel>> getAllCategory() async {

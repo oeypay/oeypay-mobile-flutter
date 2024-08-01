@@ -1,12 +1,19 @@
 // import 'package:example/screens/login_page.dart';
 // import 'package:example/screens/register_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/components/bottomCustomBar.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/data/auth/bloc/pin/pin_bloc.dart';
+import 'package:oepay/data/auth/bloc/register/register_bloc.dart';
+import 'package:oepay/data/dataSource/auth_remote_data_source.dart';
 import 'package:oepay/pages/intro/intro.dart';
 import 'package:oepay/pages/registerPages/phone_number.dart';
+
+import 'data/auth/bloc/category/category_bloc.dart';
+import 'data/auth/bloc/kodeOTP/kode_otp_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,20 +24,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        splashColor: ColorName.light,
-        inputDecorationTheme: InputDecorationTheme(
-          focusColor: Colors.black45,
-          labelStyle: TextStyle(color: Colors.black54),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => RegisterBloc(Authremotedatasource()),
         ),
-        floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          shape: CircleBorder(),
+        BlocProvider(
+          create: (context) =>
+              CategoryBloc()..add(const CategoryEvent.getAll()),
         ),
+        BlocProvider(
+          create: (context) => KodeOtpBloc(Authremotedatasource()),
+        ),
+        BlocProvider(
+          create: (context) => PinBloc(Authremotedatasource()),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: true,
+          splashColor: ColorName.light,
+          inputDecorationTheme: InputDecorationTheme(
+            focusColor: Colors.black45,
+            labelStyle: TextStyle(color: Colors.black54),
+          ),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            shape: CircleBorder(),
+          ),
+        ),
+        home: PhoneNumberForm(),
       ),
-      home: ButtonCustomBar(),
     );
   }
 }

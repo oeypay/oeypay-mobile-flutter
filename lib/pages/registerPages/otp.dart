@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/pages/registerPages/pin_regis.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../data/auth/bloc/kodeOTP/kode_otp_bloc.dart';
-import '../../data/models/requests/otpRequestModel.dart';
+import '../../data/models/requests/otp_request_model.dart';
 
 class OTPConfirmationPage extends StatefulWidget {
   final String phone;
@@ -83,7 +84,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
             key: _formKey,
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Center(
                   child: SvgPicture.asset(
@@ -115,7 +116,14 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
                           ),
                         );
                         // Arahkan pengguna ke halaman berikutnya
-                        Navigator.pushReplacementNamed(context, '/home');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PINProtectionPage(
+                              phone: widget.phone,
+                            ),
+                          ),
+                        );
                       },
                       error: (msg) {
                         ScaffoldMessenger.of(context).showSnackBar(
