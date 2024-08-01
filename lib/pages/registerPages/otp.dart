@@ -6,8 +6,8 @@ import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/registerPages/pin_regis.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../data/auth/bloc/kodeOTP/kode_otp_bloc.dart';
-import '../../data/models/requests/otp_request_model.dart';
+import '../../resources/auth/bloc/kodeOTP/kode_otp_bloc.dart';
+import '../../resources/models/requests/otp_request_model.dart';
 
 class OTPConfirmationPage extends StatefulWidget {
   final String phone;

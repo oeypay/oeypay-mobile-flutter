@@ -6,14 +6,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/components/bottomCustomBar.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/data/auth/bloc/pin/pin_bloc.dart';
-import 'package:oepay/data/auth/bloc/register/register_bloc.dart';
-import 'package:oepay/data/dataSource/auth_remote_data_source.dart';
+import 'package:oepay/resources/auth/bloc/pin/pin_bloc.dart';
+import 'package:oepay/resources/auth/bloc/register/register_bloc.dart';
+import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
+import 'package:oepay/resources/dataSource/auth_remote_data_source.dart';
 import 'package:oepay/pages/intro/intro.dart';
 import 'package:oepay/pages/registerPages/phone_number.dart';
 
-import 'data/auth/bloc/category/category_bloc.dart';
-import 'data/auth/bloc/kodeOTP/kode_otp_bloc.dart';
+import 'resources/auth/bloc/category/category_bloc.dart';
+import 'resources/auth/bloc/kodeOTP/kode_otp_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,19 +27,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<AuthCubit>(create: (context) => AuthCubit()),
+        BlocProvider(create: (context) => RegisterBloc(Authremotedatasource())),
         BlocProvider(
-          create: (context) => RegisterBloc(Authremotedatasource()),
-        ),
-        BlocProvider(
-          create: (context) =>
-              CategoryBloc()..add(const CategoryEvent.getAll()),
-        ),
-        BlocProvider(
-          create: (context) => KodeOtpBloc(Authremotedatasource()),
-        ),
-        BlocProvider(
-          create: (context) => PinBloc(Authremotedatasource()),
-        ),
+            create: (context) =>
+                CategoryBloc()..add(const CategoryEvent.getAll())),
+        BlocProvider(create: (context) => KodeOtpBloc(Authremotedatasource())),
+        BlocProvider(create: (context) => PinBloc(Authremotedatasource())),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

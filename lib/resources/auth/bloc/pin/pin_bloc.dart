@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:oepay/data/dataSource/auth_remote_data_source.dart';
+import 'package:oepay/resources/dataSource/auth_remote_data_source.dart';
 
 import '../../../models/requests/pin_request_model.dart';
 import '../../../models/response/pin_response_model.dart';

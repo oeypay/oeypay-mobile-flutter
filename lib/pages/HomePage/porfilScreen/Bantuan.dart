@@ -83,7 +83,8 @@ class HelpItem extends StatelessWidget {
   final IconData icon;
   final String title;
 
-  const HelpItem({super.key, 
+  const HelpItem({
+    super.key,
     required this.icon,
     required this.title,
   });

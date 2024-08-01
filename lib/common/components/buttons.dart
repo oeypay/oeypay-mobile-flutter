@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oepay/common/components/loading.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import '../constant/colors.dart';
 
@@ -148,6 +149,47 @@ class ButtonCustom extends StatelessWidget {
                 ],
               ),
             ),
+    );
+  }
+}
+
+class ButtonDefault extends StatelessWidget {
+  final double? radius;
+  final Color? bgColor, labelColor;
+  final String? label;
+  final bool? isLoading;
+  final void Function()? press;
+  const ButtonDefault(
+      {super.key,
+      this.bgColor,
+      this.label,
+      this.labelColor,
+      this.press,
+      this.isLoading = false,
+      this.radius});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: isLoading == false ? press : null,
+      highlightColor: Colors.transparent,
+      splashFactory: NoSplash.splashFactory,
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 15),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(radius ?? 100),
+            color: bgColor ?? ColorName.black),
+        child: Center(
+          child: isLoading!
+              ? Loading()
+              : Text(label ?? "Button",
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: labelColor ?? ColorName.white,
+                      fontWeight: FontWeight.w600)),
+        ),
+      ),
     );
   }
 }

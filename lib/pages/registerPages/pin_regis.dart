@@ -6,8 +6,8 @@ import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../data/auth/bloc/pin/pin_bloc.dart';
-import '../../data/models/requests/pin_request_model.dart';
+import '../../resources/auth/bloc/pin/pin_bloc.dart';
+import '../../resources/models/requests/pin_request_model.dart';
 
 class PINProtectionPage extends StatefulWidget {
   final String phone;

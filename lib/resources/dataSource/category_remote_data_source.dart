@@ -8,8 +8,7 @@ class Categoryremotedatasource {
   Future<Either<String, CategoryResponseModel>> getAllCategory() async {
     // final Map<String, String> headers = {'Authorization': '••••••'};
 
-    final response =
-        await http.get(Uri.parse('${Variables.baseUrl}v1/categories'));
+    final response = await http.get(Uri.parse('${baseUrl}v1/categories'));
 
     if (response.statusCode == 200) {
       return Right(

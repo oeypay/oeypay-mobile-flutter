@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
-import 'package:oepay/data/models/requests/pin_request_model.dart';
-import 'package:oepay/data/models/response/pin_response_model.dart';
+import 'package:oepay/resources/models/requests/pin_request_model.dart';
+import 'package:oepay/resources/models/response/pin_response_model.dart';
 
 import '../../common/constant/variables.dart';
 import '../models/requests/otp_request_model.dart';
@@ -18,7 +18,7 @@ class Authremotedatasource {
       RegisterRequestModel requetModel) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
 
-    final url = Uri.parse('${Variables.baseUrl}/register');
+    final url = Uri.parse('${baseUrl}/register');
     final response = await http.post(
       url,
       headers: headers,
@@ -37,7 +37,7 @@ class Authremotedatasource {
       OTPRequestModel otpRequetModel) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
 
-    final url = Uri.parse('${Variables.baseUrl}/verify-otp');
+    final url = Uri.parse('${baseUrl}/verify-otp');
     final response = await http.post(
       url,
       headers: headers,
@@ -56,7 +56,7 @@ class Authremotedatasource {
       OTPRequestModel requestModel) async {
     try {
       final response = await http.post(
-        Uri.parse('${Variables.baseUrl}/verify-otp'),
+        Uri.parse('${baseUrl}/verify-otp'),
         headers: {'Content-Type': 'application/json'},
         body: requestModel.toJson(),
       );
@@ -77,7 +77,7 @@ class Authremotedatasource {
       PinRequestModel requetModel) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
 
-    final url = Uri.parse('${Variables.baseUrl}/users/pin');
+    final url = Uri.parse('${baseUrl}/users/pin');
     final response = await http.post(
       url,
       headers: headers,
@@ -97,7 +97,7 @@ class Authremotedatasource {
   //   // Implementasi logika pengecekan nomor telepon
   //   // Contoh:
   //   final response = await http.get(
-  //     Uri.parse('${Variables.baseUrl}v1/register'),
+  //     Uri.parse('${baseUrl}v1/register'),
   //   );
 
   //   if (response.statusCode == 200) {
@@ -116,7 +116,7 @@ class Authremotedatasource {
   //   final header = {
   //     'Content-Type': 'application/json',
   //   };
-  //   final url = Uri.parse('${Variables.baseUrl}v1/login');
+  //   final url = Uri.parse('${baseUrl}v1/login');
   //   final response = await http.post(
   //     url,
   //     headers: header,
