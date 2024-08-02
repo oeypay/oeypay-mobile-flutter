@@ -6,6 +6,7 @@ import 'package:oepay/common/components/bottomCustomBar.dart';
 import 'package:oepay/common/components/flushbar.dart';
 import 'package:oepay/common/components/keyboard.dart';
 import 'package:oepay/common/components/pinput.dart';
+import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 
@@ -92,7 +93,7 @@ class _PinLoginPageState extends State<PinLoginPage> {
               );
             },
           ),
-          SizedBox(height: 20),
+          Space(20),
           CustomKeyboard(
             onKeyTap: _onKeyTap,
             onBackspace: _onBackspace,

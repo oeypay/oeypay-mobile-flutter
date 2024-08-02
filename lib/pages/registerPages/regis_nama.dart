@@ -88,10 +88,13 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
                   if (nomorHp.startsWith('62')) {
                     nomorHp = '0${nomorHp.substring(2)}';
                   }
+                  // debugPrint(
+                  //     'signUp data: name=${_nameController.text}, phone=$nomorHp, referral=${_undanganController.text ?? ''}');
+
                   _authCubit.signUp(
                     name: _nameController.text,
                     phone: nomorHp,
-                    referral: _undanganController.text,
+                    referral: '',
                   );
                 },
               ),

@@ -7,10 +7,9 @@ import 'package:oepay/resources/provider/api_return_value.dart';
 import 'package:oepay/resources/provider/storage_util.dart';
 
 class ApiAuthProvider {
-  static Future<ApiReturnValue<UserModel>> signUp(
+  static Future<ApiReturnValue> signUp(
       {String? name, String? phone, String? referral}) async {
     try {
-      debugPrint('signUp');
       var response = await Dio().post('${baseUrl}v1/register',
           data: {
             'name': name,
@@ -21,24 +20,21 @@ class ApiAuthProvider {
             headers: {"Authorization": "Bearer ${UserModel.token}"},
           ));
 
-      // UserModel value = UserModel.fromJson(response.data['data']['user']);
-      // UserModel.token = response.data['data']['access_token'];
-      // debugPrint(response.data['data']['access_token']);
       if (kDebugMode) {
         print(response.data['data']);
       }
-
-      // save token
-      // await StorageCore().saveObject({
-      //   "value": response.data['data']['access_token'],
-      // }, 'token');
-      // return ApiReturnValue(value: value);
-      return ApiReturnValue(success: response.data['meta']['message']);
+      debugPrint('signUp $phone $name');
+      return ApiReturnValue(success: response.data['message']);
     } catch (e) {
       if (kDebugMode) print(e.toString());
-
-      if (e is DioException && e.response?.statusCode == 400) {
-        return ApiReturnValue(message: e.response!.data['meta']['message']);
+      if (e is DioException) {
+        if (e.response != null && e.response?.statusCode == 400) {
+          var meta = e.response?.data['meta'];
+          if (meta != null && meta['message'] != null) {
+            return ApiReturnValue(message: meta['message']);
+          }
+          return ApiReturnValue(message: 'Bad request');
+        }
       }
       return ApiReturnValue(message: 'Please try again');
     }
