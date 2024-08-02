@@ -18,7 +18,7 @@ class Authremotedatasource {
       RegisterRequestModel requetModel) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
 
-    final url = Uri.parse('${baseUrl}/register');
+    final url = Uri.parse('${baseUrl}v1/register');
     final response = await http.post(
       url,
       headers: headers,
@@ -37,7 +37,7 @@ class Authremotedatasource {
       OTPRequestModel otpRequetModel) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
 
-    final url = Uri.parse('${baseUrl}/verify-otp');
+    final url = Uri.parse('${baseUrl}v1/verify-otp');
     final response = await http.post(
       url,
       headers: headers,
@@ -56,7 +56,7 @@ class Authremotedatasource {
       OTPRequestModel requestModel) async {
     try {
       final response = await http.post(
-        Uri.parse('${baseUrl}/verify-otp'),
+        Uri.parse('${baseUrl}v1/verify-otp'),
         headers: {'Content-Type': 'application/json'},
         body: requestModel.toJson(),
       );
@@ -77,7 +77,7 @@ class Authremotedatasource {
       PinRequestModel requetModel) async {
     final Map<String, String> headers = {'Content-Type': 'application/json'};
 
-    final url = Uri.parse('${baseUrl}/users/pin');
+    final url = Uri.parse('${baseUrl}v1/users/pin');
     final response = await http.post(
       url,
       headers: headers,

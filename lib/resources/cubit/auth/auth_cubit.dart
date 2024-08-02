@@ -86,15 +86,12 @@ class AuthCubit extends Cubit<AuthState> {
 
     final result = await ApiAuthProvider.signUp(
         name: name, phone: phone, referral: referral);
-    print("result $result - $phone - $name");
     if (result.success != null) {
       emit(state.copyWith(
           statusAction: BlocConnectionStatus.success, message: result.success));
-      print("masuk");
     } else {
       emit(state.copyWith(
           statusAction: BlocConnectionStatus.failed, message: result.message));
-      print("salah");
     }
   }
 
