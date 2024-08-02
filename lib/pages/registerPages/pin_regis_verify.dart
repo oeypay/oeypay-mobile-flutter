@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oepay/common/components/app_bar.dart';
 import 'package:oepay/common/components/body_auth.dart';
-import 'package:oepay/common/components/bottomCustomBar.dart';
+import 'package:oepay/common/components/bottom_custom_bar.dart';
 import 'package:oepay/common/components/flushbar.dart';
 import 'package:oepay/common/components/keyboard.dart';
 import 'package:oepay/common/components/pinput.dart';

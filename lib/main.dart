@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:oepay/common/components/bottomCustomBar.dart';
+import 'package:oepay/common/components/bottom_custom_bar.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/resources/auth/bloc/pin/pin_bloc.dart';
