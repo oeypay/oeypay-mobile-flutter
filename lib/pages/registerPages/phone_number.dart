@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oepay/common/components/app_bar.dart';
@@ -7,6 +6,7 @@ import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/customTextField.dart';
 import 'package:oepay/common/components/flushbar.dart';
 import 'package:oepay/common/constant/colors.dart';
+import 'package:oepay/pages/registerPages/pin_login.dart';
 import 'package:oepay/pages/registerPages/regis_nama.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 
@@ -18,8 +18,8 @@ class PhoneNumberForm extends StatefulWidget {
 }
 
 class _PhoneNumberFormState extends State<PhoneNumberForm> {
+  final AuthCubit _authCubit = AuthCubit();
   final _phoneController = TextEditingController();
-  bool? isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,32 +31,29 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
         automaticallyImplyLeading: false,
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
+        bloc: _authCubit,
         listener: (context, state) {
           if (state.statusAction.isSuccess()) {
-            var numberPhone = state.phoneNumberModel;
-            numberPhone?.status == 400
-                ? showSnackBar(context, msg: 'terdaftar')
-                // : showSnackBar(context, msg: 'belum terdaftar');
-                : Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => KonfirmasiNama(
-                              phone: _phoneController.text,
-                            )),
-                  );
-            setState(() {
-              isLoading = false;
-            });
-          } else if (state.status.isFailed()) {
-            var numberPhone = state.phoneNumberModel;
-            showSnackBar(context,
-                msg: 'Gagal - ${state.message} - ${numberPhone?.status}');
-            setState(() {
-              isLoading = false;
-            });
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => KonfirmasiNama(
+                        phone: _phoneController.text,
+                      )),
+            );
+          } else if (state.statusAction.isFailed()) {
+            // showSnackBar(context, msg: 'Nomor sudah terdaftar');
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => PinLoginPage(
+                        phone: _phoneController.text,
+                      )),
+            );
           }
         },
         builder: (context, state) {
+          debugPrint(state.statusAction.toString());
           return BodyAuth(
             children: [
               CustomTextField(
@@ -80,18 +77,14 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
               ),
               ButtonDefault(
                 label: "Lanjut",
-                isLoading: isLoading,
+                isLoading: state.statusAction.isLoading() ? true : false,
                 press: () async {
                   if (_phoneController.text.isEmpty) {
                     showSnackBar(context,
                         msg: 'Nomor Telephone / WhatsApp tidak boleh kosong');
                   } else {
-                    setState(() {
-                      isLoading = true;
-                    });
-                    context
-                        .read<AuthCubit>()
-                        .checkPhoneNumber(phoneNumber: _phoneController.text);
+                    _authCubit.checkPhoneNumber(
+                        phoneNumber: _phoneController.text);
                   }
                 },
               ),

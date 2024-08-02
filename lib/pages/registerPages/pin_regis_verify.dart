@@ -9,15 +9,16 @@ import 'package:oepay/common/components/pinput.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 
-class PinLoginPage extends StatefulWidget {
-  final String phone;
-  const PinLoginPage({super.key, required this.phone});
-
+class PINProtectionVerifyPage extends StatefulWidget {
+  final String phone, otpCode;
+  const PINProtectionVerifyPage(
+      {super.key, required this.phone, required this.otpCode});
   @override
-  State<PinLoginPage> createState() => _PinLoginPageState();
+  _PINProtectionVerifyPageState createState() =>
+      _PINProtectionVerifyPageState();
 }
 
-class _PinLoginPageState extends State<PinLoginPage> {
+class _PINProtectionVerifyPageState extends State<PINProtectionVerifyPage> {
   final _pinController = TextEditingController();
   final _focusNode = FocusNode();
 
@@ -52,7 +53,8 @@ class _PinLoginPageState extends State<PinLoginPage> {
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
       appBar: AppbarDefault(
-        title: "Masukan PIN Kamu",
+        title: "Verifikasi PIN Kamu",
+        titleRight: '4/4',
         bgColor: ColorName.yellowColor,
       ),
       body: BodyAuth(
@@ -60,20 +62,19 @@ class _PinLoginPageState extends State<PinLoginPage> {
         children: [
           AuthDesc(
             center: true,
-            title: 'Lupa PIN?',
+            title: 'Masukan kembali PIN yang dibuat sebelumnya',
           ),
           BlocConsumer<AuthCubit, AuthState>(
             bloc: _authCubit,
             listener: (context, state) {
-              if (state.status.isSuccess()) {
-                showSnackBar(context, msg: 'Berhasil login');
+              if (state.statusAction.isSuccess()) {
+                showSnackBar(context, msg: 'Berhasil buat pin');
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ButtonCustomBar()),
                 );
-              } else if (state.status.isFailed()) {
-                // showSnackBar(context, msg: state.message ?? 'PIN Salah');
-                showSnackBar(context, msg: 'PIN Salah');
+              } else if (state.statusAction.isFailed()) {
+                showSnackBar(context, msg: state.message ?? '');
               }
             },
             builder: (context, state) {
@@ -82,11 +83,13 @@ class _PinLoginPageState extends State<PinLoginPage> {
                 focusNode: _focusNode,
                 onCompleted: (pin) {
                   print('PIN entered: $pin');
-                  if (_pinController.text.isEmpty) {
-                    showSnackBar(context, msg: 'Masukan PIN');
+                  if (widget.otpCode != _pinController.text) {
+                    showSnackBar(context,
+                        msg:
+                            'Verifikasi PIN beda, masukan PIN yang Anda masukan sebelumnya');
                   } else {
-                    _authCubit.signIn(
-                        phone: widget.phone, pin: _pinController.text);
+                    _authCubit.sendPin(
+                        phoneNumber: widget.phone, pin: _pinController.text);
                   }
                 },
               );

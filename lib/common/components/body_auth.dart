@@ -5,8 +5,9 @@ import 'package:oepay/common/constant/styleText.dart';
 
 class BodyAuth extends StatelessWidget {
   final Key? keyForm;
+  final bool? center;
   final List<Widget>? children;
-  const BodyAuth({super.key, this.children, this.keyForm});
+  const BodyAuth({super.key, this.children, this.center = false, this.keyForm});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,8 @@ class BodyAuth extends StatelessWidget {
         padding: const EdgeInsets.only(left: 30, right: 30, top: 70),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment:
+                center! ? MainAxisAlignment.center : MainAxisAlignment.start,
             children: <Widget>[
               Center(
                 child: SvgPicture.asset(
@@ -37,22 +39,27 @@ class BodyAuth extends StatelessWidget {
 
 class AuthDesc extends StatelessWidget {
   final String? title, desc;
-  const AuthDesc({super.key, this.desc, this.title});
+  final bool? center;
+  const AuthDesc({super.key, this.desc, this.center = false, this.title});
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment:
+          center! ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Text(
           title ?? '',
+          textAlign: center! ? TextAlign.center : TextAlign.left,
           style: CustomTextStyles.titleShowModal,
         ),
         Space(10),
-        Text(
-          desc ?? '',
-          style: CustomTextStyles.textNominal,
-        ),
+        if (desc != null)
+          Text(
+            desc ?? '',
+            textAlign: center! ? TextAlign.center : TextAlign.left,
+            style: CustomTextStyles.textNominal,
+          ),
         Space(20)
       ],
     );

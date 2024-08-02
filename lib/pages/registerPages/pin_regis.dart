@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:oepay/common/components/bottomCustomBar.dart';
+import 'package:oepay/common/components/app_bar.dart';
+import 'package:oepay/common/components/body_auth.dart';
+import 'package:oepay/common/components/flushbar.dart';
+import 'package:oepay/common/components/keyboard.dart';
+import 'package:oepay/common/components/pinput.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
-import 'package:pinput/pinput.dart';
-
-import '../../resources/auth/bloc/pin/pin_bloc.dart';
-import '../../resources/models/requests/pin_request_model.dart';
+import 'package:oepay/pages/registerPages/pin_regis_verify.dart';
+import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 
 class PINProtectionPage extends StatefulWidget {
   final String phone;
@@ -20,7 +20,8 @@ class PINProtectionPage extends StatefulWidget {
 class _PINProtectionPageState extends State<PINProtectionPage> {
   final _pinController = TextEditingController();
   final _focusNode = FocusNode();
-  final _formKey = GlobalKey<FormState>();
+
+  final AuthCubit _authCubit = AuthCubit();
 
   @override
   void dispose() {
@@ -29,150 +30,72 @@ class _PINProtectionPageState extends State<PINProtectionPage> {
     super.dispose();
   }
 
-  void _sendPin() {
-    if (_formKey.currentState!.validate()) {
-      final PinRequestModel requestModel = PinRequestModel(
-        pin: _pinController.text,
-        phone: widget.phone,
-      );
+  void _onKeyTap(String value) {
+    if (_pinController.text.length < 6) {
+      setState(() {
+        _pinController.text += value;
+      });
+    }
+  }
 
-      context.read<PinBloc>().add(
-            PinEvent.sendPin(
-              requestModel: requestModel,
-            ),
-          );
+  void _onBackspace() {
+    if (_pinController.text.isNotEmpty) {
+      setState(() {
+        _pinController.text =
+            _pinController.text.substring(0, _pinController.text.length - 1);
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final defaultPinTheme = PinTheme(
-      width: 35,
-      height: 35,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        // border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(100),
-      ),
-    );
-
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppBar(
-        backgroundColor: ColorName.yellowColor,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Buat PIN Kamu',
-              style: CustomTextStyles.verifikasiTitle,
-            ),
-            Text(
-              '3/3',
-              style: CustomTextStyles.titleItem,
-            ),
-          ],
-        ),
+      appBar: AppbarDefault(
+        title: "Buat PIN Kamu",
+        titleRight: '3/4',
+        bgColor: ColorName.yellowColor,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 70),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: SvgPicture.asset(
-                'assets/icons/oeypay-favicon.svg',
-                color: Colors.black,
-                width: 85,
-              ),
-            ),
-            SizedBox(height: 45),
-            Text(
-              'PIN ini untuk keamanan transaksi dan akun OeyPay',
-              textAlign: TextAlign.center,
-              style: CustomTextStyles.poppins(
-                size: 16,
-                color: Colors.black,
-                // fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 20),
-            BlocListener<PinBloc, PinState>(
-              listener: (context, state) {
-                // TODO: implement listener
-                state.maybeWhen(
-                  orElse: () {},
-                  success: (response) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('PIN Berhasil di Buat'),
-                        backgroundColor: Colors.green,
-                        duration:
-                            Duration(seconds: 2), // Durasi tampilnya snackbar
-                      ),
-                    );
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ButtonCustomBar(),
-                      ),
-                    );
-                  },
-                  error: (message) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Gagal memverifikasi OTP $message'),
-                        backgroundColor: Colors.redAccent,
-                      ),
-                    );
-                    print(message);
-                  },
-                );
-              },
-              child: BlocBuilder<PinBloc, PinState>(
-                builder: (context, state) {
-                  return Pinput(
-                    length: 6,
-                    animationCurve: Curves.bounceIn,
-                    animationDuration: Durations.long1,
-                    controller: _pinController,
-                    focusNode: _focusNode,
-                    obscureText: true, // Menyembunyikan angka yang dimasukkan
-                    obscuringWidget: Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(100),
-                      ), // Ganti dengan warna latar belakang hitam
-                    ),
-                    defaultPinTheme: defaultPinTheme,
-                    focusedPinTheme: defaultPinTheme.copyWith(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-                    submittedPinTheme: defaultPinTheme.copyWith(
-                      decoration: BoxDecoration(
-                        color: Colors
-                            .black, // Latar belakang hitam setelah dikirim
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-                    onCompleted: (pin) {
-                      print('PIN entered: $pin');
-                      _sendPin();
-
-                      // Implementasikan logika validasi PIN di sini
-                    },
+      body: BodyAuth(
+        center: true,
+        children: [
+          AuthDesc(
+            center: true,
+            title: 'PIN ini untuk keamanan transaksi dan akun OeyPay',
+          ),
+          BlocConsumer<AuthCubit, AuthState>(
+            bloc: _authCubit,
+            listener: (context, state) {
+              if (state.statusAction.isSuccess()) {
+                showSnackBar(context, msg: 'Berhasil buat pin');
+              } else if (state.statusAction.isFailed()) {
+                showSnackBar(context, msg: state.message ?? '');
+              }
+            },
+            builder: (context, state) {
+              return PinPutDefault(
+                controller: _pinController,
+                focusNode: _focusNode,
+                onCompleted: (pin) {
+                  print('PIN entered: $pin');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PINProtectionVerifyPage(
+                              phone: widget.phone,
+                              otpCode: _pinController.text,
+                            )),
                   );
                 },
-              ),
-            ),
-          ],
-        ),
+              );
+            },
+          ),
+          SizedBox(height: 20),
+          CustomKeyboard(
+            onKeyTap: _onKeyTap,
+            onBackspace: _onBackspace,
+          ),
+        ],
       ),
     );
   }

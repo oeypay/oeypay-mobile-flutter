@@ -1,13 +1,15 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:oepay/common/components/app_bar.dart';
+import 'package:oepay/common/components/body_auth.dart';
+import 'package:oepay/common/components/flushbar.dart';
+import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/registerPages/pin_regis.dart';
+import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 import 'package:pinput/pinput.dart';
-
-import '../../resources/auth/bloc/kodeOTP/kode_otp_bloc.dart';
-import '../../resources/models/requests/otp_request_model.dart';
 
 class OTPConfirmationPage extends StatefulWidget {
   final String phone;
@@ -18,29 +20,34 @@ class OTPConfirmationPage extends StatefulWidget {
 
 class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
   final _otpController = TextEditingController();
+  final AuthCubit _authCubit = AuthCubit();
   final _focusNode = FocusNode();
-  final _formKey = GlobalKey<FormState>();
+  int _remainingTime = 30;
+  Timer? _timer;
+  @override
+  void initState() {
+    super.initState();
+    _startCountdown();
+  }
 
   @override
   void dispose() {
     _otpController.dispose();
     _focusNode.dispose();
+    _timer?.cancel();
     super.dispose();
   }
 
-  void _verifyOtp() {
-    if (_formKey.currentState!.validate()) {
-      final OTPRequestModel requestModel = OTPRequestModel(
-        kodeOtp: _otpController.text,
-        phone: widget.phone,
-      );
-
-      context.read<KodeOtpBloc>().add(
-            KodeOtpEvent.verifyOTP(
-              otpRequestModel: requestModel,
-            ),
-          );
-    }
+  void _startCountdown() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_remainingTime > 0) {
+          _remainingTime--;
+        } else {
+          _timer?.cancel();
+        }
+      });
+    });
   }
 
   @override
@@ -61,152 +68,111 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
 
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppBar(
-        backgroundColor: ColorName.yellowColor,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'OTP',
-              style: CustomTextStyles.verifikasiTitle,
-            ),
-            Text(
-              '2/3',
-              style: CustomTextStyles.titleItem,
-            ),
-          ],
-        ),
+      appBar: AppbarDefault(
+        title: "OTP",
+        titleRight: '2/4',
+        bgColor: ColorName.yellowColor,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 70),
-        child: Center(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Center(
-                  child: SvgPicture.asset(
-                    'assets/icons/oeypay-favicon.svg',
-                    color: Colors.black,
-                    width: 85,
+      body: BodyAuth(
+        children: [
+          AuthDesc(
+            title: 'Verifikasi lewat SMS',
+            desc:
+                'Masukan kode verifikasi (OTP) yang dikirim lewat SMS ke nomor kamu ${widget.phone}',
+          ),
+          BlocConsumer<AuthCubit, AuthState>(
+            bloc: _authCubit,
+            listener: (context, state) {
+              if (state.statusAction.isSuccess()) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PINProtectionPage(
+                            phone: widget.phone,
+                          )),
+                );
+              } else if (state.statusAction.isFailed()) {
+                showSnackBar(context, msg: state.message ?? '');
+              }
+            },
+            builder: (context, state) {
+              return Pinput(
+                length: 6,
+                controller: _otpController,
+                focusNode: _focusNode,
+                defaultPinTheme: defaultPinTheme,
+                focusedPinTheme: defaultPinTheme.copyWith(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                SizedBox(height: 45),
-                Text(
-                  'Verifikasi lewat SMS',
-                  style: CustomTextStyles.titleShowModal,
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Masukan kode verifikasi (OTP) yang dikirim lewat SMS ke nomor kamu ${widget.phone}',
-                  style: CustomTextStyles.textNominal,
-                ),
-                SizedBox(height: 30),
-                BlocListener<KodeOtpBloc, KodeOtpState>(
-                  listener: (context, state) {
-                    state.maybeWhen(
-                      orElse: () {},
-                      success: (responseModel) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('OTP berhasil diverifikasi'),
-                            backgroundColor: Colors.greenAccent,
-                          ),
-                        );
-                        // Arahkan pengguna ke halaman berikutnya
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PINProtectionPage(
-                              phone: widget.phone,
-                            ),
-                          ),
-                        );
-                      },
-                      error: (msg) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Gagal memverifikasi OTP $msg'),
-                            backgroundColor: Colors.redAccent,
-                          ),
-                        );
-                        print(msg);
-                      },
-                    );
-                  },
-                  child: BlocBuilder<KodeOtpBloc, KodeOtpState>(
-                    builder: (context, state) {
-                      return Pinput(
-                        length: 6,
-                        controller: _otpController,
-                        focusNode: _focusNode,
-                        defaultPinTheme: defaultPinTheme,
-                        focusedPinTheme: defaultPinTheme.copyWith(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        submittedPinTheme: defaultPinTheme.copyWith(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.length < 6) {
-                            return 'Kode OTP harus terdiri dari 6 digit';
-                          }
-                          return null;
-                        },
-                        onCompleted: (pin) {
-                          print('OTP entered: $pin');
-                          _verifyOtp(); // Panggil verifikasi OTP ketika input selesai
-                        },
-                      );
-                    },
+                submittedPinTheme: defaultPinTheme.copyWith(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                SizedBox(height: 30),
-                Center(
-                  child: Text(
-                    'Tidak Menerima OTP ? ',
-                    style: CustomTextStyles.poppins(
-                      size: 15,
-                      color: Colors.blueGrey,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5),
-                Center(
-                  child: Text(
-                    'Kirim Ulang',
-                    style: CustomTextStyles.poppins(
-                      size: 15,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5),
-                Center(
-                  child: Text(
-                    'Kirim ulang dalam 30 detik',
-                    style: CustomTextStyles.poppins(
-                      size: 13,
-                      color: Colors.black,
-                      // fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
+                validator: (value) {
+                  if (value == null || value.length < 6) {
+                    return 'Kode OTP harus terdiri dari 6 digit';
+                  }
+                  return null;
+                },
+                onCompleted: (pin) {
+                  print('OTP entered: $pin');
+                  _authCubit.verifyOtp(
+                      phoneNumber: widget.phone, otpCode: _otpController.text);
+                },
+              );
+            },
+          ),
+          Space(30),
+          Center(
+            child: Text(
+              'Tidak Menerima OTP ? ',
+              style: CustomTextStyles.poppins(
+                size: 15,
+                color: Colors.blueGrey,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
-        ),
+          Space(5),
+          Center(
+            child: InkWell(
+              onTap: () async {
+                _remainingTime == 0
+                    ? _authCubit.resendOtp(phoneNumber: widget.phone)
+                    : null;
+                setState(() {
+                  _remainingTime = 30;
+                });
+                _startCountdown();
+              },
+              child: Text(
+                'Kirim Ulang',
+                style: CustomTextStyles.poppins(
+                  size: 15,
+                  color: _remainingTime != 0 ? Colors.blueGrey : Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          Space(5),
+          if (_remainingTime != 0)
+            Center(
+              child: Text(
+                'Kirim ulang dalam $_remainingTime detik',
+                style: CustomTextStyles.poppins(
+                  size: 13,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }
