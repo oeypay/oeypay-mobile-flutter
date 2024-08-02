@@ -11,24 +11,29 @@ class ApiAuthProvider {
       {String? name, String? phone, String? referral}) async {
     try {
       debugPrint('signUp');
-      var response = await Dio().post(
-        '${baseUrl}v1/register',
-        data: {
-          'name': name,
-          'phone': phone,
-          'referral': referral,
-        },
-      );
+      var response = await Dio().post('${baseUrl}v1/register',
+          data: {
+            'name': name,
+            'phone': phone,
+            'referral': referral,
+          },
+          options: Options(
+            headers: {"Authorization": "Bearer ${UserModel.token}"},
+          ));
 
-      UserModel value = UserModel.fromJson(response.data['data']['user']);
-      UserModel.token = response.data['data']['access_token'];
-      debugPrint(response.data['data']['access_token']);
+      // UserModel value = UserModel.fromJson(response.data['data']['user']);
+      // UserModel.token = response.data['data']['access_token'];
+      // debugPrint(response.data['data']['access_token']);
+      if (kDebugMode) {
+        print(response.data['data']);
+      }
 
       // save token
       // await StorageCore().saveObject({
       //   "value": response.data['data']['access_token'],
       // }, 'token');
-      return ApiReturnValue(value: value);
+      // return ApiReturnValue(value: value);
+      return ApiReturnValue(success: response.data['meta']['message']);
     } catch (e) {
       if (kDebugMode) print(e.toString());
 
