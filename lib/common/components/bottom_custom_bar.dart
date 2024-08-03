@@ -28,111 +28,88 @@ class _ButtonCustomBarState extends State<ButtonCustomBar> {
 
   @override
   Widget build(BuildContext context) {
+    return ButtomMenus(
+      currentIndex: selected,
+      controllerBody: controller,
+      pressMenus: (index) {
+        if (index == selected) return;
+        controller.jumpToPage(index);
+        setState(() {
+          selected = index;
+        });
+      },
+      pressQrCode: () {
+        setState(() {
+          heart = !heart;
+        });
+      },
+      itemsMenu: [
+        BottomBarItem(
+          icon: IconSvgMenu(icon: 'home.svg'),
+          title: TitleMenu(title: 'Home'),
+        ),
+        BottomBarItem(
+          icon: IconSvgMenu(icon: 'badge-percent.svg'),
+          title: TitleMenu(title: 'Merchan'),
+        ),
+        BottomBarItem(
+          icon: IconSvgMenu(icon: 'time-past.svg'),
+          title: TitleMenu(title: 'History'),
+        ),
+        BottomBarItem(
+          icon: IconSvgMenu(icon: 'user.svg'),
+          title: TitleMenu(title: 'Profile'),
+        ),
+      ],
+      itemsBody: [
+        HomePage(),
+        Merchanpage(),
+        HistoryPage(),
+        ProfilePage(),
+      ],
+    );
+  }
+}
+
+class ButtomMenus extends StatelessWidget {
+  final List<Widget>? itemsBody;
+  final List<BottomBarItem>? itemsMenu;
+  final void Function()? pressQrCode;
+  final PageController? controllerBody;
+  final void Function(int)? pressMenus;
+  final int? currentIndex;
+  const ButtomMenus({
+    super.key,
+    this.itemsBody,
+    this.itemsMenu,
+    this.pressQrCode,
+    this.pressMenus,
+    this.controllerBody,
+    this.currentIndex,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true, //to make floating action button notch transparent
+      extendBody: true,
       bottomNavigationBar: StylishBottomBar(
-        backgroundColor: Color(0xffFEF7dd),
-        // backgroundColor: Colors.indigo,
-        elevation: 1,
+        backgroundColor: Colors.white,
+        elevation: 15,
         iconSpace: 1.2,
         option: AnimatedBarOptions(
           iconSize: 32,
           inkColor: Colors.yellow.shade50,
-          // inkEffect: true,
-          // barAnimation: BarAnimation.fade,
           iconStyle: IconStyle.animated,
-          // opacity: 0.5,
         ),
-        items: [
-          BottomBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/home.svg',
-              width: 25,
-              color: Colors.black45,
-            ),
-            selectedColor: ColorName.yellowColor,
-            unSelectedColor: Colors.black54,
-            title: const Text(
-              'Home',
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black),
-            ),
-          ),
-          BottomBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/badge-percent.svg',
-              width: 25,
-              color: Colors.black45,
-            ),
-            // selectedIcon: Image.asset(
-            //   'assets/images/merchant.png',
-            //   color: Colors.pink,
-            // ),
-            selectedColor: ColorName.yellowColor,
-            unSelectedColor: Colors.black54,
-            title: const Text(
-              'Merchan',
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          BottomBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/time-past.svg',
-              width: 25,
-              color: Colors.black45,
-            ),
-            unSelectedColor: Colors.black54,
-            title: const Text(
-              'History',
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          BottomBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/user.svg',
-              width: 25,
-              color: Colors.black45,
-            ),
-            // selectedColor: ColorName.yellowColor,
-            unSelectedColor: Colors.black54,
-            title: const Text(
-              'Profile',
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ],
+        items: itemsMenu ?? [],
         hasNotch: true,
         fabLocation: StylishBarFabLocation.center,
-        currentIndex: selected,
+        currentIndex: currentIndex ?? 0,
         notchStyle: NotchStyle.circle,
-        onTap: (index) {
-          if (index == selected) return;
-          controller.jumpToPage(index);
-          setState(() {
-            selected = index;
-          });
-        },
+        onTap: pressMenus,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            heart = !heart;
-          });
-        },
+        onPressed: pressQrCode,
         splashColor: Colors.lightBlue,
         backgroundColor: ColorName.yellowColor,
         elevation: 8.0,
@@ -143,13 +120,40 @@ class _ButtonCustomBarState extends State<ButtonCustomBar> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: PageView(
-        controller: controller,
-        children: const [
-          HomePage(),
-          Merchanpage(),
-          HistoryPage(),
-          ProfilePage(),
-        ],
+        controller: controllerBody,
+        children: itemsBody ?? [],
+      ),
+    );
+  }
+}
+
+class IconSvgMenu extends StatelessWidget {
+  final String? icon;
+  final double? width;
+  const IconSvgMenu({super.key, this.icon, this.width});
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      'assets/icons/$icon',
+      height: width ?? 20,
+      colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+    );
+  }
+}
+
+class TitleMenu extends StatelessWidget {
+  final String? title;
+  const TitleMenu({super.key, this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title ?? '',
+      style: TextStyle(
+        fontSize: 13,
+        fontWeight: FontWeight.w500,
+        color: Colors.black,
       ),
     );
   }

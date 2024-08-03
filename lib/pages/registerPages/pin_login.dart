@@ -67,7 +67,7 @@ class _PinLoginPageState extends State<PinLoginPage> {
             bloc: _authCubit,
             listener: (context, state) {
               if (state.status.isSuccess()) {
-                showSnackBar(context, msg: 'Berhasil login');
+                // showSnackBar(context, msg: 'Berhasil login');
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => ButtonCustomBar()),

@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
             shape: CircleBorder(),
           ),
         ),
-        home: PhoneNumberForm(),
+        home: SplashScreen(),
       ),
     );
   }

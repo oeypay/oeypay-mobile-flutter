@@ -419,10 +419,12 @@ class HeaderInput extends StatelessWidget {
                   icon: Icon(Icons.contacts),
                 ),
                 hintText: 'Nomor Ponsel',
-                suffixIcon: IconButton(
-                  onPressed: presssuffixIcon,
-                  icon: const Icon(Icons.close),
-                ),
+                suffixIcon: controller!.text.isNotEmpty
+                    ? IconButton(
+                        onPressed: presssuffixIcon,
+                        icon: const Icon(Icons.close),
+                      )
+                    : null,
               ),
             ),
           ),
