@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:oepay/common/components/bottomCustomBar.dart';
+import 'package:oepay/common/components/bottom_custom_bar.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/pages/loginPages/reset_pass.dart';

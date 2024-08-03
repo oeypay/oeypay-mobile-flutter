@@ -16,8 +16,11 @@ class ApiAuthProvider {
             'phone': phone,
             'referral': referral,
           },
+          // options: Options(
+          //   headers: {"Authorization": "Bearer ${UserModel.token}"},
+          // ));
           options: Options(
-            headers: {"Authorization": "Bearer ${UserModel.token}"},
+            headers: {'Content-Type': 'application/json'},
           ));
 
       if (kDebugMode) {

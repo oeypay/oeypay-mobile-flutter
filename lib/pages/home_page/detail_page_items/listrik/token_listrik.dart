@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:oepay/common/components/container_list_harga.dart';
+import 'package:oepay/common/components/show_dialog_pembayaran.dart';
+
+import '../penarikan/bca/konfirmasi_penarikan_otp.dart';
+import 'hasil_transaksi_listrik.dart';
+
+class TokenListrik extends StatelessWidget {
+  const TokenListrik({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => showCustomBottomSheet(
+          context: context,
+          nomorMeter: 091391290198919012,
+          iDPelanggan: 334124231,
+          namaPelanggan: 'Ahmad',
+          titleHarga: 'Token Listrik',
+          tarifDaya: 'R1M/900VA',
+          hargaPrice: 'Rp 20.000',
+          transaksi: 'Rp.0',
+          totalPembayaran: 'Rp.15.000',
+          saldoOeyPay: 'Rp.20.000',
+          onPayPressed: () {
+            // customShowDialog(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Konfirmasipenarikanotp(
+                  onConfirmation: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HasilTransaksiListrik(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            );
+          }),
+      child: Containerlistharga(
+        namaPln: 'PLN Prepaid',
+        hargaVoucher: 'Rp 20.000',
+        totalhargaVoucher: 'Rp 22.000',
+      ),
+    );
+  }
+}

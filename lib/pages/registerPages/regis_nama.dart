@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oepay/common/components/app_bar.dart';
 import 'package:oepay/common/components/body_auth.dart';
 import 'package:oepay/common/components/buttons.dart';
-import 'package:oepay/common/components/customTextField.dart';
+import 'package:oepay/common/components/custom_textField.dart';
 import 'package:oepay/common/components/flushbar.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/pages/registerPages/otp.dart';
