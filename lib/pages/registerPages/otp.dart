@@ -84,7 +84,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
             bloc: _authCubit,
             listener: (context, state) {
               if (state.statusAction.isSuccess()) {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                       builder: (context) => PINProtectionPage(
@@ -131,7 +131,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
           Space(30),
           Center(
             child: Text(
-              'Tidak Menerima OTP ? ',
+              'Tidak Menerima OTP ?',
               style: CustomTextStyles.poppins(
                 size: 15,
                 color: Colors.blueGrey,
@@ -140,27 +140,30 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
             ),
           ),
           Space(5),
-          Center(
-            child: InkWell(
-              onTap: () async {
-                _remainingTime == 0
-                    ? _authCubit.resendOtp(phoneNumber: widget.phone)
-                    : null;
-                setState(() {
-                  _remainingTime = 30;
-                });
-                _startCountdown();
-              },
-              child: Text(
-                'Kirim Ulang',
-                style: CustomTextStyles.poppins(
-                  size: 15,
-                  color: _remainingTime != 0 ? Colors.blueGrey : Colors.black,
-                  fontWeight: FontWeight.bold,
+          if (_remainingTime == 0)
+            Center(
+              child: InkWell(
+                onTap: () async {
+                  _remainingTime == 0
+                      ? context
+                          .read<AuthCubit>()
+                          .resendOtp(phoneNumber: widget.phone)
+                      : null;
+                  setState(() {
+                    _remainingTime = 30;
+                  });
+                  _startCountdown();
+                },
+                child: Text(
+                  'Kirim Ulang',
+                  style: CustomTextStyles.poppins(
+                    size: 15,
+                    color: _remainingTime != 0 ? Colors.blueGrey : Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
-          ),
           Space(5),
           if (_remainingTime != 0)
             Center(

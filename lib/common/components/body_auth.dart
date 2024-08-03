@@ -21,11 +21,10 @@ class BodyAuth extends StatelessWidget {
                 center! ? MainAxisAlignment.center : MainAxisAlignment.start,
             children: <Widget>[
               Center(
-                child: SvgPicture.asset(
-                  'assets/icons/oeypay-favicon.svg',
-                  color: Colors.black,
-                  width: 85,
-                ),
+                child: SvgPicture.asset('assets/icons/oeypay-favicon.svg',
+                    width: 85,
+                    colorFilter:
+                        ColorFilter.mode(Colors.black, BlendMode.srcIn)),
               ),
               const Space(45),
               ...children ?? []

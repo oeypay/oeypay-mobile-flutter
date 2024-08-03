@@ -34,7 +34,7 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
         bloc: _authCubit,
         listener: (context, state) {
           if (state.statusAction.isSuccess()) {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => KonfirmasiNama(

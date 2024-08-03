@@ -9,6 +9,7 @@ import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/resources/auth/bloc/pin/pin_bloc.dart';
 import 'package:oepay/resources/auth/bloc/register/register_bloc.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
+import 'package:oepay/resources/cubit/menu/menu_cubit.dart';
 import 'package:oepay/resources/dataSource/auth_remote_data_source.dart';
 import 'package:oepay/pages/intro/intro.dart';
 import 'package:oepay/pages/registerPages/phone_number.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthCubit>(create: (context) => AuthCubit()),
+        BlocProvider<MenuCubit>(create: (context) => MenuCubit()),
         BlocProvider(create: (context) => RegisterBloc(Authremotedatasource())),
         BlocProvider(
             create: (context) =>

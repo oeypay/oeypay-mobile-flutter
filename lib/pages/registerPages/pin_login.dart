@@ -68,7 +68,7 @@ class _PinLoginPageState extends State<PinLoginPage> {
             listener: (context, state) {
               if (state.status.isSuccess()) {
                 showSnackBar(context, msg: 'Berhasil login');
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => ButtonCustomBar()),
                 );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/variables.dart';
 
 class CustomGridItemPage {
   final String images;
@@ -17,27 +18,54 @@ class CustomGridItemPage {
 }
 
 class CustomGridItemWidget extends StatelessWidget {
-  final CustomGridItemPage item;
+  final String? images, category;
+  final String? title;
+  final Color? color;
+  final VoidCallback? onTap;
 
-  const CustomGridItemWidget({super.key, required this.item});
+  const CustomGridItemWidget(
+      {super.key,
+      this.color,
+      this.images,
+      this.onTap,
+      this.title,
+      this.category});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: item.onTap,
+      onTap: onTap,
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            item.images,
-            width: 25,
-            height: 25,
-            color: item.color,
-          ),
+          if (images!.endsWith('.svg'))
+            SvgPicture.network(
+              images ?? defaultFotoSvg,
+              width: 25,
+              height: 25,
+              colorFilter: ColorFilter.mode(
+                  category == 'Tagihan'
+                      ? Colors.amber
+                      : category == 'Pembayaran'
+                          ? Colors.blue
+                          : category == 'Layanan Digital'
+                              ? Colors.pink
+                              : category == 'Layanan Pemerintah'
+                                  ? Colors.cyan
+                                  : Colors.black,
+                  BlendMode.srcIn),
+            )
+          else
+            Image.network(
+              images ?? defaultFoto,
+              width: 25,
+              height: 25,
+              errorBuilder: (context, error, stackTrace) => Icon(Icons.error),
+            ),
           const SizedBox(height: 10),
           Flexible(
             child: Text(
-              item.title,
+              title ?? '',
               textAlign: TextAlign.center,
               style: CustomTextStyles.titleItem,
             ),
@@ -49,11 +77,10 @@ class CustomGridItemWidget extends StatelessWidget {
 }
 
 class CustomGridPage extends StatelessWidget {
-  final List<CustomGridItemPage> items;
-  final String sectionTitle;
+  final List<Widget>? items;
+  final String? sectionTitle;
 
-  const CustomGridPage(
-      {super.key, required this.items, required this.sectionTitle});
+  const CustomGridPage({super.key, this.items, this.sectionTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -61,17 +88,20 @@ class CustomGridPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       // mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(sectionTitle, style: CustomTextStyles.titlesection),
-        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Text(sectionTitle ?? '', style: CustomTextStyles.titlesection),
+        ),
         GridView.count(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           crossAxisCount: 4,
           crossAxisSpacing: 9.0,
-          // mainAxisSpacing: 1.0,
-          children:
-              items.map((item) => CustomGridItemWidget(item: item)).toList(),
+          children: items ?? [],
+          // children:
+          //     items.map((item) => CustomGridItemWidget(item: item)).toList(),
         ),
+        Divider(),
       ],
     );
   }
