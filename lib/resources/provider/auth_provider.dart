@@ -83,13 +83,6 @@ class ApiAuthProvider {
       if (kDebugMode) {
         print(response.data);
       }
-      debugPrint("Response Code: ${response.statusCode}");
-      debugPrint("Response Data: ${response.data}");
-
-      if (response.statusCode != 200) {
-        return ApiReturnValue(message: response.data['message']);
-      }
-
       PhoneNumberModel value = PhoneNumberModel.fromJson(response.data);
       return ApiReturnValue(value: value);
     } catch (e) {

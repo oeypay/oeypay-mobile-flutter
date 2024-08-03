@@ -42,7 +42,8 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
                       )),
             );
           } else if (state.statusAction.isFailed()) {
-            // showSnackBar(context, msg: 'Nomor sudah terdaftar');
+            // showSnackBar(context,
+            //     msg: state.phoneNumberModel?.message.toString());
             Navigator.push(
               context,
               MaterialPageRoute(
