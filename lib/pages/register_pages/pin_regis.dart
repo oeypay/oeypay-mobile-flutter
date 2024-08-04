@@ -7,7 +7,7 @@ import 'package:oepay/common/components/keyboard.dart';
 import 'package:oepay/common/components/pinput.dart';
 import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/pages/registerPages/pin_regis_verify.dart';
+import 'package:oepay/pages/register_pages/pin_regis_verify.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 
 class PINProtectionPage extends StatefulWidget {

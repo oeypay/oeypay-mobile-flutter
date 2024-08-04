@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,7 +15,7 @@ import 'detail_page_items/listrik/listrik_details.dart';
 import 'detail_page_items/penarikan/penarikan_details.dart';
 import 'detail_page_items/riwayat/riwayat_detail.dart';
 import 'detail_page_items/tiket/pemesanan_tiket.dart';
-import 'detail_page_items/topUp/virtualAccount/virtual_account_pages.dart';
+import 'detail_page_items/top_up/virtualAccount/virtual_account_pages.dart';
 import 'detail_page_items/transfer/transferDetails.dart';
 import 'item_lainnya_page.dart';
 import 'notofication_page.dart';
@@ -237,7 +236,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.only(top: 30, left: 15, right: 15),
+                        margin:
+                            const EdgeInsets.only(top: 30, left: 15, right: 15),
                         width: MediaQuery.of(context).size.width,
                         padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
@@ -254,7 +254,8 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const Virtualaccountpages(),
+                                    builder: (context) =>
+                                        const Virtualaccountpages(),
                                   ),
                                 );
                               },
@@ -271,7 +272,8 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const TransferDetails(),
+                                    builder: (context) =>
+                                        const TransferDetails(),
                                   ),
                                 );
                               },
@@ -291,7 +293,8 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const Penarikandetails(),
+                                    builder: (context) =>
+                                        const Penarikandetails(),
                                   ),
                                 );
                               },
@@ -463,7 +466,8 @@ class NavbarHomePage extends StatelessWidget {
       children: [
         Container(
           // height: 55,
-          padding: const EdgeInsets.only(top: 45, left: 20, right: 20, bottom: 10),
+          padding:
+              const EdgeInsets.only(top: 45, left: 20, right: 20, bottom: 10),
           decoration: BoxDecoration(
             color: bgColor ?? Colors.transparent,
           ),

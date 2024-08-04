@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../dataSource/auth_remote_data_source.dart';
+import '../../../data_source/auth_remote_data_source.dart';
 import '../../../models/requests/register_request_model.dart';
 import '../../../models/response/register_response_model.dart';
 

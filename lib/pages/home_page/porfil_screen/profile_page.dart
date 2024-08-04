@@ -5,11 +5,11 @@ import 'package:oepay/common/components/custom_textField.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/Settings/security_page.dart';
-import 'package:oepay/pages/registerPages/phone_number.dart';
+import 'package:oepay/pages/register_pages/phone_number.dart';
 import 'package:oepay/resources/models/user_model/user_model.dart';
 import 'package:oepay/resources/provider/storage_util.dart';
 
-import 'Bantuan.dart';
+import 'bantuan.dart';
 import 'syaratKetentuanDetails.dart';
 import 'tentang.dart';
 

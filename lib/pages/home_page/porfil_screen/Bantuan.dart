@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 
-import 'FAQdetails.dart';
-import 'GuideDetails.dart';
+import 'faq_details.dart';
+import 'guide_details.dart';
 
 class PusatBantuan extends StatelessWidget {
   const PusatBantuan({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/pages/registerPages/email_verify.dart';
+import 'package:oepay/pages/register_pages/email_verify.dart';
 
 class CreatPassword extends StatefulWidget {
   const CreatPassword({super.key});

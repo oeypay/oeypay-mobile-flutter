@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../dataSource/category_remote_data_source.dart';
+import '../../../data_source/category_remote_data_source.dart';
 import '../../../models/response/category_response_model.dart';
 
 part 'category_event.dart';

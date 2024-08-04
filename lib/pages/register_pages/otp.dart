@@ -7,7 +7,7 @@ import 'package:oepay/common/components/flushbar.dart';
 import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/pages/registerPages/pin_regis.dart';
+import 'package:oepay/pages/register_pages/pin_regis.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 import 'package:pinput/pinput.dart';
 

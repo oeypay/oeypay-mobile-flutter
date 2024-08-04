@@ -6,8 +6,8 @@ import 'package:oepay/resources/auth/bloc/pin/pin_bloc.dart';
 import 'package:oepay/resources/auth/bloc/register/register_bloc.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 import 'package:oepay/resources/cubit/menu/menu_cubit.dart';
-import 'package:oepay/resources/dataSource/auth_remote_data_source.dart';
-import 'package:oepay/pages/registerPages/phone_number.dart';
+import 'package:oepay/resources/data_source/auth_remote_data_source.dart';
+import 'package:oepay/pages/register_pages/phone_number.dart';
 
 import 'resources/auth/bloc/category/category_bloc.dart';
 import 'resources/auth/bloc/kodeOTP/kode_otp_bloc.dart';
