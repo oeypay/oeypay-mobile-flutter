@@ -60,7 +60,10 @@ class ValueRincianData extends StatelessWidget {
                   data1,
                   style: CustomTextStyles.titleProfil,
                 ),
-                if (icon != null) const Icon(Icons.chevron_right) else Container(),
+                if (icon != null)
+                  const Icon(Icons.chevron_right)
+                else
+                  Container(),
               ],
             ),
             Text(

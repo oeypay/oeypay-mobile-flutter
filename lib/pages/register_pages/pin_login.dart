@@ -98,6 +98,9 @@ class _PinLoginPageState extends State<PinLoginPage> {
           CustomKeyboard(
             onKeyTap: _onKeyTap,
             onBackspace: _onBackspace,
+            onFinger: () {
+              showSnackBar(context, msg: 'Fitur ini belum tersedia');
+            },
           ),
         ],
       ),

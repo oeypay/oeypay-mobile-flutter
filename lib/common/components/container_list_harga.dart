@@ -63,8 +63,8 @@ class Containerlistharga extends StatelessWidget {
             if (harga != null)
               Text(
                 harga!,
-                style:
-                    const TextStyle(fontSize: 12, height: 1, color: ColorName.black),
+                style: const TextStyle(
+                    fontSize: 12, height: 1, color: ColorName.black),
               )
             else
               Text(
@@ -88,7 +88,8 @@ class Containerlistharga extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
                     decoration: BoxDecoration(
                       color: Colors.pink.withOpacity(.2),
                       borderRadius: BorderRadius.circular(4),

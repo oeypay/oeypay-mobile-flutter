@@ -89,7 +89,8 @@ class ContactInfoTile extends StatelessWidget {
   final String label;
   final TextEditingController controller;
 
-  const ContactInfoTile({super.key, 
+  const ContactInfoTile({
+    super.key,
     required this.icon,
     required this.label,
     required this.controller,

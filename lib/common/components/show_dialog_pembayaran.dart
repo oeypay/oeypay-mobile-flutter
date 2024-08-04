@@ -278,7 +278,8 @@ class CustomShowModalBottomSheet extends StatelessWidget {
   final String iconik;
   final List<String> _topUpSteps;
 
-  const CustomShowModalBottomSheet({super.key, 
+  const CustomShowModalBottomSheet({
+    super.key,
     required this.iconik,
     required String virtualAccountTitle,
     required String virtualAccountNumber,

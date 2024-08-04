@@ -72,7 +72,8 @@ class _PINProtectionVerifyPageState extends State<PINProtectionVerifyPage> {
                 showSnackBar(context, msg: 'Berhasil buat pin');
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const ButtonCustomBar()),
+                  MaterialPageRoute(
+                      builder: (context) => const ButtonCustomBar()),
                 );
               } else if (state.statusAction.isFailed()) {
                 showSnackBar(context, msg: state.message ?? '');
@@ -100,6 +101,9 @@ class _PINProtectionVerifyPageState extends State<PINProtectionVerifyPage> {
           CustomKeyboard(
             onKeyTap: _onKeyTap,
             onBackspace: _onBackspace,
+            onFinger: () {
+              showSnackBar(context, msg: 'Fitur ini belum tersedia');
+            },
           ),
         ],
       ),

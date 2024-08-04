@@ -246,7 +246,8 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const HasiltransferBca(),
+                                  builder: (context) =>
+                                      const HasiltransferBca(),
                                 ),
                               );
                             },

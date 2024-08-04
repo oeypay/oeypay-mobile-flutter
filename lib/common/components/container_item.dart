@@ -60,7 +60,8 @@ class CustomGridItemWidget extends StatelessWidget {
               images ?? defaultFoto,
               width: 25,
               height: 25,
-              errorBuilder: (context, error, stackTrace) => const Icon(Icons.error),
+              errorBuilder: (context, error, stackTrace) =>
+                  const Icon(Icons.error),
             ),
           const SizedBox(height: 10),
           Flexible(

@@ -109,7 +109,8 @@ class _TransferBcaState extends State<TransferBca> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                  margin:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 10),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),

@@ -6,6 +6,7 @@ import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_textField.dart';
 import 'package:oepay/common/components/flushbar.dart';
 import 'package:oepay/common/constant/colors.dart';
+import 'package:oepay/pages/register_pages/otp.dart';
 import 'package:oepay/pages/register_pages/pin_login.dart';
 import 'package:oepay/pages/register_pages/regis_nama.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
@@ -34,25 +35,35 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
         bloc: _authCubit,
         listener: (context, state) {
           if (state.statusAction.isSuccess()) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => KonfirmasiNama(
-                  phone: _phoneController.text,
-                ),
-              ),
-            );
+            state.phoneNumberModel?.data?.status == 'verify'
+                ? Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OTPConfirmationPage(
+                              phone: _phoneController.text,
+                              sendOtp: true,
+                            )),
+                  )
+                : state.phoneNumberModel?.data?.status == 'basic'
+                    ? Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PinLoginPage(
+                            phone: _phoneController.text,
+                          ),
+                        ),
+                      )
+                    : Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => KonfirmasiNama(
+                            phone: _phoneController.text,
+                          ),
+                        ),
+                      );
           } else if (state.statusAction.isFailed()) {
-            // showSnackBar(context,
-            //     msg: state.phoneNumberModel?.message.toString());
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => PinLoginPage(
-                  phone: _phoneController.text,
-                ),
-              ),
-            );
+            showSnackBar(context,
+                msg: state.phoneNumberModel?.message.toString());
           }
         },
         builder: (context, state) {

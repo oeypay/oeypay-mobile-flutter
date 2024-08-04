@@ -35,7 +35,7 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
         bloc: _authCubit,
         listener: (context, state) {
           if (state.statusAction.isSuccess()) {
-            showSnackBar(context, msg: 'Registrasi berhasil');
+            // showSnackBar(context, msg: 'Registrasi berhasil');
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(

@@ -121,8 +121,28 @@ class ApiAuthProvider {
     } catch (e) {
       if (kDebugMode) print(e.toString());
 
-      if (e is DioException && e.response?.statusCode == 400) {
-        return ApiReturnValue(message: e.response!.data['message']);
+      // if (e is DioException && e.response?.statusCode == 400) {
+      //   debugPrint('innnnnnn');
+      //   return ApiReturnValue(message: e.response!.data['message']);
+      // }
+      if (e is DioException) {
+        if (e.response?.statusCode == 400) {
+          var data = e.response?.data;
+          if (data != null) {
+            try {
+              PhoneNumberModel value = PhoneNumberModel.fromJson(data);
+              debugPrint('Data berhasil diparsing');
+              return ApiReturnValue(
+                  value: value, message: e.response?.data['message']);
+            } catch (jsonError) {
+              if (kDebugMode) print(jsonError.toString());
+              debugPrint('Error parsing data');
+              return ApiReturnValue(message: 'Error parsing response data');
+            }
+          } else {
+            return ApiReturnValue(message: e.response?.data['message']);
+          }
+        }
       }
       return ApiReturnValue(message: 'Please try again');
     }

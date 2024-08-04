@@ -14,7 +14,8 @@ class TicketCard extends StatelessWidget {
   final String arrivalTime;
   final String vehicleIconPath;
 
-  const TicketCard({super.key, 
+  const TicketCard({
+    super.key,
     this.logoPath,
     this.namaStasiun,
     required this.price,

@@ -12,7 +12,8 @@ class RouteDetail extends StatelessWidget {
   final String ticketClass;
   final VoidCallback? onViewDetails;
 
-  const RouteDetail({super.key, 
+  const RouteDetail({
+    super.key,
     required this.icon,
     required this.route,
     required this.date,
@@ -89,8 +90,8 @@ class RouteDetail extends StatelessWidget {
                         onTap: onViewDetails,
                         child: Container(
                           width: 100,
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
                           decoration: BoxDecoration(
                             color: ColorName.yellowColor,
                             borderRadius: BorderRadius.circular(20),
@@ -123,7 +124,11 @@ class ContactDetails extends StatelessWidget {
   final VoidCallback onEdit;
 
   const ContactDetails(
-      {super.key, this.name, this.email, this.phoneNumber, required this.onEdit});
+      {super.key,
+      this.name,
+      this.email,
+      this.phoneNumber,
+      required this.onEdit});
 
   @override
   Widget build(BuildContext context) {

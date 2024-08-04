@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 
-
 class PaketData extends StatelessWidget {
   final void Function()? pressCard, pressDetail;
   final String? price, totalHarga, title, discount, discountedPrice, desc;
@@ -58,10 +57,12 @@ class PaketData extends StatelessWidget {
               children: [
                 Text(
                   price ?? '',
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
                   decoration: BoxDecoration(
                     color: Colors.pink.withOpacity(.2),
                     borderRadius: BorderRadius.circular(4),
@@ -87,7 +88,8 @@ class PaketData extends StatelessWidget {
                 InkWell(
                   onTap: pressDetail,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         color: ColorName.yellowColor),

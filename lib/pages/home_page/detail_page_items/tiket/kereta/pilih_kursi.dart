@@ -468,7 +468,8 @@ class _PilihKursiState extends State<PilihKursi> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HasiltransaksitiketKereta(),
+                            builder: (context) =>
+                                const HasiltransaksitiketKereta(),
                           ),
                         );
                       },

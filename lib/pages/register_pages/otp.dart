@@ -13,7 +13,8 @@ import 'package:pinput/pinput.dart';
 
 class OTPConfirmationPage extends StatefulWidget {
   final String phone;
-  const OTPConfirmationPage({super.key, required this.phone});
+  final bool? sendOtp;
+  const OTPConfirmationPage({super.key, required this.phone, this.sendOtp});
   @override
   _OTPConfirmationPageState createState() => _OTPConfirmationPageState();
 }
@@ -27,6 +28,9 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
   @override
   void initState() {
     super.initState();
+    if (widget.sendOtp!) {
+      context.read<AuthCubit>().resendOtp(phoneNumber: widget.phone);
+    }
     _startCountdown();
   }
 

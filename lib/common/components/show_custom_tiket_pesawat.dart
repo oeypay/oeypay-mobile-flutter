@@ -12,7 +12,8 @@ class TicketSelectionBottomSheet extends StatefulWidget {
   final bool showChildOption; // Tambahkan parameter ini
   final bool showMessage; // Tambahkan parameter ini
 
-  const TicketSelectionBottomSheet({super.key, 
+  const TicketSelectionBottomSheet({
+    super.key,
     this.adultCount = 0,
     this.childCount = 0,
     this.infantCount = 0,

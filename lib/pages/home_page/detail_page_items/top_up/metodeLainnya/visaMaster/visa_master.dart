@@ -139,8 +139,8 @@ class _VisamasterState extends State<Visamaster> {
                     color: ColorName.yellowSmoth.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  margin:
-                      const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                  margin: const EdgeInsets.only(
+                      left: 20, right: 20, top: 10, bottom: 10),
                   height: 50,
                   child: InputDecorator(
                     decoration: InputDecoration(

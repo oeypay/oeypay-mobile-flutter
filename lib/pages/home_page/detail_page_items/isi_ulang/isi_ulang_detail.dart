@@ -325,14 +325,16 @@ class _PulsaScreenState extends State<PulsaScreen> {
                                                     children: [
                                                       IconButton(
                                                         onPressed: () {},
-                                                        icon: const Icon(Icons.close),
+                                                        icon: const Icon(
+                                                            Icons.close),
                                                       ),
                                                       Text(
                                                         'BRONET 24 Jam 1GB 1Hr + Bonus Lokal Kuota',
                                                         style: CustomTextStyles
                                                             .textButton,
                                                       ),
-                                                      const SizedBox(height: 10),
+                                                      const SizedBox(
+                                                          height: 10),
                                                       Text(
                                                         'Main Kuota 1 GB 1 hari selama 24 Jam disemua jaringan 2G/3G/4G. BONUS Lokal Kuota sesaui dengan area/lokasi',
                                                         style: CustomTextStyles

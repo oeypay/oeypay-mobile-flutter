@@ -103,8 +103,9 @@ class _TiketPesawatState extends State<TiketPesawat> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const PencarianKeberangkatan(
-                                  title: 'Pilih Keberangkatan'),
+                              builder: (context) =>
+                                  const PencarianKeberangkatan(
+                                      title: 'Pilih Keberangkatan'),
                             ),
                           );
                         },
@@ -125,7 +126,8 @@ class _TiketPesawatState extends State<TiketPesawat> {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  const PencarianKeberangkatan(title: 'Pilih Tujuan'),
+                                  const PencarianKeberangkatan(
+                                      title: 'Pilih Tujuan'),
                             ),
                           );
                         },

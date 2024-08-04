@@ -129,8 +129,7 @@ class RincianDetailPesananPage extends StatelessWidget {
                     ),
                   ),
                   const Padding(
-                    padding:
-                        EdgeInsets.only(left: 16, right: 16, bottom: 10),
+                    padding: EdgeInsets.only(left: 16, right: 16, bottom: 10),
                     child: Divider(),
                   ),
                   Padding(

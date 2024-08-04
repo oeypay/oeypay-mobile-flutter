@@ -259,7 +259,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       ),
                       child: Text(
                         _selectedReturnDate != null
-                            ? DateFormat('dd/MM/yyyy').format(_selectedReturnDate!)
+                            ? DateFormat('dd/MM/yyyy')
+                                .format(_selectedReturnDate!)
                             : formattedDate,
                         style: const TextStyle(
                           color: Colors.black,
