@@ -16,9 +16,6 @@ class ApiAuthProvider {
             'phone': phone,
             'referral': referral,
           },
-          // options: Options(
-          //   headers: {"Authorization": "Bearer ${UserModel.token}"},
-          // ));
           options: Options(
             headers: {'Content-Type': 'application/json'},
           ));

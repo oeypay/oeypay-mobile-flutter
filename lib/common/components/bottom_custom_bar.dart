@@ -46,7 +46,7 @@ class _ButtonCustomBarState extends State<ButtonCustomBar> {
       itemsMenu: [
         BottomBarItem(
           icon: IconSvgMenu(icon: 'home.svg'),
-          title: TitleMenu(title: 'Home'),
+          title: TitleMenu(title: 'Beranda'),
         ),
         BottomBarItem(
           icon: IconSvgMenu(icon: 'badge-percent.svg'),
@@ -54,11 +54,11 @@ class _ButtonCustomBarState extends State<ButtonCustomBar> {
         ),
         BottomBarItem(
           icon: IconSvgMenu(icon: 'time-past.svg'),
-          title: TitleMenu(title: 'History'),
+          title: TitleMenu(title: 'Riwayat'),
         ),
         BottomBarItem(
           icon: IconSvgMenu(icon: 'user.svg'),
-          title: TitleMenu(title: 'Profile'),
+          title: TitleMenu(title: 'Profil'),
         ),
       ],
       itemsBody: [

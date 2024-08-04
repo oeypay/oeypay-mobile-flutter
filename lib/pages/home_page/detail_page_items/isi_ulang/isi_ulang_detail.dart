@@ -58,7 +58,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
       '0823',
       '0851',
       '0852',
-      '0853',
+      '0853'
     ],
     'XL': ['0817', '0818', '0819', '0859', '0877', '0878'],
     'INDOSAT': ['0814', '0815', '0816', '0855', '0856', '0857', '0858'],
@@ -102,6 +102,10 @@ class _PulsaScreenState extends State<PulsaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
+    final double itemWidth = size.width / .7;
+
     return Scaffold(
       backgroundColor: ColorName.light,
       appBar: AppbarDefault(
@@ -216,6 +220,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                             // Pulsa options
                             if (!isPaketDataSelected)
                               GridItems(
+                                childAspectRatio: (itemWidth / itemHeight),
                                 items: [
                                   for (var item in state.getListProduct!)
                                     Containerlistharga(

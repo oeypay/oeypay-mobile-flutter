@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 
 class Containerlistharga extends StatelessWidget {
@@ -58,18 +59,19 @@ class Containerlistharga extends StatelessWidget {
                 namaPln!,
                 style: CustomTextStyles.textButton,
               ),
-            const SizedBox(height: 8.0),
+            Spacer(),
             if (harga != null)
               Text(
                 harga!,
-                style: CustomTextStyles.titleProfil,
+                style:
+                    TextStyle(fontSize: 12, height: 1, color: ColorName.black),
               )
             else
               Text(
                 hargaVoucher!,
                 style: CustomTextStyles.titleShowModal,
               ),
-            const SizedBox(height: 4.0),
+            if (hargaVoucher != null) const SizedBox(height: 4.0),
             if (totalHarga != null)
               Text(
                 totalHarga!,
@@ -81,7 +83,7 @@ class Containerlistharga extends StatelessWidget {
                 style: CustomTextStyles.poppins(
                     size: 15, color: Colors.red, fontWeight: FontWeight.bold),
               ),
-            SizedBox(height: 5),
+            Spacer(),
             if (discount != null)
               Row(
                 children: [
