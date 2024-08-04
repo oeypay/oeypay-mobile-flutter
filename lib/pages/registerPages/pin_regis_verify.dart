@@ -53,7 +53,7 @@ class _PINProtectionVerifyPageState extends State<PINProtectionVerifyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         title: "Verifikasi PIN Kamu",
         titleRight: '4/4',
         bgColor: ColorName.yellowColor,
@@ -61,7 +61,7 @@ class _PINProtectionVerifyPageState extends State<PINProtectionVerifyPage> {
       body: BodyAuth(
         center: true,
         children: [
-          AuthDesc(
+          const AuthDesc(
             center: true,
             title: 'Masukan kembali PIN yang dibuat sebelumnya',
           ),
@@ -72,7 +72,7 @@ class _PINProtectionVerifyPageState extends State<PINProtectionVerifyPage> {
                 showSnackBar(context, msg: 'Berhasil buat pin');
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ButtonCustomBar()),
+                  MaterialPageRoute(builder: (context) => const ButtonCustomBar()),
                 );
               } else if (state.statusAction.isFailed()) {
                 showSnackBar(context, msg: state.message ?? '');
@@ -96,7 +96,7 @@ class _PINProtectionVerifyPageState extends State<PINProtectionVerifyPage> {
               );
             },
           ),
-          Space(20),
+          const Space(20),
           CustomKeyboard(
             onKeyTap: _onKeyTap,
             onBackspace: _onBackspace,

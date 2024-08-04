@@ -5,7 +5,7 @@ class CustomKeyboard extends StatelessWidget {
   final Function(String) onKeyTap;
   final Function onBackspace;
 
-  CustomKeyboard({required this.onKeyTap, required this.onBackspace});
+  const CustomKeyboard({super.key, required this.onKeyTap, required this.onBackspace});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class CustomKeyboard extends StatelessWidget {
         return key == 'backspace'
             ? InkWell(
                 onTap: () => onBackspace(),
-                child: Container(
+                child: const SizedBox(
                   width: 60,
                   height: 60,
                   child: Center(
@@ -40,13 +40,13 @@ class CustomKeyboard extends StatelessWidget {
               )
             : InkWell(
                 onTap: () => onKeyTap(key),
-                child: Container(
+                child: SizedBox(
                   width: 60,
                   height: 60,
                   child: Center(
                     child: Text(
                       key,
-                      style: TextStyle(fontSize: 24),
+                      style: const TextStyle(fontSize: 24),
                     ),
                   ),
                 ),

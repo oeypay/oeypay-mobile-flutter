@@ -12,7 +12,7 @@ class TicketSelectionBottomSheet extends StatefulWidget {
   final bool showChildOption; // Tambahkan parameter ini
   final bool showMessage; // Tambahkan parameter ini
 
-  TicketSelectionBottomSheet({
+  const TicketSelectionBottomSheet({super.key, 
     this.adultCount = 0,
     this.childCount = 0,
     this.infantCount = 0,
@@ -76,7 +76,7 @@ class _TicketSelectionBottomSheetState
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           Padding(
             padding: const EdgeInsets.only(left: 18),
             child: Text(
@@ -84,34 +84,34 @@ class _TicketSelectionBottomSheetState
               style: CustomTextStyles.titleShowModal,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: Divider(),
           ),
           _buildTicketOption(
               'Dewasa', ' (Usia 12 thn Keatas)', _adultCount, 'adult'),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: Divider(),
           ),
           if (widget.showChildOption) // Kondisi untuk menampilkan bagian Anak
             _buildTicketOption(
                 'Anak', ' (Usia 2 - 11 thn)', _childCount, 'child'),
           if (widget.showChildOption) // Kondisi untuk menampilkan Divider
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
               child: Divider(),
             ),
           _buildTicketOption(
               'Bayi', ' (Di bawah 2 thn)', _infantCount, 'infant'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           if (widget
               .showMessage) // Kondisi untuk menampilkan CustomMessageContainer
-            CustomMessageContainer(
+            const CustomMessageContainer(
               message:
                   'Bayi harus berusia minimal 6 minggu untuk naik ke pesawat dan harus duduk di pangkuan orang dewasa atau menempati kursi bayi',
             ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: ButtonCustom.filled(
@@ -122,7 +122,7 @@ class _TicketSelectionBottomSheetState
               textColor: Colors.black,
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
         ],
       ),
     );
@@ -147,19 +147,19 @@ class _TicketSelectionBottomSheetState
               color: Colors.black,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.remove),
+                icon: const Icon(Icons.remove),
                 onPressed: () => _decrement(type),
               ),
               Text(
                 '$count',
-                style: TextStyle(color: Colors.green),
+                style: const TextStyle(color: Colors.green),
               ),
               IconButton(
-                icon: Icon(Icons.add),
+                icon: const Icon(Icons.add),
                 onPressed: () => _increment(type),
               ),
             ],

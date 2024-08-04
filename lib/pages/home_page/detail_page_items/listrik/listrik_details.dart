@@ -6,7 +6,7 @@ import 'tagihan_listrik.dart';
 import 'token_listrik.dart';
 
 class ListrikDetails extends StatefulWidget {
-  const ListrikDetails({Key? key}) : super(key: key);
+  const ListrikDetails({super.key});
 
   @override
   State<ListrikDetails> createState() => _ListrikDetailsState();
@@ -78,9 +78,9 @@ class _ListrikDetailsState extends State<ListrikDetails> {
                         // initialValue: kontak,
                         controller: _controller,
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 30),
+                          contentPadding: const EdgeInsets.only(left: 30),
                           filled: true,
-                          fillColor: Color(0xffFEF7dd),
+                          fillColor: const Color(0xffFEF7dd),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(50.0),
                             borderSide: BorderSide
@@ -114,7 +114,7 @@ class _ListrikDetailsState extends State<ListrikDetails> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Token Listrik',
                         style: TextStyle(
                           color: Colors.black,
@@ -136,7 +136,7 @@ class _ListrikDetailsState extends State<ListrikDetails> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Tagihan Listrik',
                         style: TextStyle(
                           color: Colors.black,
@@ -152,7 +152,7 @@ class _ListrikDetailsState extends State<ListrikDetails> {
               const SizedBox(height: 16.0),
               // Pulsa options
               if (!isTokenListrik)
-                Wrap(
+                const Wrap(
                   spacing: 17.0,
                   runSpacing: 17.0,
                   children: [
@@ -162,7 +162,7 @@ class _ListrikDetailsState extends State<ListrikDetails> {
                 )
               else
                 // Paket Data options
-                Wrap(
+                const Wrap(
                   spacing: 16.0,
                   runSpacing: 16.0,
                   children: [

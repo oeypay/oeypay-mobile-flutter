@@ -12,7 +12,7 @@ class RouteDetail extends StatelessWidget {
   final String ticketClass;
   final VoidCallback? onViewDetails;
 
-  RouteDetail({
+  const RouteDetail({super.key, 
     required this.icon,
     required this.route,
     required this.date,
@@ -33,12 +33,12 @@ class RouteDetail extends StatelessWidget {
         children: [
           Container(
             height: 50,
-            padding: EdgeInsets.only(left: 16, right: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(icon, color: Colors.black),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Text(
                   route,
                   style: CustomTextStyles.titlesection,
@@ -48,11 +48,11 @@ class RouteDetail extends StatelessWidget {
           ),
           Container(
             color: ColorName.yellowSmoth,
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -67,15 +67,15 @@ class RouteDetail extends StatelessWidget {
                     color: Colors.lime.shade900,
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.check_circle,
                       color: Colors.teal,
                       size: 18,
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Text(
                       'Dana dapat dikembalikan',
                       style: CustomTextStyles.poppins(
@@ -83,14 +83,14 @@ class RouteDetail extends StatelessWidget {
                         color: Colors.teal,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     if (onViewDetails != null)
                       GestureDetector(
                         onTap: onViewDetails,
                         child: Container(
                           width: 100,
                           padding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                              const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           decoration: BoxDecoration(
                             color: ColorName.yellowColor,
                             borderRadius: BorderRadius.circular(20),
@@ -122,8 +122,8 @@ class ContactDetails extends StatelessWidget {
   final String? phoneNumber;
   final VoidCallback onEdit;
 
-  ContactDetails(
-      {this.name, this.email, this.phoneNumber, required this.onEdit});
+  const ContactDetails(
+      {super.key, this.name, this.email, this.phoneNumber, required this.onEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -133,22 +133,22 @@ class ContactDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
-            leading: Icon(Icons.phone_android),
+            leading: const Icon(Icons.phone_android),
             title: Text(
               'Rincian Kontak',
               style: CustomTextStyles.titlesection,
             ),
-            trailing: Icon(Icons.chevron_right),
+            trailing: const Icon(Icons.chevron_right),
             onTap: onEdit,
           ),
           if (name != null && email != null && phoneNumber != null) ...[
-            Divider(),
+            const Divider(),
             ValueRincianData(
               nama: name!,
               data1: 'Email: $email',
               data2: 'No Hp: $phoneNumber',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
           ] else
             Container(),
         ],
@@ -161,7 +161,7 @@ class PassengerDetails extends StatelessWidget {
   final Map<String, String>? passengerData;
   final VoidCallback onEdit;
 
-  PassengerDetails({this.passengerData, required this.onEdit});
+  const PassengerDetails({super.key, this.passengerData, required this.onEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -171,13 +171,13 @@ class PassengerDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
-            leading: Icon(Icons.group),
+            leading: const Icon(Icons.group),
             title: Text(
               'Rincian Penumpang',
               style: CustomTextStyles.titlesection,
             ),
           ),
-          Divider(),
+          const Divider(),
           if (passengerData != null) ...[
             ValueRincianData(
               tuan: 'Dewasa',
@@ -187,15 +187,15 @@ class PassengerDetails extends StatelessWidget {
               icon: Icons.chevron_right_rounded,
               data2: 'Tanggal Lahir: ${passengerData!['tanggalLahir']}',
             ),
-            Divider(),
-            SizedBox(height: 20),
+            const Divider(),
+            const SizedBox(height: 20),
           ] else
             ListTile(
               title: Text(
                 'Dewasa 1',
                 style: CustomTextStyles.titlesection,
               ),
-              trailing: Icon(Icons.chevron_right),
+              trailing: const Icon(Icons.chevron_right),
               onTap: onEdit,
             ),
         ],

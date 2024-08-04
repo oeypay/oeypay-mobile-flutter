@@ -27,7 +27,7 @@ class _PemesananTiketPageState extends State<PemesananTiketPage> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Tiket'),
+        title: const Text('Tiket'),
       ),
       body: Stack(
         children: [
@@ -36,8 +36,9 @@ class _PemesananTiketPageState extends State<PemesananTiketPage> {
           ),
           Column(
             children: [
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               CustomContainerCard(
+                color: Colors.blueGrey.shade200,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -62,12 +63,12 @@ class _PemesananTiketPageState extends State<PemesananTiketPage> {
                                 children: [
                                   Transform.rotate(
                                     angle: 1.57,
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.airplanemode_on,
                                       color: Colors.black,
                                     ),
                                   ),
-                                  SizedBox(width: 5),
+                                  const SizedBox(width: 5),
                                 ],
                               ),
                             ),
@@ -86,7 +87,7 @@ class _PemesananTiketPageState extends State<PemesananTiketPage> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: Row(
+                              child: const Row(
                                 // crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -137,13 +138,13 @@ class _PemesananTiketPageState extends State<PemesananTiketPage> {
                         ],
                       ),
                       if (!isSatuArah)
-                        Wrap(
+                        const Wrap(
                           children: [
                             TiketPesawat(),
                           ],
                         )
                       else
-                        Wrap(
+                        const Wrap(
                           children: [
                             TiketKereta(),
                           ],
@@ -151,7 +152,6 @@ class _PemesananTiketPageState extends State<PemesananTiketPage> {
                     ],
                   ),
                 ),
-                color: Colors.blueGrey.shade200,
               ),
             ],
           ),

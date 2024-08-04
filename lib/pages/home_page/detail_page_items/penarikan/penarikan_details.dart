@@ -36,7 +36,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
         'title': 'BANK BCA',
         'tag': '',
         'action': 'page',
-        'page': Bankbcadetails(),
+        'page': const Bankbcadetails(),
       },
       {
         'icon': SvgPicture.asset(
@@ -46,7 +46,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
         'title': 'BANK MANDIRI',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/mandiri.svg',
           virtualAccountTitle: 'Nomor Virtual Account MANDIRI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -69,7 +69,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
         'title': 'BANK NEGARA INDONESIA',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/bni.svg',
           virtualAccountTitle: 'Nomor Virtual Account BNI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -92,7 +92,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
         'title': 'BANK RAKYAT INDONESIA',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/bri.svg',
           virtualAccountTitle: 'Nomor Virtual Account BRI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -118,7 +118,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
         'title': 'Alfmart, Alfamidi, Lawson',
         'tag': '',
         'action': 'page',
-        'page': PenarikanalFamart(),
+        'page': const PenarikanalFamart(),
       },
       {
         'icon': SvgPicture.asset(
@@ -128,7 +128,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
         'title': 'Indomaret',
         'tag': '',
         'action': 'page',
-        'page': PenarikanalFamart(),
+        'page': const PenarikanalFamart(),
       },
     ];
 
@@ -150,16 +150,16 @@ class _PenarikandetailsState extends State<Penarikandetails> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(width: 70),
-                  Icon(
+                  const SizedBox(width: 70),
+                  const Icon(
                     Icons.wallet,
                     size: 40,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Saldo'),
+                      const Text('Saldo'),
                       Text(
                         'Rp. 5.000',
                         style: CustomTextStyles.titlesection,
@@ -168,7 +168,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -192,7 +192,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'ATM BANK',
                         style: TextStyle(
                           color: Colors.black,
@@ -221,7 +221,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Metode Lainnya',
                         style: TextStyle(
                           color: Colors.black,
@@ -231,7 +231,7 @@ class _PenarikandetailsState extends State<Penarikandetails> {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               if (!isVirtualAccount)
                 Wrap(
                   // spacing: 10.0,

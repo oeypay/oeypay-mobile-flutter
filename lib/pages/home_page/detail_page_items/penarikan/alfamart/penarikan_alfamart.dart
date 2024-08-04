@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expanded_tile/flutter_expanded_tile.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_container_card.dart';
 import 'package:oepay/common/components/widget_alur_topup.dart';
@@ -24,13 +23,13 @@ class PenarikanalFamart extends StatelessWidget {
           style: CustomTextStyles.titleProfilApp,
         ),
       ),
-      body: CustomTopUpCard(),
+      body: const CustomTopUpCard(),
     );
   }
 }
 
 class CustomTopUpCard extends StatefulWidget {
-  const CustomTopUpCard({Key? key}) : super(key: key);
+  const CustomTopUpCard({super.key});
 
   @override
   State<CustomTopUpCard> createState() => _CustomTopUpCardState();
@@ -39,6 +38,7 @@ class CustomTopUpCard extends StatefulWidget {
 class _CustomTopUpCardState extends State<CustomTopUpCard> {
   ExpandedTileController _controller = ExpandedTileController();
 
+  @override
   void initState() {
     // initialize controller
     _controller = ExpandedTileController(isExpanded: true);
@@ -68,7 +68,7 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                           width: 60,
                         ),
                       ),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,14 +82,14 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                               'Metode Penarikan',
                               style: CustomTextStyles.textCard,
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Text(
                               'Klik “Buka Kode” saat didepan kasir',
                               style: CustomTextStyles.textCard,
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 color: ColorName.yellowSmoth,
                                 borderRadius: BorderRadius.circular(10),
@@ -104,7 +104,7 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Text(
@@ -125,7 +125,7 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             ButtonCustom.filled(
                               height: 30,
                               onPressed: () {
@@ -151,16 +151,16 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                   ),
                 ),
               ),
-              CustomMessageContainer(
+              const CustomMessageContainer(
                 message:
                     'Maks. penarikan Rp 200.000 + biaya admin Rp 5.000 untuk setiap transaksi',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CustomExpandedTile(
                 controller: _controller,
                 title: 'Cara Tarik Tunai di Alfamart',
-                contentWidgets: Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 10),
+                contentWidgets: const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 10),
                   child: Column(
                     children: [
                       CustomListTitle(
@@ -183,7 +183,7 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                   ),
                 ),
               ),
-              HelpSection(),
+              const HelpSection(),
               Padding(
                 padding: const EdgeInsets.only(
                     left: 20, right: 20, top: 40, bottom: 10),

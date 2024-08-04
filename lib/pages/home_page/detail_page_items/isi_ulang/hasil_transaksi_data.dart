@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dash/flutter_dash.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_container_card.dart';
 import 'package:oepay/common/components/garis_putus.dart';
@@ -30,13 +29,13 @@ class HasiltransaksiData extends StatelessWidget {
                 color: Colors.blueGrey.shade200,
                 child: Column(
                   children: [
-                    SizedBox(height: 20),
-                    Icon(
+                    const SizedBox(height: 20),
+                    const Icon(
                       Icons.check_circle,
                       color: Colors.teal,
                       size: 30,
                     ),
-                    Text(
+                    const Text(
                       'Transaksi Berhasil',
                       style: TextStyle(
                         fontSize: 17,
@@ -44,38 +43,38 @@ class HasiltransaksiData extends StatelessWidget {
                         color: Colors.teal,
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     // Image.asset(''),
-                    Icon(Icons.person_pin),
+                    const Icon(Icons.person_pin),
                     Text(
                       'Telkomsel',
                       style: CustomTextStyles.textButton,
                     ),
-                    SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                    const SizedBox(height: 20),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 20, right: 20),
                       child: CustomLis(
                           title: 'Total Transaksi', deskripsi: 'Rp 15.000'),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 20, right: 20),
                       child: CustomLis(
                           title: 'Nomo Ponsel', deskripsi: '0998867575'),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 20, right: 20),
                       child: CustomLis(
                           title: 'Biaya Transaksi', deskripsi: 'Rp 0'),
                     ),
-                    SizedBox(height: 15),
-                    DashedLineExample(),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 15),
+                    const DashedLineExample(),
+                    const SizedBox(height: 20),
                     Text(
                       'Tipe Paket Data',
                       style: CustomTextStyles.titlesection,
                       textAlign: TextAlign.start,
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Text(
@@ -83,17 +82,17 @@ class HasiltransaksiData extends StatelessWidget {
                         style: CustomTextStyles.textButton,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    CustomMessageContainer(
+                    const SizedBox(height: 20),
+                    const CustomMessageContainer(
                       message:
                           'Klik butuh bantuan jika dalam 1x12 jam pembelian belum Anda terima.',
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
-              HelpSection(),
-              Spacer(),
+              const HelpSection(),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: ButtonCustom.filled(
@@ -103,7 +102,7 @@ class HasiltransaksiData extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PulsaScreen(),
+                        builder: (context) => const PulsaScreen(),
                       ),
                     );
                   },

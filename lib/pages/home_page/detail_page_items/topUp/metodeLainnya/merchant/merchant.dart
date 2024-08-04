@@ -18,6 +18,7 @@ class _MerchantPageState extends State<MerchantPage> {
   late ExpandedTileController _control;
   late ExpandedTileController _controler;
 
+  @override
   void initState() {
     // initialize controller
     _control = ExpandedTileController(isExpanded: true);
@@ -52,11 +53,11 @@ class _MerchantPageState extends State<MerchantPage> {
                           'assets/icons/provider/merchan.svg',
                           width: 50,
                         ),
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Merchan / Mitra OeyPay'),
+                            const Text('Merchan / Mitra OeyPay'),
                             Text(
                               'Metode Top Up',
                               style: CustomTextStyles.textCard,
@@ -71,7 +72,7 @@ class _MerchantPageState extends State<MerchantPage> {
                   controller: _control,
                   imag: 'assets/icons/Bank/bca.svg',
                   title: 'BCA',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -98,7 +99,7 @@ class _MerchantPageState extends State<MerchantPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/merchant.svg',
                   title: 'MITRA 2',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -125,7 +126,7 @@ class _MerchantPageState extends State<MerchantPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/merchant.svg',
                   title: 'MITRA 3',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -152,7 +153,7 @@ class _MerchantPageState extends State<MerchantPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/merchant.svg',
                   title: 'MITRA 4',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),

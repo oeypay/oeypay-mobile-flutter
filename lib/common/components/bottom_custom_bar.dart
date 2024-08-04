@@ -45,23 +45,23 @@ class _ButtonCustomBarState extends State<ButtonCustomBar> {
       },
       itemsMenu: [
         BottomBarItem(
-          icon: IconSvgMenu(icon: 'home.svg'),
-          title: TitleMenu(title: 'Beranda'),
+          icon: const IconSvgMenu(icon: 'home.svg'),
+          title: const TitleMenu(title: 'Beranda'),
         ),
         BottomBarItem(
-          icon: IconSvgMenu(icon: 'badge-percent.svg'),
-          title: TitleMenu(title: 'Merchan'),
+          icon: const IconSvgMenu(icon: 'badge-percent.svg'),
+          title: const TitleMenu(title: 'Merchan'),
         ),
         BottomBarItem(
-          icon: IconSvgMenu(icon: 'time-past.svg'),
-          title: TitleMenu(title: 'Riwayat'),
+          icon: const IconSvgMenu(icon: 'time-past.svg'),
+          title: const TitleMenu(title: 'Riwayat'),
         ),
         BottomBarItem(
-          icon: IconSvgMenu(icon: 'user.svg'),
-          title: TitleMenu(title: 'Profil'),
+          icon: const IconSvgMenu(icon: 'user.svg'),
+          title: const TitleMenu(title: 'Profil'),
         ),
       ],
-      itemsBody: [
+      itemsBody: const [
         HomePage(),
         Merchanpage(),
         HistoryPage(),
@@ -137,7 +137,7 @@ class IconSvgMenu extends StatelessWidget {
     return SvgPicture.asset(
       'assets/icons/$icon',
       height: width ?? 20,
-      colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+      colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn),
     );
   }
 }
@@ -150,7 +150,7 @@ class TitleMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title ?? '',
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w500,
         color: Colors.black,

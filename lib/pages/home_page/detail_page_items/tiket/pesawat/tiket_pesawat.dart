@@ -41,7 +41,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
         return SingleChildScrollView(
           controller: ScrollController(),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
@@ -83,7 +83,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 25),
+        const SizedBox(height: 25),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -103,20 +103,20 @@ class _TiketPesawatState extends State<TiketPesawat> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => PencarianKeberangkatan(
+                              builder: (context) => const PencarianKeberangkatan(
                                   title: 'Pilih Keberangkatan'),
                             ),
                           );
                         },
-                        child: BuildFormFieldTiket(
+                        child: const BuildFormFieldTiket(
                           label: 'Dari',
                           value: 'Jakarta',
                           icon: Icons.flight_land_outlined,
                           color: Colors.transparent,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Divider(),
                       ),
                       InkWell(
@@ -125,11 +125,11 @@ class _TiketPesawatState extends State<TiketPesawat> {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  PencarianKeberangkatan(title: 'Pilih Tujuan'),
+                                  const PencarianKeberangkatan(title: 'Pilih Tujuan'),
                             ),
                           );
                         },
-                        child: BuildFormFieldTiket(
+                        child: const BuildFormFieldTiket(
                           label: 'Ke',
                           value: 'Makassar',
                           icon: Icons.flight_takeoff,
@@ -140,7 +140,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Row(
@@ -177,7 +177,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
                         onDateSelected: _onDateSelected,
                       ),
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Column(
                       children: [
                         Text(
@@ -202,7 +202,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
                   ],
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               if (_isSwitched == true)
                 Padding(
                     padding:
@@ -235,7 +235,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   _onFieldTap(
@@ -243,7 +243,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Padding(
@@ -253,13 +253,13 @@ class _TiketPesawatState extends State<TiketPesawat> {
                             style: CustomTextStyles.titleShowModal,
                           ),
                         ),
-                        Divider(),
+                        const Divider(),
                         _buildClassOption('Ekonomi'),
-                        Divider(),
+                        const Divider(),
                         _buildClassOption('Premium'),
-                        Divider(),
+                        const Divider(),
                         _buildClassOption('Bisnis'),
-                        Divider(),
+                        const Divider(),
                         _buildClassOption('First Class'),
                       ],
                     ),
@@ -269,13 +269,13 @@ class _TiketPesawatState extends State<TiketPesawat> {
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: BuildFormFieldTiket(
                     label: 'Kelas Kursi',
-                    value: '${_selectedClass}',
+                    value: _selectedClass,
                     icon: Icons.flight_class_rounded,
                     color: Colors.blueGrey.shade200,
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: ButtonCustom.filled(
@@ -284,7 +284,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => FlightTicketWidget(),
+                        builder: (context) => const FlightTicketWidget(),
                       ),
                     );
                   },
@@ -311,7 +311,7 @@ class _TiketPesawatState extends State<TiketPesawat> {
         ),
       ),
       trailing: _selectedClass == className
-          ? Icon(Icons.check, color: Colors.green)
+          ? const Icon(Icons.check, color: Colors.green)
           : null,
       onTap: () {
         setState(() {

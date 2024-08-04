@@ -24,7 +24,7 @@ class BodyAuth extends StatelessWidget {
                 child: SvgPicture.asset('assets/icons/oeypay-favicon.svg',
                     width: 85,
                     colorFilter:
-                        ColorFilter.mode(Colors.black, BlendMode.srcIn)),
+                        const ColorFilter.mode(Colors.black, BlendMode.srcIn)),
               ),
               const Space(45),
               ...children ?? []
@@ -52,14 +52,14 @@ class AuthDesc extends StatelessWidget {
           textAlign: center! ? TextAlign.center : TextAlign.left,
           style: CustomTextStyles.titleShowModal,
         ),
-        Space(10),
+        const Space(10),
         if (desc != null)
           Text(
             desc ?? '',
             textAlign: center! ? TextAlign.center : TextAlign.left,
             style: CustomTextStyles.textNominal,
           ),
-        Space(20)
+        const Space(20)
       ],
     );
   }

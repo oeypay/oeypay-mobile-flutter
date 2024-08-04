@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
@@ -8,7 +7,6 @@ import 'package:oepay/resources/models/response/pin_response_model.dart';
 import '../../common/constant/variables.dart';
 import '../models/requests/otp_request_model.dart';
 import '../models/requests/register_request_model.dart';
-import '../models/response/auth_response_model.dart';
 import '../models/response/otp_response_model.dart';
 import '../models/response/register_response_model.dart';
 

@@ -11,11 +11,11 @@ class Widgetappbar extends StatelessWidget {
     return Container(
       // margin: EdgeInsets.only(bottom: 0),
       height: 180,
-      padding: EdgeInsets.only(left: 20),
+      padding: const EdgeInsets.only(left: 20),
       decoration: BoxDecoration(
         image:
             image != null ? DecorationImage(image: AssetImage(image!)) : null,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(200),
           bottomRight: Radius.circular(200),
         ),

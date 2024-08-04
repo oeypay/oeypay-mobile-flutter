@@ -12,7 +12,7 @@ part 'kode_otp_bloc.freezed.dart';
 class KodeOtpBloc extends Bloc<KodeOtpEvent, KodeOtpState> {
   final Authremotedatasource dataSource;
 
-  KodeOtpBloc(this.dataSource) : super(_Initial()) {
+  KodeOtpBloc(this.dataSource) : super(const _Initial()) {
     on<_SendOTP>((event, emit) async {
       emit(const _Loading());
       final result = await dataSource.sendOTP(event.otpRequestModel);

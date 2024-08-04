@@ -20,13 +20,13 @@ class Alfamartdetail extends StatelessWidget {
           style: CustomTextStyles.titleProfilApp,
         ),
       ),
-      body: CustomTopUpCard(),
+      body: const CustomTopUpCard(),
     );
   }
 }
 
 class CustomTopUpCard extends StatefulWidget {
-  const CustomTopUpCard({Key? key}) : super(key: key);
+  const CustomTopUpCard({super.key});
 
   @override
   State<CustomTopUpCard> createState() => _CustomTopUpCardState();
@@ -35,6 +35,7 @@ class CustomTopUpCard extends StatefulWidget {
 class _CustomTopUpCardState extends State<CustomTopUpCard> {
   ExpandedTileController _controller = ExpandedTileController();
 
+  @override
   void initState() {
     // initialize controller
     _controller = ExpandedTileController(isExpanded: true);
@@ -64,7 +65,7 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                           width: 60,
                         ),
                       ),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,9 +78,9 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                             'Metode Top Up',
                             style: CustomTextStyles.textCard,
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           Container(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               color: ColorName.yellowSmoth,
                               borderRadius: BorderRadius.circular(10),
@@ -98,7 +99,7 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Row(
@@ -117,7 +118,7 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                               //     size: 18,
                               //   ),
                               // ),
-                              SizedBox(width: 30),
+                              const SizedBox(width: 30),
                               Text(
                                 'Minimal Top Up',
                                 style: CustomTextStyles.textCard,
@@ -131,7 +132,7 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                                 'Rp 2.000',
                                 style: CustomTextStyles.textCard,
                               ),
-                              SizedBox(width: 60),
+                              const SizedBox(width: 60),
                               Text(
                                 'Rp. 20.000',
                                 style: CustomTextStyles.textCard,
@@ -144,23 +145,23 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                   ),
                 ),
               ),
-              CustomMessageContainer(
+              const CustomMessageContainer(
                 message:
                     'Hindari top up jam 23:55- 00:10 WIB karena Indomaret offline 15 menit setaip harinya',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CustomExpandedTile(
                 controller: _controller,
                 title: 'Cara Top Up di Alfamart, Alfamidi, Lawson',
                 contentWidgets: Column(
                   children: [
-                    CustomListTitle(
+                    const CustomListTitle(
                       title: 'Kunjungi Alfamart, Alfamidi, Lawson terdekat',
                     ),
-                    CustomListTitle(
+                    const CustomListTitle(
                       title: 'Sebutkan nomor HP kamu yang diatas ke kasir',
                     ),
-                    CustomListTitle(
+                    const CustomListTitle(
                       title:
                           'Beritahu nominal top up, pilihannya sebagai berikut',
                     ),
@@ -203,18 +204,18 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
                         ],
                       ),
                     ),
-                    CustomListTitle(
+                    const CustomListTitle(
                       title:
                           'Saldo OeyPay akan bertambah otomatis paling lama 1x24 jam',
                     ),
-                    CustomListTitle(
+                    const CustomListTitle(
                       title:
                           'Simpanstruk sampai Top Up berhasil dan pakai bukti jika dibutuhkan',
                     ),
                   ],
                 ),
               ),
-              HelpSection(),
+              const HelpSection(),
             ],
           ),
         ),
@@ -225,10 +226,10 @@ class _CustomTopUpCardState extends State<CustomTopUpCard> {
   Widget _container(String nominal) {
     return Container(
       width: 100,
-      margin: EdgeInsets.only(left: 5, right: 5),
-      padding: EdgeInsets.all(8),
+      margin: const EdgeInsets.only(left: 5, right: 5),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Color(0xffF0F0F0),
+        color: const Color(0xffF0F0F0),
         borderRadius: BorderRadius.circular(50),
       ),
       child: Center(

@@ -8,6 +8,8 @@ import 'package:oepay/common/constant/styleText.dart';
 import 'rincian_data_pesawat.dart';
 
 class ShowModalPenerbangan extends StatefulWidget {
+  const ShowModalPenerbangan({super.key});
+
   @override
   State<ShowModalPenerbangan> createState() => _ShowModalPenerbanganState();
 }
@@ -33,7 +35,7 @@ class _ShowModalPenerbanganState extends State<ShowModalPenerbangan> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.8,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16),
@@ -55,7 +57,7 @@ class _ShowModalPenerbanganState extends State<ShowModalPenerbangan> {
                     style: CustomTextStyles.titleShowModal,
                   ),
                   IconButton(
-                    icon: Icon(Icons.close),
+                    icon: const Icon(Icons.close),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                 ],
@@ -125,9 +127,9 @@ class _ShowModalPenerbanganState extends State<ShowModalPenerbangan> {
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.5,
-              child: TabBarView(
+              child: const TabBarView(
                 children: [
                   FlightDetailsTab(),
                   FasilitasPenerbangan(),
@@ -135,8 +137,8 @@ class _ShowModalPenerbanganState extends State<ShowModalPenerbangan> {
                 ],
               ),
             ),
-            Spacer(),
-            Divider(),
+            const Spacer(),
+            const Divider(),
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15, bottom: 20),
               child: Row(
@@ -171,7 +173,7 @@ class _ShowModalPenerbanganState extends State<ShowModalPenerbangan> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => RincianDataPesawat(),
+                      builder: (context) => const RincianDataPesawat(),
                     ),
                   );
                 },
@@ -180,7 +182,7 @@ class _ShowModalPenerbanganState extends State<ShowModalPenerbangan> {
                 textColor: Colors.black,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
           ],
         ),
       ),
@@ -189,6 +191,8 @@ class _ShowModalPenerbanganState extends State<ShowModalPenerbangan> {
 }
 
 class FlightDetailsTab extends StatelessWidget {
+  const FlightDetailsTab({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -196,7 +200,7 @@ class FlightDetailsTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -209,12 +213,12 @@ class FlightDetailsTab extends StatelessWidget {
           ),
           // SizedBox(height: 8),
 
-          Divider(),
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset('assets/icons/garuda.png', width: 50),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Column(
                 children: [
                   Text(
@@ -232,8 +236,8 @@ class FlightDetailsTab extends StatelessWidget {
               ),
             ],
           ),
-          Divider(),
-          FlightSegmentDetails(
+          const Divider(),
+          const FlightSegmentDetails(
             icon: 'assets/icons/landing.png',
             departureCity: 'Jakarta (CGK)',
             departureAirport: 'Soekarno Hatta International Airport',
@@ -243,7 +247,7 @@ class FlightDetailsTab extends StatelessWidget {
             arrivalAirport: 'Juanda, Terminal 1A',
             arrivalTime: '20:00',
           ),
-          Divider(),
+          const Divider(),
         ],
       ),
     );
@@ -256,15 +260,15 @@ class FasilitasPenerbangan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 16, right: 16),
       child: Column(
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset('assets/icons/garuda.png', width: 50),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Column(
                 children: [
                   Text(
@@ -282,13 +286,13 @@ class FasilitasPenerbangan extends StatelessWidget {
               ),
             ],
           ),
-          Divider(),
-          SizedBox(height: 10),
-          CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
-          CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
-          CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
-          CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
-          CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
+          const Divider(),
+          const SizedBox(height: 10),
+          const CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
+          const CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
+          const CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
+          const CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
+          const CustomListTitle(title: '   Kapasitas Bagasi - 20 Kg'),
         ],
       ),
     );
@@ -301,15 +305,15 @@ class HargaPenerbangan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 16, right: 16),
       child: Column(
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset('assets/icons/garuda.png', width: 50),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Column(
                 children: [
                   Text(
@@ -327,13 +331,13 @@ class HargaPenerbangan extends StatelessWidget {
               ),
             ],
           ),
-          Divider(),
-          CustomLis(title: 'Dewasa', deskripsi: 'Rp 1.000.000'),
-          Divider(),
-          CustomLis(title: 'Anak - anak', deskripsi: 'Rp 800.000'),
-          Divider(),
-          CustomLis(title: 'Bayi', deskripsi: 'Rp 500.000'),
-          Divider(),
+          const Divider(),
+          const CustomLis(title: 'Dewasa', deskripsi: 'Rp 1.000.000'),
+          const Divider(),
+          const CustomLis(title: 'Anak - anak', deskripsi: 'Rp 800.000'),
+          const Divider(),
+          const CustomLis(title: 'Bayi', deskripsi: 'Rp 500.000'),
+          const Divider(),
         ],
       ),
     );
@@ -351,7 +355,7 @@ class FlightSegmentDetails extends StatelessWidget {
   final String icon;
 
   const FlightSegmentDetails({
-    Key? key,
+    super.key,
     required this.departureCity,
     required this.departureAirport,
     required this.departureTime,
@@ -360,7 +364,7 @@ class FlightSegmentDetails extends StatelessWidget {
     required this.arrivalAirport,
     required this.arrivalTime,
     required this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -374,7 +378,7 @@ class FlightSegmentDetails extends StatelessWidget {
               icon,
               width: 20,
             ),
-            Dash(
+            const Dash(
               direction: Axis.vertical,
               length: 150,
             ),
@@ -416,12 +420,12 @@ class FlightSegmentDetails extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Text(
                   duration,
                   style: CustomTextStyles.textCard,
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

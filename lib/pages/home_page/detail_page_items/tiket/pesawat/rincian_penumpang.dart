@@ -19,7 +19,7 @@ class RincianPenumpangPage extends StatelessWidget {
 
   final Function(Map<String, String>) onSave;
 
-  RincianPenumpangPage({required this.onSave});
+  RincianPenumpangPage({super.key, required this.onSave});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class RincianPenumpangPage extends StatelessWidget {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Rincian Penumpang'),
+        title: const Text('Rincian Penumpang'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -40,7 +40,7 @@ class RincianPenumpangPage extends StatelessWidget {
         children: [
           Container(
             color: Colors.white,
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             child: Column(
               children: [
                 ContactInfoTile(
@@ -48,31 +48,31 @@ class RincianPenumpangPage extends StatelessWidget {
                   label: 'Judul',
                   controller: _judulController,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ContactInfoTile(
                   icon: 'assets/icons/people.png',
                   label: 'Nama Depan',
                   controller: _namaDController,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ContactInfoTile(
                   icon: 'assets/icons/people.png',
                   label: 'Nama Belakang',
                   controller: _namaBController,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ContactInfoTile(
                   icon: 'assets/icons/globe.png',
                   label: 'Kewarganegaraan',
                   controller: _negaraController,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ContactInfoTile(
                   icon: 'assets/icons/tgl.png',
                   label: 'Tanggal Lahir',
                   controller: _tglLahriBController,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ContactInfoTile(
                   icon: 'assets/icons/tgl.png',
                   label: 'Nomor KTP/NIK',
@@ -81,7 +81,7 @@ class RincianPenumpangPage extends StatelessWidget {
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: ButtonCustom.filled(

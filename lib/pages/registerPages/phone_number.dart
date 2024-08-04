@@ -25,7 +25,7 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         title: "Registrasi / Masuk",
         bgColor: ColorName.yellowColor,
         automaticallyImplyLeading: false,

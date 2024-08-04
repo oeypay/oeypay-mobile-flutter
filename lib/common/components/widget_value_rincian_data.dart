@@ -8,7 +8,7 @@ class ValueRincianData extends StatelessWidget {
   final String? tuan;
   final IconData? icon;
 
-  ValueRincianData({
+  const ValueRincianData({
     super.key,
     required this.nama,
     required this.data1,
@@ -20,7 +20,7 @@ class ValueRincianData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: 20,
         right: 25,
       ),
@@ -35,24 +35,24 @@ class ValueRincianData extends StatelessWidget {
                   nama,
                   style: CustomTextStyles.titlesection,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 if (tuan != null)
                   Container(
-                    padding: EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(3),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       border: Border.all(color: Colors.grey),
                     ),
                     child: Text(
                       tuan!,
-                      style: TextStyle(fontSize: 10),
+                      style: const TextStyle(fontSize: 10),
                     ),
                   )
                 else
                   Container(),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -60,14 +60,14 @@ class ValueRincianData extends StatelessWidget {
                   data1,
                   style: CustomTextStyles.titleProfil,
                 ),
-                if (icon != null) Icon(Icons.chevron_right) else Container(),
+                if (icon != null) const Icon(Icons.chevron_right) else Container(),
               ],
             ),
             Text(
               data2,
               style: CustomTextStyles.titleProfil,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             )
           ],

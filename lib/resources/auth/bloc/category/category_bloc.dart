@@ -9,10 +9,10 @@ part 'category_state.dart';
 part 'category_bloc.freezed.dart';
 
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
-  CategoryBloc() : super(_Initial()) {
+  CategoryBloc() : super(const _Initial()) {
     on<_GetAll>((event, emit) async {
       // TODO: implement event handler
-      emit(_Loading());
+      emit(const _Loading());
       final response = await Categoryremotedatasource().getAllCategory();
       response.fold(
         (l) => emit(_Error(l)),

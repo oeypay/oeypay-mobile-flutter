@@ -31,7 +31,7 @@ class TagihanListrik extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HasilTransaksiListrik(),
+                        builder: (context) => const HasilTransaksiListrik(),
                       ),
                     );
                   },

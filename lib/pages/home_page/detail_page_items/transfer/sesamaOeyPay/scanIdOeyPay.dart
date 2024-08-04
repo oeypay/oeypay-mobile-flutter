@@ -35,7 +35,7 @@ class _ScanIdOeypayState extends State<ScanIdOeypay> {
             flex: 1,
             child: (result != null)
                 ? Text('QRCode Data: ${result!.code}')
-                : Text('Scan Kode'),
+                : const Text('Scan Kode'),
           ),
         ],
       ),

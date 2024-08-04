@@ -7,8 +7,7 @@ import 'package:pinput/pinput.dart';
 class Konfirmasipenarikanotp extends StatefulWidget {
   final VoidCallback onConfirmation;
 
-  const Konfirmasipenarikanotp({Key? key, required this.onConfirmation})
-      : super(key: key);
+  const Konfirmasipenarikanotp({super.key, required this.onConfirmation});
 
   @override
   _KonfirmasipenarikanotpState createState() => _KonfirmasipenarikanotpState();
@@ -41,7 +40,7 @@ class _KonfirmasipenarikanotpState extends State<Konfirmasipenarikanotp> {
       backgroundColor: ColorName.yellowColor,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Masukkan PIN Kamu'),
+        title: const Text('Masukkan PIN Kamu'),
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, top: 70),
@@ -55,7 +54,7 @@ class _KonfirmasipenarikanotpState extends State<Konfirmasipenarikanotp> {
                 width: 85,
               ),
             ),
-            SizedBox(height: 45),
+            const SizedBox(height: 45),
             Text(
               'Lupa PIN?',
               textAlign: TextAlign.center,
@@ -65,7 +64,7 @@ class _KonfirmasipenarikanotpState extends State<Konfirmasipenarikanotp> {
                 // fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Pinput(
               length: 6,
               controller: _pinController,
@@ -96,7 +95,7 @@ class _KonfirmasipenarikanotpState extends State<Konfirmasipenarikanotp> {
               onCompleted: (pin) {
                 print('PIN entered: $pin');
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('PIN Berhasil di Buat'),
                     backgroundColor: Colors.green,
                     duration: Duration(seconds: 2), // Durasi tampilnya snackbar

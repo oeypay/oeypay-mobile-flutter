@@ -11,9 +11,9 @@ part 'register_bloc.freezed.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final Authremotedatasource dataSource;
-  RegisterBloc(this.dataSource) : super(_Initial()) {
+  RegisterBloc(this.dataSource) : super(const _Initial()) {
     on<_Register>((event, emit) async {
-      emit(_Loading());
+      emit(const _Loading());
       final result = await dataSource.register(event.requestModel);
       result.fold(
         (l) => emit(_Error(l)),

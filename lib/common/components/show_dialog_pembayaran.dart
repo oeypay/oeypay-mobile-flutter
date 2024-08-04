@@ -31,7 +31,7 @@ void showCustomBottomSheet({
       return SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: ColorName.light,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15.0),
@@ -42,12 +42,12 @@ void showCustomBottomSheet({
             crossAxisAlignment: CrossAxisAlignment.start,
             // mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 'Informasi Pelanggan',
                 style: CustomTextStyles.titleShowModal,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // const SizedBox(height: 10.0),
               if (nomorMeter != null)
                 Row(
@@ -56,7 +56,7 @@ void showCustomBottomSheet({
                       'Nomor Meter',
                       style: CustomTextStyles.titlesection,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       nomorMeter.toString(),
                       style: CustomTextStyles.titlesection,
@@ -73,7 +73,7 @@ void showCustomBottomSheet({
                       'ID Pelanggan',
                       style: CustomTextStyles.titlesection,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       iDPelanggan.toString(),
                       style: CustomTextStyles.titlesection,
@@ -90,7 +90,7 @@ void showCustomBottomSheet({
                       'Nama Pelanggan',
                       style: CustomTextStyles.titlesection,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       namaPelanggan,
                       style: CustomTextStyles.titlesection,
@@ -106,7 +106,7 @@ void showCustomBottomSheet({
                       'Tarif / Daya',
                       style: CustomTextStyles.titlesection,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       tarifDaya,
                       style: CustomTextStyles.titlesection,
@@ -123,7 +123,7 @@ void showCustomBottomSheet({
                       'Nomor Ponsel',
                       style: CustomTextStyles.titlesection,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       noHp,
                       style: CustomTextStyles.titlesection,
@@ -140,7 +140,7 @@ void showCustomBottomSheet({
                       'Voucher Telkomsel',
                       style: CustomTextStyles.titlesection,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       pulsaData,
                       style: CustomTextStyles.titlesection,
@@ -149,7 +149,7 @@ void showCustomBottomSheet({
                 )
               else
                 Container(),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -176,19 +176,19 @@ void showCustomBottomSheet({
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Detail Pembayaran',
                 style: CustomTextStyles.titleShowModal,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Text(
                     titleHarga!,
                     style: CustomTextStyles.titlesection,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     hargaPrice!,
                     style: CustomTextStyles.titlesection,
@@ -202,7 +202,7 @@ void showCustomBottomSheet({
                     'Biaya Transaksi',
                     style: CustomTextStyles.titlesection,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     transaksi,
                     style: CustomTextStyles.titlesection,
@@ -210,7 +210,7 @@ void showCustomBottomSheet({
                 ],
               ),
               const SizedBox(height: 16.0),
-              DashedLineExample(),
+              const DashedLineExample(),
               const SizedBox(height: 30.0),
               Row(
                 children: [
@@ -218,7 +218,7 @@ void showCustomBottomSheet({
                     'Total Pembayaran:',
                     style: CustomTextStyles.titlesection,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     totalPembayaran,
                     style: CustomTextStyles.titlesection,
@@ -262,7 +262,7 @@ void showCustomBottomSheet({
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -278,7 +278,7 @@ class CustomShowModalBottomSheet extends StatelessWidget {
   final String iconik;
   final List<String> _topUpSteps;
 
-  CustomShowModalBottomSheet({
+  const CustomShowModalBottomSheet({super.key, 
     required this.iconik,
     required String virtualAccountTitle,
     required String virtualAccountNumber,
@@ -293,8 +293,8 @@ class CustomShowModalBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
             color: ColorName.light,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),
@@ -318,17 +318,17 @@ class CustomShowModalBottomSheet extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.close_rounded,
                     color: Colors.red,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Center(
               child: Container(
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   border: Border.all(color: ColorName.yellowColor),
                   color: ColorName.yellowSmoth,
@@ -340,7 +340,7 @@ class CustomShowModalBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
               child: SizedBox(
                 height: 30,
@@ -352,12 +352,12 @@ class CustomShowModalBottomSheet extends StatelessWidget {
                     textColor: Colors.black),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               _topUpTitle,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ..._topUpSteps.map(
               (step) => CustomListTitle(title: step),
             ),

@@ -20,7 +20,7 @@ class CommonNote extends StatelessWidget {
           child: Text(
             title ?? "",
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: ColorName.black,
               fontWeight: FontWeight.bold,
               fontSize: 20,

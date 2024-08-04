@@ -35,7 +35,7 @@ class _ItemLainnyaPageState extends State<ItemLainnyaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.light,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         bgColor: ColorName.yellowColor,
         title: 'Semua Layanan',
       ),
@@ -61,7 +61,7 @@ class _ItemLainnyaPageState extends State<ItemLainnyaPage> {
               _fetchData();
             },
             child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 children: [
                   for (var item in state.getListMenu!)
@@ -80,7 +80,7 @@ class _ItemLainnyaPageState extends State<ItemLainnyaPage> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                PulsaScreen()),
+                                                const PulsaScreen()),
                                       )
                                     : showSnackBar(context,
                                         msg: 'Layanan ini belum tersedia !!!');

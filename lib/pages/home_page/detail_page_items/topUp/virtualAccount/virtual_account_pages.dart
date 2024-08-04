@@ -35,7 +35,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
         'title': 'BANK BCA',
         'tag': 'Instan',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/bca.svg',
           virtualAccountTitle: 'Nomor Virtual Account BCA',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -58,7 +58,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
         'title': 'BANK MANDIRI',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/mandiri.svg',
           virtualAccountTitle: 'Nomor Virtual Account MANDIRI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -81,7 +81,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
         'title': 'BANK PANIN',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/panin.svg',
           virtualAccountTitle: 'Nomor Virtual Account PANIN',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -104,7 +104,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
         'title': 'BANK NEGARA INDONESIA',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/bni.svg',
           virtualAccountTitle: 'Nomor Virtual Account BNI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -127,7 +127,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
         'title': 'BANK RAKYAT INDONESIA',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/bri.svg',
           virtualAccountTitle: 'Nomor Virtual Account BRI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -150,7 +150,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
         'title': 'BANK PERMATA',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/permata.svg',
           virtualAccountTitle: 'Nomor Virtual Account PERMATA',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -172,7 +172,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: ColorName.yellowColor,
-        title: Text('Top Up'),
+        title: const Text('Top Up'),
       ),
       body: Stack(
         children: [
@@ -192,16 +192,16 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(width: 70),
-                  Icon(
+                  const SizedBox(width: 70),
+                  const Icon(
                     Icons.wallet,
                     size: 40,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Saldo'),
+                      const Text('Saldo'),
                       Text(
                         'Rp. 5.000',
                         style: CustomTextStyles.titlesection,
@@ -210,7 +210,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -234,7 +234,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Virtual Account',
                         style: TextStyle(
                           color: Colors.black,
@@ -263,7 +263,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Metode Lainnya',
                         style: TextStyle(
                           color: Colors.black,
@@ -273,7 +273,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               if (!isVirtualAccount)
                 Wrap(
                   // spacing: 10.0,
@@ -295,7 +295,7 @@ class _VirtualaccountpagesState extends State<Virtualaccountpages> {
                   ],
                 )
               else
-                Wrap(
+                const Wrap(
                   children: [
                     TopUpScreen(),
                   ],

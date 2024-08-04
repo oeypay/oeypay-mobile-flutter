@@ -36,7 +36,7 @@ class Indomartdetail extends StatelessWidget {
                       'assets/icons/provider/indomart.svg',
                       width: 50,
                     ),
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -52,12 +52,12 @@ class Indomartdetail extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Text(
                   'Minimal TopUp',
                   style: CustomTextStyles.titlesection,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -86,7 +86,7 @@ class Indomartdetail extends StatelessWidget {
                   'Biaya TopUp Rp 0',
                   style: CustomTextStyles.titleItem,
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 SizedBox(
                   height: 40,
                   child: ButtonCustom.filled(
@@ -98,7 +98,7 @@ class Indomartdetail extends StatelessWidget {
                             return Container(
                               height: 300,
                               padding: const EdgeInsets.all(16.0),
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: ColorName.light,
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(20.0),
@@ -156,7 +156,7 @@ class Indomartdetail extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  DashedLineExample(),
+                                  const DashedLineExample(),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -189,7 +189,7 @@ class Indomartdetail extends StatelessWidget {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  Menungupembayaran(),
+                                                  const Menungupembayaran(),
                                             ),
                                           );
                                         },

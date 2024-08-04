@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
           splashColor: ColorName.light,
-          inputDecorationTheme: InputDecorationTheme(
+          inputDecorationTheme: const InputDecorationTheme(
             focusColor: Colors.black45,
             labelStyle: TextStyle(color: Colors.black54),
           ),
@@ -45,13 +45,15 @@ class MyApp extends StatelessWidget {
             shape: CircleBorder(),
           ),
         ),
-        home: SplashScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
 }
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -72,8 +74,8 @@ class _SplashScreenState extends State<SplashScreen>
     );
 
     _slideAnimation = Tween<Offset>(
-      begin: Offset(0.0, -1.0), // Mulai dari atas layar
-      end: Offset(0.0, 0.0), // Berakhir di posisi aslinya
+      begin: const Offset(0.0, -1.0), // Mulai dari atas layar
+      end: const Offset(0.0, 0.0), // Berakhir di posisi aslinya
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -122,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen>
                     color: Colors.black,
                     width: 130,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   SvgPicture.asset(
                     'assets/icons/logo.svg',
                     color: Colors.black,
@@ -133,7 +135,7 @@ class _SplashScreenState extends State<SplashScreen>
             ),
             FadeTransition(
               opacity: _textAnimation,
-              child: Text(
+              child: const Text(
                 'KEMUDAHAN DALAM GENGGAMAN',
                 style: TextStyle(
                   fontSize: 16,

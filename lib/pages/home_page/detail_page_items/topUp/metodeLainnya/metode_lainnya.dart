@@ -12,7 +12,7 @@ import 'merchant/merchant.dart';
 import 'visaMaster/visa_master.dart';
 
 class TopUpScreen extends StatelessWidget {
-  const TopUpScreen({Key? key}) : super(key: key);
+  const TopUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class TopUpScreen extends StatelessWidget {
         'title': 'Alfmart, Alfamidi, Lawson',
         'tag': '',
         'action': 'page',
-        'page': Alfamartdetail(),
+        'page': const Alfamartdetail(),
       },
       {
         'icon': SvgPicture.asset(
@@ -35,7 +35,7 @@ class TopUpScreen extends StatelessWidget {
         'title': 'Indomaret',
         'tag': '',
         'action': 'page',
-        'page': Indomartdetail(),
+        'page': const Indomartdetail(),
       },
       {
         'icon': SvgPicture.asset(
@@ -45,7 +45,7 @@ class TopUpScreen extends StatelessWidget {
         'title': 'Debit Visa / Master Card',
         'tag': '',
         'action': 'page',
-        'page': Visamaster(),
+        'page': const Visamaster(),
       },
       {
         'icon': SvgPicture.asset(
@@ -55,7 +55,7 @@ class TopUpScreen extends StatelessWidget {
         'title': 'ATM',
         'tag': '',
         'action': 'page',
-        'page': AtmPage(),
+        'page': const AtmPage(),
       },
       {
         'icon': SvgPicture.asset(
@@ -65,7 +65,7 @@ class TopUpScreen extends StatelessWidget {
         'title': 'Merchant / Mitra OeyPay',
         'tag': '',
         'action': 'page',
-        'page': MerchantPage(),
+        'page': const MerchantPage(),
       },
     ];
 
@@ -77,12 +77,12 @@ class TopUpScreen extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Menungupembayaran(),
+                builder: (context) => const Menungupembayaran(),
               ),
             );
           },
           child: Container(
-            margin: EdgeInsets.only(left: 20, right: 20, bottom: 10),
+            margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.amber),
@@ -93,7 +93,7 @@ class TopUpScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset('assets/icons/Group 16.png', width: 40),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

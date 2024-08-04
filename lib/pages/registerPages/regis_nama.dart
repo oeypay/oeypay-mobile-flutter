@@ -26,7 +26,7 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         title: "Registrasi",
         titleRight: '1/4',
         bgColor: ColorName.yellowColor,
@@ -50,7 +50,7 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
         builder: (context, state) {
           return BodyAuth(
             children: [
-              AuthDesc(
+              const AuthDesc(
                 title: 'Nomor telepon kamu belum terdaftar di OeyPay',
                 desc: 'Yuk daftar sekarang',
               ),

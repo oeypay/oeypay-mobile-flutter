@@ -8,6 +8,8 @@ import '../pesawat/rincian_penumpang.dart';
 import 'pilih_kursi.dart';
 
 class RincianDataKereta extends StatefulWidget {
+  const RincianDataKereta({super.key});
+
   @override
   _RincianDataKeretaState createState() => _RincianDataKeretaState();
 }
@@ -27,7 +29,7 @@ class _RincianDataKeretaState extends State<RincianDataKereta> {
           style: CustomTextStyles.titleProfilApp,
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -37,7 +39,7 @@ class _RincianDataKeretaState extends State<RincianDataKereta> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RouteDetail(
+            const RouteDetail(
               icon: Icons.train,
               route: 'Bandung (BD) > Pasar Senen (PS)',
               date: 'Sab, 8 Jul 2024',
@@ -52,7 +54,7 @@ class _RincianDataKeretaState extends State<RincianDataKereta> {
               //   );
               // },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ContactDetails(
               name: penumpangDataKontak?['nama'],
               email: penumpangDataKontak?['email'],
@@ -72,7 +74,7 @@ class _RincianDataKeretaState extends State<RincianDataKereta> {
                 );
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             PassengerDetails(
               passengerData: penumpangData,
               onEdit: () async {
@@ -133,7 +135,7 @@ class _RincianDataKeretaState extends State<RincianDataKereta> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PilihKursi(),
+                                builder: (context) => const PilihKursi(),
                               ),
                             );
                           },

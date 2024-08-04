@@ -85,7 +85,7 @@ showAlert(BuildContext context, String msg) {
     Flushbar(
       flushbarPosition: FlushbarPosition.TOP,
       margin: const EdgeInsets.all(10.0),
-      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       borderRadius: BorderRadius.circular(10),
       backgroundColor: ColorName.grey100.withOpacity(.6),
       titleColor: Colors.black,

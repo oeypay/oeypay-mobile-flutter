@@ -18,6 +18,7 @@ class _AtmPageState extends State<AtmPage> {
   late ExpandedTileController _control;
   late ExpandedTileController _controler;
 
+  @override
   void initState() {
     // initialize controller
     _control = ExpandedTileController(isExpanded: true);
@@ -52,11 +53,11 @@ class _AtmPageState extends State<AtmPage> {
                           'assets/icons/provider/atm.svg',
                           width: 50,
                         ),
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('ATM'),
+                            const Text('ATM'),
                             Text(
                               'Metode Top Up',
                               style: CustomTextStyles.textCard,
@@ -71,7 +72,7 @@ class _AtmPageState extends State<AtmPage> {
                   controller: _control,
                   imag: 'assets/icons/Bank/bca.svg',
                   title: 'BCA',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -98,7 +99,7 @@ class _AtmPageState extends State<AtmPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/bri.svg',
                   title: 'BRI',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -125,7 +126,7 @@ class _AtmPageState extends State<AtmPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/mandiri.svg',
                   title: 'MANDIRI',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -152,7 +153,7 @@ class _AtmPageState extends State<AtmPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/bni.svg',
                   title: 'BNI',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -179,7 +180,7 @@ class _AtmPageState extends State<AtmPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/mega.svg',
                   title: 'BANK MEGA',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -206,7 +207,7 @@ class _AtmPageState extends State<AtmPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/maybank.svg',
                   title: 'MAY BANK',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -233,7 +234,7 @@ class _AtmPageState extends State<AtmPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/danamon.svg',
                   title: 'DANAMON',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),
@@ -260,7 +261,7 @@ class _AtmPageState extends State<AtmPage> {
                   controller: _controler,
                   imag: 'assets/icons/Bank/permata.svg',
                   title: 'PERMATA BANK',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Instruksi'),

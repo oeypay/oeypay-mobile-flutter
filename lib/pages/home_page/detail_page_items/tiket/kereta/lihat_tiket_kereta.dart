@@ -29,7 +29,7 @@ class LihatETiketScreen extends StatelessWidget {
             ),
             subtitle: Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.check_circle,
                   color: Colors.teal,
                 ),
@@ -44,9 +44,9 @@ class LihatETiketScreen extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             color: ColorName.yellowSmoth,
-            child: Column(
+            child: const Column(
               children: [
                 Text('Kode booking'),
                 Text('IE45R'),

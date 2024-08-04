@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PositionedExample extends StatelessWidget {
+  const PositionedExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Positioned Example')),
+      appBar: AppBar(title: const Text('Positioned Example')),
       body: Center(
         child: Stack(
           children: <Widget>[

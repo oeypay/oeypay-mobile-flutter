@@ -18,14 +18,14 @@ import 'package:oepay/resources/cubit/menu/menu_cubit.dart';
 import 'paket_data.dart';
 
 class PulsaScreen extends StatefulWidget {
-  const PulsaScreen({Key? key}) : super(key: key);
+  const PulsaScreen({super.key});
 
   @override
   State<PulsaScreen> createState() => _PulsaScreenState();
 }
 
 class _PulsaScreenState extends State<PulsaScreen> {
-  final FlutterContactPicker _contactPicker = new FlutterContactPicker();
+  final FlutterContactPicker _contactPicker = FlutterContactPicker();
   List<Contact>? _contacts;
   bool isPaketDataSelected = false;
   int? selectedPulsaOption;
@@ -108,7 +108,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
 
     return Scaffold(
       backgroundColor: ColorName.light,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         title: 'Pulsa & Paket Data',
         bgColor: ColorName.yellowColor,
       ),
@@ -122,13 +122,14 @@ class _PulsaScreenState extends State<PulsaScreen> {
               onChanged: (value) {
                 contact = value;
                 if (value.length == 7) checkPhoneNumber(contact);
-                if (value.length < 7)
+                if (value.length < 7) {
                   setState(() {
                     brand = '';
                   });
+                }
 
                 print(
-                    'data ${brand} - ${contact} - ${category} - leght ${_contactController.text.length}');
+                    'data $brand - $contact - $category - leght ${_contactController.text.length}');
               },
               controller: _contactController,
               pressprefixIcon: () async {
@@ -177,7 +178,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                     brand == 'Nomor tidak dikenali'
                 ? Expanded(
                     child: ListView(
-                    children: [
+                    children: const [
                       CommonNote(
                         title: "Masukan Nomor Hp",
                         msg: 'Dapatkan harga terbaik !!!',
@@ -245,7 +246,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                                                       context,
                                                       MaterialPageRoute(
                                                         builder: (context) =>
-                                                            Hasiltransaksipulsa(),
+                                                            const Hasiltransaksipulsa(),
                                                       ),
                                                     );
                                                   },
@@ -298,7 +299,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                                                       context,
                                                       MaterialPageRoute(
                                                         builder: (context) =>
-                                                            HasiltransaksiData(),
+                                                            const HasiltransaksiData(),
                                                       ),
                                                     );
                                                   },
@@ -316,7 +317,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
                                                     left: 30,
                                                     right: 20,
                                                     top: 20),
-                                                child: Container(
+                                                child: SizedBox(
                                                   height: 230,
                                                   child: Column(
                                                     crossAxisAlignment:
@@ -324,14 +325,14 @@ class _PulsaScreenState extends State<PulsaScreen> {
                                                     children: [
                                                       IconButton(
                                                         onPressed: () {},
-                                                        icon: Icon(Icons.close),
+                                                        icon: const Icon(Icons.close),
                                                       ),
                                                       Text(
                                                         'BRONET 24 Jam 1GB 1Hr + Bonus Lokal Kuota',
                                                         style: CustomTextStyles
                                                             .textButton,
                                                       ),
-                                                      SizedBox(height: 10),
+                                                      const SizedBox(height: 10),
                                                       Text(
                                                         'Main Kuota 1 GB 1 hari selama 24 Jam disemua jaringan 2G/3G/4G. BONUS Lokal Kuota sesaui dengan area/lokasi',
                                                         style: CustomTextStyles
@@ -376,7 +377,7 @@ class HeaderInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16.0),
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
@@ -394,11 +395,11 @@ class HeaderInput extends StatelessWidget {
           if (brand != '')
             Row(
               children: [
-                Icon(Icons.phone_android, color: Colors.red),
-                SizedBox(width: 16.0),
+                const Icon(Icons.phone_android, color: Colors.red),
+                const SizedBox(width: 16.0),
                 Text(
                   brand ?? '',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,
                   ),
@@ -412,16 +413,16 @@ class HeaderInput extends StatelessWidget {
               onChanged: onChanged,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 30),
+                contentPadding: const EdgeInsets.only(left: 30),
                 filled: true,
-                fillColor: Color(0xffFEF7dd),
+                fillColor: const Color(0xffFEF7dd),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(50.0),
                   borderSide: BorderSide.none,
                 ),
                 prefixIcon: IconButton(
                   onPressed: pressprefixIcon,
-                  icon: Icon(Icons.contacts),
+                  icon: const Icon(Icons.contacts),
                 ),
                 hintText: 'Nomor Ponsel',
                 suffixIcon: controller!.text.isNotEmpty
@@ -459,7 +460,7 @@ class ButtonCategoryProduct extends StatelessWidget {
         ),
         child: Text(
           label ?? '',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
           ),
         ),
@@ -478,13 +479,13 @@ class GridItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       crossAxisCount: crossAxisCount ?? 2,
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       childAspectRatio: childAspectRatio ?? 5 / 4.5,
-      padding: EdgeInsets.all(2),
+      padding: const EdgeInsets.all(2),
       children: items ?? [],
     );
   }

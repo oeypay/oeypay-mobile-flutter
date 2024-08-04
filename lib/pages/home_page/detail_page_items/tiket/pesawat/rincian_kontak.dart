@@ -13,7 +13,7 @@ class RincianKontakPage extends StatelessWidget {
 
   final Function(Map<String, String>) onSave;
 
-  RincianKontakPage({required this.onSave});
+  RincianKontakPage({super.key, required this.onSave});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class RincianKontakPage extends StatelessWidget {
           style: CustomTextStyles.titleProfilApp,
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -37,7 +37,7 @@ class RincianKontakPage extends StatelessWidget {
         children: [
           Container(
             color: Colors.white,
-            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             child: Column(
               children: [
                 ContactInfoTile(
@@ -45,13 +45,13 @@ class RincianKontakPage extends StatelessWidget {
                   label: 'Nama Lengkap',
                   controller: _nameController,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ContactInfoTile(
                   icon: 'assets/icons/email.png',
                   label: 'Email',
                   controller: _emailController,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ContactInfoTile(
                   icon: 'assets/icons/tlp.png',
                   label: 'No Hp',
@@ -60,7 +60,7 @@ class RincianKontakPage extends StatelessWidget {
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: ButtonCustom.filled(
@@ -89,7 +89,7 @@ class ContactInfoTile extends StatelessWidget {
   final String label;
   final TextEditingController controller;
 
-  ContactInfoTile({
+  const ContactInfoTile({super.key, 
     required this.icon,
     required this.label,
     required this.controller,
@@ -98,7 +98,7 @@ class ContactInfoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -114,9 +114,9 @@ class ContactInfoTile extends StatelessWidget {
             width: 1,
             height: 30,
             color: Colors.grey,
-            margin: EdgeInsets.only(left: 15),
+            margin: const EdgeInsets.only(left: 15),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

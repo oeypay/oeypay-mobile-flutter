@@ -86,7 +86,7 @@ class AuthCubit extends Cubit<AuthState> {
 
     final result = await ApiAuthProvider.signUp(
         name: name, phone: phone, referral: referral);
-    debugPrint('signUp data: name=${name}, phone=$phone, referral=${referral}');
+    debugPrint('signUp data: name=$name, phone=$phone, referral=$referral');
 
     if (result.success != null) {
       emit(state.copyWith(

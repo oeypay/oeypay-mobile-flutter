@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart'; // Pastikan sudah menambahkan dependensi di pubspec.yaml
 
 class DashedLineExample extends StatelessWidget {
+  const DashedLineExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(

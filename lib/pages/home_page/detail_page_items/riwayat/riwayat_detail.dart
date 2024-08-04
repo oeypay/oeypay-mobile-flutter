@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:oepay/common/components/buttons.dart';
-import 'package:oepay/common/components/custom_textField.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 
 class RiwayatPage extends StatefulWidget {
+  const RiwayatPage({super.key});
+
   @override
   _RiwayatPageState createState() => _RiwayatPageState();
 }
@@ -23,11 +24,11 @@ class _RiwayatPageState extends State<RiwayatPage> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.filter_list),
+            icon: const Icon(Icons.filter_list),
             onPressed: () {
               showModalBottomSheet(
                 context: context,
-                builder: (context) => FilterBottomSheet(),
+                builder: (context) => const FilterBottomSheet(),
               );
             },
           ),
@@ -36,7 +37,7 @@ class _RiwayatPageState extends State<RiwayatPage> {
       body: ListView.builder(
         itemCount: 5,
         itemBuilder: (context, index) {
-          return RiwayatItem(
+          return const RiwayatItem(
             tanggal: '1 Juli 2024',
             keterangan: 'Transfer ke MUHAMMAD ASDAR',
             jenis: 'Transfer Keluar',
@@ -57,13 +58,13 @@ class RiwayatItem extends StatelessWidget {
   final String waktu;
 
   const RiwayatItem({
-    Key? key,
+    super.key,
     required this.tanggal,
     required this.keterangan,
     required this.jenis,
     required this.nominal,
     required this.waktu,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +85,7 @@ class RiwayatItem extends StatelessWidget {
           ),
           // SizedBox(height: 8.0),
           Padding(
-            padding: EdgeInsets.only(left: 20, right: 20, top: 5),
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -102,7 +103,7 @@ class RiwayatItem extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, bottom: 5),
             child: Row(
@@ -119,8 +120,8 @@ class RiwayatItem extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 5),
-          Divider(),
+          const SizedBox(height: 5),
+          const Divider(),
         ],
       ),
     );
@@ -128,6 +129,8 @@ class RiwayatItem extends StatelessWidget {
 }
 
 class FilterBottomSheet extends StatefulWidget {
+  const FilterBottomSheet({super.key});
+
   @override
   _FilterBottomSheetState createState() => _FilterBottomSheetState();
 }
@@ -147,31 +150,31 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Filter',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             _radioButton(
               'Hari ini',
-              Icon(
+              const Icon(
                 Icons.radio_button_checked,
                 color: Colors.teal,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             _radioButton(
               'Rentang Tanggal',
-              Icon(
+              const Icon(
                 Icons.radio_button_checked,
                 color: Colors.grey,
               ),
             ),
             // Add filter options here
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
@@ -200,18 +203,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.yellow),
+                          borderSide: const BorderSide(color: Colors.yellow),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                       child: Text(
                         _selectedDate != null
-                            ? '${DateFormat('dd/MM/yyyy').format(_selectedDate!)}'
-                            : '${formattedDate}',
+                            ? DateFormat('dd/MM/yyyy').format(_selectedDate!)
+                            : formattedDate,
                         style: const TextStyle(
                           color: Colors.black,
                         ),
@@ -246,18 +249,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.yellow),
+                          borderSide: const BorderSide(color: Colors.yellow),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                       child: Text(
                         _selectedReturnDate != null
-                            ? '${DateFormat('dd/MM/yyyy').format(_selectedReturnDate!)}'
-                            : '${formattedDate}',
+                            ? DateFormat('dd/MM/yyyy').format(_selectedReturnDate!)
+                            : formattedDate,
                         style: const TextStyle(
                           color: Colors.black,
                         ),
@@ -267,7 +270,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 ),
               ],
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
               'Rentang tanggal waktu maksimum 30 hari yang lalu',
               style: CustomTextStyles.poppins(
@@ -275,18 +278,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 color: Colors.red.shade900,
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Text(
               'Kategori',
               style: CustomTextStyles.titleItem,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             InkWell(
               onTap: () {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return Dialog(
+                      return const Dialog(
                         child: Column(
                           children: [],
                         ),
@@ -302,7 +305,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               ),
             ),
             // Spacer(),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ButtonCustom.filled(
               width: double.infinity,
               height: 45,
@@ -311,7 +314,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               color: ColorName.yellowColor,
               textColor: Colors.black,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -320,7 +323,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
 
   Widget _radioButton(String text, Icon icon) {
     return Container(
-      padding: EdgeInsets.only(left: 8, top: 5, bottom: 5),
+      padding: const EdgeInsets.only(left: 8, top: 5, bottom: 5),
       decoration: BoxDecoration(
           color: Colors.grey.shade300, borderRadius: BorderRadius.circular(10)),
       child: Row(

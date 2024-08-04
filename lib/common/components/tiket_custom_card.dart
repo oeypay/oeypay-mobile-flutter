@@ -14,7 +14,7 @@ class TicketCard extends StatelessWidget {
   final String arrivalTime;
   final String vehicleIconPath;
 
-  TicketCard({
+  const TicketCard({super.key, 
     this.logoPath,
     this.namaStasiun,
     required this.price,
@@ -31,8 +31,8 @@ class TicketCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
-      margin: EdgeInsets.only(left: 15, right: 15, top: 10),
+      padding: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.only(left: 15, right: 15, top: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -41,13 +41,13 @@ class TicketCard extends StatelessWidget {
             color: Colors.blueGrey.shade300.withOpacity(0.2),
             spreadRadius: 1,
             blurRadius: 4,
-            offset: Offset(2, 2),
+            offset: const Offset(2, 2),
           ),
           BoxShadow(
             color: Colors.blueGrey.shade300.withOpacity(0.2),
             spreadRadius: 1,
             blurRadius: 4,
-            offset: Offset(-2, -2),
+            offset: const Offset(-2, -2),
           ),
         ],
       ),
@@ -79,12 +79,12 @@ class TicketCard extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Text('/Org'),
+                  const Text('/Org'),
                 ],
               ),
             ],
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -96,12 +96,12 @@ class TicketCard extends StatelessWidget {
                       departureStation,
                       style: CustomTextStyles.titleProfil,
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       departureCode,
                       style: CustomTextStyles.textVirtualAccount,
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       departureTime,
                       style: CustomTextStyles.titleProfil,
@@ -133,12 +133,12 @@ class TicketCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Image.asset(
                                 vehicleIconPath,
                                 width: 30,
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Text(
                                 'Langsung',
                                 style: CustomTextStyles.poppins(
@@ -170,12 +170,12 @@ class TicketCard extends StatelessWidget {
                       style: CustomTextStyles.titleProfil,
                       textAlign: TextAlign.end,
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       arrivalCode,
                       style: CustomTextStyles.textVirtualAccount,
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       arrivalTime,
                       style: CustomTextStyles.titleProfil,

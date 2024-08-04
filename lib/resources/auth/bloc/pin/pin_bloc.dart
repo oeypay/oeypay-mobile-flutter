@@ -12,9 +12,9 @@ part 'pin_bloc.freezed.dart';
 class PinBloc extends Bloc<PinEvent, PinState> {
   final Authremotedatasource dataSource;
 
-  PinBloc(this.dataSource) : super(_Initial()) {
+  PinBloc(this.dataSource) : super(const _Initial()) {
     on<_SendPin>((event, emit) async {
-      emit(_Loading());
+      emit(const _Loading());
       final result = await dataSource.sendPIN(event.requestModel);
       result.fold(
         (failure) => emit(_Error(failure)),

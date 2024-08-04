@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 
 class RekomendasiPilihan extends StatelessWidget {
-  const RekomendasiPilihan({Key? key}) : super(key: key);
+  const RekomendasiPilihan({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,33 +14,33 @@ class RekomendasiPilihan extends StatelessWidget {
           'Rekomendasi Pilihan',
           style: CustomTextStyles.titlesection,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         SizedBox(
           height: 280.0, // Atur tinggi sesuai kebutuhan
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: [
+            children: const [
               PromoCard(
                 title: 'Belanja Paket Pulsa Pake OeyPay',
                 imageUrl: 'assets/images/promo1.png',
                 description: 'Cashback/Diskon s.d. 500rb',
                 buttonLabel: 'OVO',
               ),
-              const SizedBox(width: 16.0),
+              SizedBox(width: 16.0),
               PromoCard(
                 title: 'Belanja Token Listrik Pake OeyPay',
                 imageUrl: 'assets/images/promo2.png',
                 description: 'Cashback s.d. 50rb',
                 buttonLabel: 'OVO',
               ),
-              const SizedBox(width: 16.0),
+              SizedBox(width: 16.0),
               PromoCard(
                 title: 'Jajan Belanja Pulsa Pake OeyPay',
                 imageUrl: 'assets/images/promo3.png',
                 description: 'Cashback s.d. 50rb',
                 buttonLabel: 'OVO',
               ),
-              const SizedBox(width: 16.0),
+              SizedBox(width: 16.0),
               PromoCard(
                 title: 'Jajan Voucher Game Hemat Pake OeyPay',
                 imageUrl: 'assets/images/promo4.png',
@@ -60,14 +59,14 @@ class RekomendasiPilihan extends StatelessWidget {
           style: CustomTextStyles.titlesection,
         ),
         const SizedBox(height: 8.0),
-        Text(
+        const Text(
           'Biar makin akrab, yuk cek tips berikut!',
           style: TextStyle(fontSize: 16.0),
         ),
         const SizedBox(height: 16.0),
 
         // Tips Cards
-        Row(
+        const Row(
           children: [
             Expanded(
               child: TipsCard(
@@ -75,14 +74,14 @@ class RekomendasiPilihan extends StatelessWidget {
                 imageUrl: 'assets/images/promo1.png',
               ),
             ),
-            const SizedBox(width: 16.0),
+            SizedBox(width: 16.0),
             Expanded(
               child: TipsCard(
                 title: 'Cara Top Up OeyPay Cash',
                 imageUrl: 'assets/images/promo2.png',
               ),
             ),
-            const SizedBox(width: 16.0),
+            SizedBox(width: 16.0),
             Expanded(
               child: TipsCard(
                 title: 'Upgrade Ke OeyPay Premier',
@@ -103,12 +102,12 @@ class PromoCard extends StatelessWidget {
   final String buttonLabel;
 
   const PromoCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.imageUrl,
     required this.description,
     required this.buttonLabel,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +123,7 @@ class PromoCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10), topRight: Radius.circular(15)),
             child: Image.asset(
               imageUrl,
@@ -159,10 +158,10 @@ class TipsCard extends StatelessWidget {
   final String imageUrl;
 
   const TipsCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.imageUrl,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +173,7 @@ class TipsCard extends StatelessWidget {
       child: Column(
         children: [
           ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15), topRight: Radius.circular(15)),
               child: Image.asset(imageUrl)),
           Padding(

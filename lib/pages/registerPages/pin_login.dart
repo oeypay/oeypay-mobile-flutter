@@ -52,14 +52,14 @@ class _PinLoginPageState extends State<PinLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         title: "Masukan PIN Kamu",
         bgColor: ColorName.yellowColor,
       ),
       body: BodyAuth(
         center: true,
         children: [
-          AuthDesc(
+          const AuthDesc(
             center: true,
             title: 'Lupa PIN?',
           ),
@@ -70,7 +70,7 @@ class _PinLoginPageState extends State<PinLoginPage> {
                 // showSnackBar(context, msg: 'Berhasil login');
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ButtonCustomBar()),
+                  MaterialPageRoute(builder: (context) => const ButtonCustomBar()),
                 );
               } else if (state.status.isFailed()) {
                 // showSnackBar(context, msg: state.message ?? 'PIN Salah');
@@ -93,7 +93,7 @@ class _PinLoginPageState extends State<PinLoginPage> {
               );
             },
           ),
-          Space(20),
+          const Space(20),
           CustomKeyboard(
             onKeyTap: _onKeyTap,
             onBackspace: _onBackspace,
