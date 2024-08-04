@@ -10,7 +10,7 @@ import 'package:oepay/resources/models/user_model/user_model.dart';
 import 'package:oepay/resources/provider/storage_util.dart';
 
 import 'bantuan.dart';
-import 'syaratKetentuanDetails.dart';
+import 'syarat_ketentuan_details.dart';
 import 'tentang.dart';
 
 class ProfilePage extends StatelessWidget {

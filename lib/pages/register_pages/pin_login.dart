@@ -70,7 +70,8 @@ class _PinLoginPageState extends State<PinLoginPage> {
                 // showSnackBar(context, msg: 'Berhasil login');
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const ButtonCustomBar()),
+                  MaterialPageRoute(
+                      builder: (context) => const ButtonCustomBar()),
                 );
               } else if (state.status.isFailed()) {
                 // showSnackBar(context, msg: state.message ?? 'PIN Salah');

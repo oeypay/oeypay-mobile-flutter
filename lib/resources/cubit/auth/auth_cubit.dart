@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -101,6 +103,20 @@ class AuthCubit extends Cubit<AuthState> {
     emit(state.copyWith(status: BlocConnectionStatus.loading));
 
     final result = await ApiAuthProvider.signIn(pin: pin, phone: phone);
+    if (result.value != null) {
+      emit(state.copyWith(
+          status: BlocConnectionStatus.success, userModel: result.value));
+    } else {
+      emit(state.copyWith(
+          status: BlocConnectionStatus.failed, message: result.message));
+    }
+  }
+
+  Future<void> getUser() async {
+    emit(state.copyWith(status: BlocConnectionStatus.loading));
+
+    final result = await ApiAuthProvider.getUser();
+
     if (result.value != null) {
       emit(state.copyWith(
           status: BlocConnectionStatus.success, userModel: result.value));
