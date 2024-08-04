@@ -60,6 +60,11 @@ class ApiAuthProvider {
       await StorageCore().saveObject({
         "value": response.data['data']['access_token'],
       }, 'token');
+
+      // await StorageCore().savePhone({
+      //   "value": response.data['data']['user']['phone'],
+      // }, 'user_phone');
+
       return ApiReturnValue(value: value);
     } catch (e) {
       if (kDebugMode) print(e.toString());

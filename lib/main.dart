@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:oepay/common/components/bottom_custom_bar.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/resources/auth/bloc/pin/pin_bloc.dart';
-import 'package:oepay/resources/auth/bloc/register/register_bloc.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 import 'package:oepay/resources/cubit/menu/menu_cubit.dart';
-import 'package:oepay/resources/dataSource/auth_remote_data_source.dart';
 import 'package:oepay/pages/registerPages/phone_number.dart';
-
-import 'resources/auth/bloc/category/category_bloc.dart';
-import 'resources/auth/bloc/kodeOTP/kode_otp_bloc.dart';
+import 'package:oepay/resources/provider/storage_util.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,12 +21,6 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthCubit>(create: (context) => AuthCubit()),
         BlocProvider<MenuCubit>(create: (context) => MenuCubit()),
-        BlocProvider(create: (context) => RegisterBloc(Authremotedatasource())),
-        BlocProvider(
-            create: (context) =>
-                CategoryBloc()..add(const CategoryEvent.getAll())),
-        BlocProvider(create: (context) => KodeOtpBloc(Authremotedatasource())),
-        BlocProvider(create: (context) => PinBloc(Authremotedatasource())),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -65,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-
+    _checkToken();
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -96,6 +86,19 @@ class _SplashScreenState extends State<SplashScreen>
         );
       });
     });
+  }
+
+  void _checkToken() async {
+    String token = await StorageCore().getTokenUser();
+    if (token.isNotEmpty) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) =>
+              ButtonCustomBar())); // Ganti dengan halaman utama Anda
+    } else {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) =>
+              PhoneNumberForm())); // Ganti dengan halaman login Anda
+    }
   }
 
   @override
