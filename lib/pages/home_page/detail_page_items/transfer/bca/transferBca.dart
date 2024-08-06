@@ -57,11 +57,11 @@ class _TransferBcaState extends State<TransferBca> {
                           'assets/icons/Bank/bca.svg',
                           width: 50,
                         ),
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('ATM BCA'),
+                            const Text('ATM BCA'),
                             Text(
                               'Metode Penarikan',
                               style: CustomTextStyles.textCard,
@@ -90,7 +90,7 @@ class _TransferBcaState extends State<TransferBca> {
                           width: 35,
                           color: ColorName.yellowColor,
                         ),
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -109,20 +109,21 @@ class _TransferBcaState extends State<TransferBca> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                  margin:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 10),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: CustomTextFormField(
+                  child: const CustomTextFormField(
                     labelText: 'Nomor rekening tujuan',
                     enabledBorderColor: Colors.transparent,
                     focusedBorderColor: Colors.transparent,
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.all(10),
+                  margin: const EdgeInsets.only(left: 20, right: 20),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -148,12 +149,12 @@ class _TransferBcaState extends State<TransferBca> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                  margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: CustomTextFormField(
+                  child: const CustomTextFormField(
                     maxlength: 30,
                     labelText: 'Pesan (opsional)',
                     enabledBorderColor: Colors.transparent,
@@ -186,7 +187,7 @@ class _TransferBcaState extends State<TransferBca> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            HasiltransferBca(),
+                                            const HasiltransferBca(),
                                       ),
                                     );
                                   },
@@ -228,7 +229,7 @@ void showDialogPenarikan({
         child: Container(
           height: 460,
           padding: const EdgeInsets.all(20.0),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: ColorName.light,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15.0),
@@ -242,7 +243,7 @@ void showDialogPenarikan({
                 title,
                 style: CustomTextStyles.titleShowModal,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Penerima',
                 style: CustomTextStyles.textCard,
@@ -255,7 +256,7 @@ void showDialogPenarikan({
                 children: [
                   if (img != null)
                     Padding(
-                      padding: EdgeInsets.only(right: 5),
+                      padding: const EdgeInsets.only(right: 5),
                       child: SvgPicture.asset(
                         img,
                         width: 50,
@@ -264,7 +265,7 @@ void showDialogPenarikan({
                   else
                     Container(),
                   Text(
-                    '${namaBank} - ',
+                    '$namaBank - ',
                     style: CustomTextStyles.titleItem,
                   ),
                   Text(
@@ -273,7 +274,7 @@ void showDialogPenarikan({
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Sumber Dana',
                 style: CustomTextStyles.textCard,
@@ -282,7 +283,7 @@ void showDialogPenarikan({
                 'assets/icons/logo.svg',
                 width: 70,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Detail',
                 style: CustomTextStyles.titleShowModal,
@@ -300,7 +301,7 @@ void showDialogPenarikan({
                   ),
                 ],
               ),
-              SizedBox(height: 7),
+              const SizedBox(height: 7),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -314,9 +315,9 @@ void showDialogPenarikan({
                   ),
                 ],
               ),
-              SizedBox(height: 30),
-              DashedLineExample(),
-              SizedBox(height: 20),
+              const SizedBox(height: 30),
+              const DashedLineExample(),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -330,7 +331,7 @@ void showDialogPenarikan({
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

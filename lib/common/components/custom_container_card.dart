@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomContainerCard extends StatelessWidget {
   final Widget child;
   final Color color;
 
   const CustomContainerCard(
-      {required this.child, required this.color, Key? key})
-      : super(key: key);
+      {required this.child, required this.color, super.key});
 
   @override
   Widget build(BuildContext context) {

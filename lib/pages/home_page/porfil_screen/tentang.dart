@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 
-import 'kebijakanDetails.dart';
+import 'kebijakan_details.dart';
 import 'kebijakanPribadi.dart';
 import 'tentang_details.dart';
 

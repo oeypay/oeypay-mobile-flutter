@@ -30,7 +30,7 @@ class TopUpModel {
 class TopUpCard extends StatefulWidget {
   final TopUpModel topUpModel;
 
-  const TopUpCard({Key? key, required this.topUpModel}) : super(key: key);
+  const TopUpCard({super.key, required this.topUpModel});
 
   @override
   State<TopUpCard> createState() => _TopUpCardState();
@@ -39,6 +39,7 @@ class TopUpCard extends StatefulWidget {
 class _TopUpCardState extends State<TopUpCard> {
   late ExpandedTileController _controller;
 
+  @override
   void initState() {
     // initialize controller
     _controller = ExpandedTileController(isExpanded: true);
@@ -65,21 +66,21 @@ class _TopUpCardState extends State<TopUpCard> {
                     width: 60,
                   ),
                 ),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${widget.topUpModel.paymentMethod}',
+                      widget.topUpModel.paymentMethod,
                       style: CustomTextStyles.titlesection,
                     ),
                     Text(
                       'Metode Top Up',
                       style: CustomTextStyles.textCard,
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Container(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                           left: 20, right: 20, top: 10, bottom: 10),
                       decoration: BoxDecoration(
                         color: ColorName.yellowSmoth,
@@ -93,11 +94,11 @@ class _TopUpCardState extends State<TopUpCard> {
                             style: GoogleFonts.poppins(
                                 fontSize: 25, fontWeight: FontWeight.bold),
                           ),
-                          Text('kode bayar'),
+                          const Text('kode bayar'),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Text(
@@ -111,7 +112,7 @@ class _TopUpCardState extends State<TopUpCard> {
                           'Rp. ${widget.topUpModel.amount}',
                           style: CustomTextStyles.titlesection,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 30,
                         ),
                         SizedBox(
@@ -137,15 +138,15 @@ class _TopUpCardState extends State<TopUpCard> {
             ),
           ),
         ),
-        CustomMessageContainer(
+        const CustomMessageContainer(
           message:
               'Hindari top up jam 23:55- 00:10 WIB karena Indomaret offline 15 menit setaip harinya',
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         CustomExpandedTile(
             controller: _controller,
             title: 'Cara bayar di Indomaret',
-            contentWidgets: Column(
+            contentWidgets: const Column(
               children: [
                 CustomListTitle(
                   title:
@@ -168,15 +169,17 @@ class _TopUpCardState extends State<TopUpCard> {
                 ),
               ],
             )),
-        HelpSection(),
-        SizedBox(height: 8),
-        Divider()
+        const HelpSection(),
+        const SizedBox(height: 8),
+        const Divider()
       ],
     );
   }
 }
 
 class Menungupembayaran extends StatelessWidget {
+  const Menungupembayaran({super.key});
+
   // late TopUpModel topUpModel;
   @override
   Widget build(BuildContext context) {
@@ -198,7 +201,7 @@ class Menungupembayaran extends StatelessWidget {
                 Container(
                   width: 40,
                   height: 40,
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: Colors.red.shade100,
                     borderRadius: BorderRadius.circular(100),
@@ -208,12 +211,12 @@ class Menungupembayaran extends StatelessWidget {
                     width: 34,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   'Pembayaran Top Up',
                   style: CustomTextStyles.titlesection,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Center(
                   child: Text(
                     'Paling lambat 03 Juli, 09:42 WITA',

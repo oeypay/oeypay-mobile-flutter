@@ -58,7 +58,7 @@ class _TiketKeretaState extends State<TiketKereta> {
         return SingleChildScrollView(
           controller: ScrollController(),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
@@ -87,7 +87,7 @@ class _TiketKeretaState extends State<TiketKereta> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Container(
@@ -103,20 +103,20 @@ class _TiketKeretaState extends State<TiketKereta> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => PencarianStasiun(
+                              builder: (context) => const PencarianStasiun(
                                   title: 'Pilih Keberangkatan'),
                             ),
                           );
                         },
-                        child: BuildFormFieldTiket(
+                        child: const BuildFormFieldTiket(
                           label: 'Dari',
                           value: 'Makassar',
                           icon: Icons.train,
                           color: Colors.transparent,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Divider(),
                       ),
                       InkWell(
@@ -125,11 +125,11 @@ class _TiketKeretaState extends State<TiketKereta> {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  PencarianStasiun(title: 'Pilih Tujuan'),
+                                  const PencarianStasiun(title: 'Pilih Tujuan'),
                             ),
                           );
                         },
-                        child: BuildFormFieldTiket(
+                        child: const BuildFormFieldTiket(
                           label: 'Ke',
                           value: 'Bogor',
                           icon: Icons.train,
@@ -140,7 +140,7 @@ class _TiketKeretaState extends State<TiketKereta> {
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Row(
@@ -154,7 +154,7 @@ class _TiketKeretaState extends State<TiketKereta> {
                         onDateSelected: _onDateSelected,
                       ),
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Column(
                       children: [
                         Text(
@@ -179,7 +179,7 @@ class _TiketKeretaState extends State<TiketKereta> {
                   ],
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               if (_isSwitched == true)
                 Padding(
                     padding:
@@ -213,7 +213,7 @@ class _TiketKeretaState extends State<TiketKereta> {
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: ButtonCustom.filled(
@@ -222,7 +222,7 @@ class _TiketKeretaState extends State<TiketKereta> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CariTiketKereta(),
+                        builder: (context) => const CariTiketKereta(),
                       ),
                     );
                   },

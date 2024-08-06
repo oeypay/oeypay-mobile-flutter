@@ -14,8 +14,8 @@ class Containerlistharga extends StatelessWidget {
       totalhargaVoucher;
 
   final void Function()? press;
-  Containerlistharga({
-    Key? key,
+  const Containerlistharga({
+    super.key,
     this.harga,
     this.totalHarga,
     this.price,
@@ -25,7 +25,7 @@ class Containerlistharga extends StatelessWidget {
     this.hargaVoucher,
     this.press,
     this.totalhargaVoucher,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,12 +59,12 @@ class Containerlistharga extends StatelessWidget {
                 namaPln!,
                 style: CustomTextStyles.textButton,
               ),
-            Spacer(),
+            const Spacer(),
             if (harga != null)
               Text(
                 harga!,
-                style:
-                    TextStyle(fontSize: 12, height: 1, color: ColorName.black),
+                style: const TextStyle(
+                    fontSize: 12, height: 1, color: ColorName.black),
               )
             else
               Text(
@@ -83,12 +83,13 @@ class Containerlistharga extends StatelessWidget {
                 style: CustomTextStyles.poppins(
                     size: 15, color: Colors.red, fontWeight: FontWeight.bold),
               ),
-            Spacer(),
+            const Spacer(),
             if (discount != null)
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
                     decoration: BoxDecoration(
                       color: Colors.pink.withOpacity(.2),
                       borderRadius: BorderRadius.circular(4),

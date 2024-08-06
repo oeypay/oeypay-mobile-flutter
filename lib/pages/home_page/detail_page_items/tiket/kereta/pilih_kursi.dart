@@ -317,6 +317,8 @@ import '../../penarikan/bca/konfirmasi_penarikan_otp.dart';
 import 'hasil_transaksi_tiket_kereta.dart';
 
 class PilihKursi extends StatefulWidget {
+  const PilihKursi({super.key});
+
   @override
   _PilihKursiState createState() => _PilihKursiState();
 }
@@ -381,19 +383,19 @@ class _PilihKursiState extends State<PilihKursi> {
       backgroundColor: ColorName.light,
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
-        title: Text('Pilih Kursi Keberangkatan'),
+        title: const Text('Pilih Kursi Keberangkatan'),
       ),
       body: Column(
         children: [
-          ListTile(
+          const ListTile(
             leading: Icon(Icons.train),
             title: Text('Bandung (BD) > Pasar Senen (PSE)'),
           ),
           ListTile(
-            title: Text('Rincian Kursi Penumpang'),
+            title: const Text('Rincian Kursi Penumpang'),
             trailing: DropdownButton(
               value: selectedPassenger,
-              hint: Text('Pilih Penumpang'),
+              hint: const Text('Pilih Penumpang'),
               items: passengerSeats.keys.map((name) {
                 return DropdownMenuItem(
                   value: name,
@@ -402,7 +404,7 @@ class _PilihKursiState extends State<PilihKursi> {
               }).toList(),
               onChanged: (value) {
                 setState(() {
-                  selectedPassenger = value as String?;
+                  selectedPassenger = value;
                 });
               },
             ),
@@ -432,7 +434,7 @@ class _PilihKursiState extends State<PilihKursi> {
                 return GestureDetector(
                   onTap: () => _selectSeat(seat, row, col),
                   child: Container(
-                    margin: EdgeInsets.all(4.0),
+                    margin: const EdgeInsets.all(4.0),
                     decoration: BoxDecoration(
                       color: seatColor,
                       borderRadius: BorderRadius.circular(20),
@@ -466,7 +468,8 @@ class _PilihKursiState extends State<PilihKursi> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HasiltransaksitiketKereta(),
+                            builder: (context) =>
+                                const HasiltransaksitiketKereta(),
                           ),
                         );
                       },
@@ -479,7 +482,7 @@ class _PilihKursiState extends State<PilihKursi> {
               textColor: Colors.black,
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
         ],
       ),
     );

@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/buttons.dart';
@@ -6,12 +5,12 @@ import 'package:oepay/common/components/custom_textField.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import 'package:oepay/pages/Settings/security_page.dart';
-import 'package:oepay/pages/registerPages/phone_number.dart';
+import 'package:oepay/pages/register_pages/phone_number.dart';
 import 'package:oepay/resources/models/user_model/user_model.dart';
 import 'package:oepay/resources/provider/storage_util.dart';
 
-import 'Bantuan.dart';
-import 'syaratKetentuanDetails.dart';
+import 'bantuan.dart';
+import 'syarat_ketentuan_details.dart';
 import 'tentang.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -26,10 +25,10 @@ class ProfilePage extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: 40),
+              margin: const EdgeInsets.only(bottom: 40),
               height: 320,
-              padding: EdgeInsets.only(left: 20),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.only(left: 20),
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(200),
                   bottomRight: Radius.circular(200),
@@ -70,10 +69,10 @@ class ProfilePage extends StatelessWidget {
                         'ahmad@gmail.com',
                         style: GoogleFonts.poppins(
                           fontSize: 12,
-                          color: Color(0xff707070),
+                          color: const Color(0xff707070),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 30,
                         width: 130,
@@ -82,7 +81,7 @@ class ProfilePage extends StatelessWidget {
                           color: Colors.white.withOpacity(0.7),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Row(
+                        child: const Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -112,7 +111,7 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 210, left: 20, right: 20),
+              padding: const EdgeInsets.only(top: 210, left: 20, right: 20),
               child: Column(
                 children: [
                   Container(
@@ -183,11 +182,11 @@ class ProfilePage extends StatelessWidget {
                           trailing: Icon(Icons.arrow_forward_ios_rounded,
                               color: colorIcons, size: 18),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Container(
                     decoration: BoxDecoration(
                       color: ColorName.light.withOpacity(0.7),
@@ -292,7 +291,7 @@ class ProfilePage extends StatelessWidget {
                           trailing: Icon(Icons.arrow_forward_ios_rounded,
                               color: colorIcons, size: 18),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                       ],
                     ),
                   ),
@@ -311,7 +310,7 @@ class ProfilePage extends StatelessWidget {
       builder: (BuildContext context) {
         return Container(
           padding: const EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: ColorName.light,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15.0),
@@ -321,7 +320,7 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               const Text(
                 'Ubah Profil',
                 style: TextStyle(
@@ -329,7 +328,7 @@ class ProfilePage extends StatelessWidget {
                   fontSize: 18.0,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
@@ -341,21 +340,21 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10.0),
-              CustomTextFormField(
+              const CustomTextFormField(
                 hintText: 'Masukkan Nama Baru',
                 prefixIcon: Icons.person,
               ),
-              SizedBox(height: 10),
-              CustomTextFormField(
+              const SizedBox(height: 10),
+              const CustomTextFormField(
                 hintText: 'Masukkan Email Baru',
                 prefixIcon: Icons.email_rounded,
               ),
-              SizedBox(height: 10),
-              CustomTextFormField(
+              const SizedBox(height: 10),
+              const CustomTextFormField(
                 hintText: 'Masukkan No Ponsel Baru',
                 prefixIcon: Icons.phone_outlined,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ButtonCustom.filled(
                 onPressed: () {},
                 borderRadius: 50,
@@ -363,7 +362,7 @@ class ProfilePage extends StatelessWidget {
                 color: ColorName.yellowColor,
                 textColor: Colors.white,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         );

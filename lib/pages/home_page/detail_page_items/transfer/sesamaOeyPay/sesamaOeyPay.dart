@@ -53,7 +53,7 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                     'assets/icons/Bank/bca.svg',
                     width: 50,
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -67,7 +67,7 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                             '086-6755-6575',
                             style: CustomTextStyles.titleItem,
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text(
                             'Salin',
                             style: CustomTextStyles.poppins(
@@ -80,12 +80,12 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
                     onPressed: () {
                       _showQrCode();
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.qr_code_2_rounded,
                       size: 40,
                     ),
@@ -119,7 +119,7 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                     width: 35,
                     color: ColorName.yellowColor,
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -138,7 +138,7 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, bottom: 10),
+            margin: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               borderRadius: BorderRadius.circular(10),
@@ -152,15 +152,15 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ScanIdOeypay(),
+                    builder: (context) => const ScanIdOeypay(),
                   ),
                 );
               },
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.only(left: 20, right: 20),
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               borderRadius: BorderRadius.circular(10),
@@ -186,19 +186,19 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: CustomTextFormField(
+            child: const CustomTextFormField(
               maxlength: 30,
               labelText: 'Pesan (opsional)',
               enabledBorderColor: Colors.transparent,
               focusedBorderColor: Colors.transparent,
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Row(
@@ -246,7 +246,8 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => HasiltransferBca(),
+                                  builder: (context) =>
+                                      const HasiltransferBca(),
                                 ),
                               );
                             },
@@ -271,10 +272,10 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
       onTap: () => _updateNominal(nominal),
       child: Container(
         width: 100,
-        margin: EdgeInsets.all(5),
-        padding: EdgeInsets.all(8),
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.teal : Color(0xffF0F0F0),
+          color: isSelected ? Colors.teal : const Color(0xffF0F0F0),
           borderRadius: BorderRadius.circular(50),
         ),
         child: Center(
@@ -292,7 +293,7 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          insetPadding: EdgeInsets.only(left: 15, right: 15),
+          insetPadding: const EdgeInsets.only(left: 15, right: 15),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -311,12 +312,12 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: Icon(Icons.close),
+                        icon: const Icon(Icons.close),
                       ),
                     ],
                   ),
                 ),
-                Center(
+                const Center(
                   child: Icon(
                     Icons.qr_code_2_sharp,
                     size: 350,
@@ -334,7 +335,7 @@ class _SesamaoeypayState extends State<Sesamaoeypay> {
                         '99876575',
                         style: CustomTextStyles.titleShowModal,
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Text(
                         'Salin',
                         style: CustomTextStyles.titleProfil,

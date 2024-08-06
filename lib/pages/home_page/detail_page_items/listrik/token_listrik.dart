@@ -32,7 +32,7 @@ class TokenListrik extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HasilTransaksiListrik(),
+                        builder: (context) => const HasilTransaksiListrik(),
                       ),
                     );
                   },
@@ -40,7 +40,7 @@ class TokenListrik extends StatelessWidget {
               ),
             );
           }),
-      child: Containerlistharga(
+      child: const Containerlistharga(
         namaPln: 'PLN Prepaid',
         hargaVoucher: 'Rp 20.000',
         totalhargaVoucher: 'Rp 22.000',

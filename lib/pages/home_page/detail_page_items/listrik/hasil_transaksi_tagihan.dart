@@ -30,13 +30,13 @@ class HasilTransaksiTagihan extends StatelessWidget {
                   color: Colors.blueGrey.shade200,
                   child: Column(
                     children: [
-                      SizedBox(height: 20),
-                      Icon(
+                      const SizedBox(height: 20),
+                      const Icon(
                         Icons.check_circle,
                         color: Colors.teal,
                         size: 30,
                       ),
-                      Text(
+                      const Text(
                         'Transaksi Berhasil',
                         style: TextStyle(
                           fontSize: 17,
@@ -54,37 +54,37 @@ class HasilTransaksiTagihan extends StatelessWidget {
                         'Token Listrik',
                         style: CustomTextStyles.textButton,
                       ),
-                      SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+                      const SizedBox(height: 20),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 20, right: 20),
                         child: CustomLis(
                             title: 'Total Transaksi', deskripsi: 'Rp 15.000'),
                       ),
 
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 20, right: 20),
                         child: CustomLis(
                             title: 'ID Pelanggan', deskripsi: '3213444'),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 20, right: 20),
                         child: CustomLis(
                             title: 'Nama Pelanggan', deskripsi: 'Ahmad'),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 20, right: 20),
                         child:
                             CustomLis(title: 'Periode', deskripsi: 'Juli 2024'),
                       ),
-                      SizedBox(height: 15),
-                      DashedLineExample(),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 15),
+                      const DashedLineExample(),
+                      const SizedBox(height: 20),
                       Text(
                         'Stand Meter',
                         style: CustomTextStyles.titlesection,
                         textAlign: TextAlign.start,
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Text(
@@ -92,16 +92,16 @@ class HasilTransaksiTagihan extends StatelessWidget {
                           style: CustomTextStyles.textButton,
                         ),
                       ),
-                      SizedBox(height: 20),
-                      CustomMessageContainer(
+                      const SizedBox(height: 20),
+                      const CustomMessageContainer(
                         message:
                             'Klik butuh bantuan jika dalam 1x12 jam pembelian belum Anda terima.',
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
-                HelpSection(),
+                const HelpSection(),
                 // Spacer(),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -112,7 +112,7 @@ class HasilTransaksiTagihan extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ListrikDetails(),
+                          builder: (context) => const ListrikDetails(),
                         ),
                       );
                     },

@@ -26,17 +26,17 @@ class _HistoryPageState extends State<HistoryPage> {
             decoration: BoxDecoration(
               // border: Border.all(width: 2.0, color: Colors.blueGrey.shade50),
               color: ColorName.light,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(70),
                 bottomRight: Radius.circular(70),
               ),
               boxShadow: [
                 // Shadow for bottom-right
-                BoxShadow(
+                const BoxShadow(
                   color: Colors.white,
                   // spreadRadius: 1,
                   blurRadius: 5,
-                  offset: const Offset(-2, -4),
+                  offset: Offset(-2, -4),
                 ),
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.2),

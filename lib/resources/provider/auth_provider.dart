@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:oepay/common/constant/variables.dart';
@@ -76,6 +78,37 @@ class ApiAuthProvider {
     }
   }
 
+  static Future<ApiReturnValue<UserModel>> getUser() async {
+    try {
+      debugPrint("getUser");
+      var token = await StorageCore().getTokenUser();
+      debugPrint(token);
+
+      var response = await Dio(BaseOptions(
+        connectTimeout: const Duration(seconds: 5000), // 5 seconds
+        receiveTimeout: const Duration(seconds: 5000), // 5 seconds
+      )).get('${baseUrl}v1/users',
+          options: Options(
+            headers: {"Authorization": "Bearer $token"},
+          ));
+
+      // await StorageCore().clearLocalStorage();
+
+      UserModel value = UserModel.fromJson(response.data['data']);
+      UserModel.token = token;
+
+      return ApiReturnValue(value: value);
+    } catch (e) {
+      if (kDebugMode) print(e.toString());
+      await StorageCore().clearLocalStorage();
+
+      if (e is DioException && e.response?.statusCode == 400) {
+        return ApiReturnValue(message: e.response!.data['message']);
+      }
+      return ApiReturnValue(message: 'Please try again');
+    }
+  }
+
   static Future<ApiReturnValue<PhoneNumberModel>> checkPhoneNumber({
     String? phoneNumber,
   }) async {
@@ -93,8 +126,28 @@ class ApiAuthProvider {
     } catch (e) {
       if (kDebugMode) print(e.toString());
 
-      if (e is DioException && e.response?.statusCode == 400) {
-        return ApiReturnValue(message: e.response!.data['message']);
+      // if (e is DioException && e.response?.statusCode == 400) {
+      //   debugPrint('innnnnnn');
+      //   return ApiReturnValue(message: e.response!.data['message']);
+      // }
+      if (e is DioException) {
+        if (e.response?.statusCode == 400) {
+          var data = e.response?.data;
+          if (data != null) {
+            try {
+              PhoneNumberModel value = PhoneNumberModel.fromJson(data);
+              debugPrint('Data berhasil diparsing');
+              return ApiReturnValue(
+                  value: value, message: e.response?.data['message']);
+            } catch (jsonError) {
+              if (kDebugMode) print(jsonError.toString());
+              debugPrint('Error parsing data');
+              return ApiReturnValue(message: 'Error parsing response data');
+            }
+          } else {
+            return ApiReturnValue(message: e.response?.data['message']);
+          }
+        }
       }
       return ApiReturnValue(message: 'Please try again');
     }

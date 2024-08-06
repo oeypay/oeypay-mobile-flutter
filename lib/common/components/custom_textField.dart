@@ -23,7 +23,7 @@ class CustomTextFormField extends StatelessWidget {
   final ValueChanged<String>? onChange;
 
   const CustomTextFormField({
-    Key? key,
+    super.key,
     this.labelText,
     this.hintText,
     this.initialValue,
@@ -41,7 +41,7 @@ class CustomTextFormField extends StatelessWidget {
     this.errorBorderColor,
     this.focusedErrorBorderColor,
     this.onChange,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +112,7 @@ class CustomTextField extends StatefulWidget {
   final ValueChanged<String>? onChange;
 
   const CustomTextField({
-    Key? key,
+    super.key,
     this.labelText,
     this.hintText,
     this.initialValue,
@@ -133,7 +133,7 @@ class CustomTextField extends StatefulWidget {
     this.errorBorderColor,
     this.focusedErrorBorderColor,
     this.onChange,
-  }) : super(key: key);
+  });
 
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();
@@ -206,7 +206,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   width: 15,
                 ),
               ),
-              Space(8),
+              const Space(8),
               Expanded(
                 child: TextFormField(
                   focusNode: _focusNode,
@@ -219,7 +219,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   decoration: InputDecoration(
                     labelText: widget.labelText,
                     hintText: widget.hintText,
-                    hintStyle: TextStyle(fontSize: 11),
+                    hintStyle: const TextStyle(fontSize: 11),
                     isDense: true,
                     prefixIcon: widget.prefixIcon != null
                         ? Icon(widget.prefixIcon)
@@ -277,7 +277,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 style: const TextStyle(color: Colors.black, fontSize: 10),
               ),
             ),
-        Space(20)
+        const Space(20)
       ],
     );
   }

@@ -44,6 +44,7 @@ class CustomHasilTransferBca extends StatefulWidget {
 class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
   late ExpandedTileController _controller;
 
+  @override
   void initState() {
     // initialize controller
     _controller = ExpandedTileController(isExpanded: true);
@@ -56,13 +57,13 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
       color: Colors.blueGrey.shade200,
       child: Column(
         children: [
-          SizedBox(height: 20),
-          Icon(
+          const SizedBox(height: 20),
+          const Icon(
             Icons.check_circle,
             color: Colors.teal,
             size: 30,
           ),
-          Text(
+          const Text(
             'Transaksi Berhasil',
             style: TextStyle(
               fontSize: 17,
@@ -70,7 +71,7 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
               color: Colors.teal,
             ),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Image.asset(widget.image),
           Text(
             widget.nama,
@@ -86,7 +87,7 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
               Text('${widget.kodeID} ', style: CustomTextStyles.titleItem),
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 10),
             child: Row(
@@ -103,7 +104,7 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
               ],
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 10),
             child: Row(
@@ -120,8 +121,8 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
               ],
             ),
           ),
-          SizedBox(height: 15),
-          Divider(),
+          const SizedBox(height: 15),
+          const Divider(),
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: CustomExpandedTile(
@@ -149,9 +150,9 @@ class _CustomHasilTransferBcaState extends State<CustomHasilTransferBca> {
                     title: 'Biaya Transaksi',
                     deskripsi: widget.bTransaksi,
                   ),
-                  SizedBox(height: 7),
-                  DashedLineExample(),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 7),
+                  const DashedLineExample(),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -192,7 +193,7 @@ class HasiltransferBca extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.close_rounded),
+          icon: const Icon(Icons.close_rounded),
         ),
       ),
       body: Stack(
@@ -201,7 +202,7 @@ class HasiltransferBca extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-                CustomHasilTransferBca(
+                const CustomHasilTransferBca(
                   image: 'assets/icons/Group 16.png',
                   nama: 'Ahmad Kardawi',
                   namaBank: 'BANK BCA',
@@ -213,8 +214,8 @@ class HasiltransferBca extends StatelessWidget {
                   waktu: '12:00',
                   nReferensi: 'tR9889sss',
                 ),
-                HelpSection(),
-                SizedBox(height: 20),
+                const HelpSection(),
+                const SizedBox(height: 20),
                 Padding(
                   padding:
                       const EdgeInsets.only(left: 20, right: 20, bottom: 20),
@@ -224,7 +225,7 @@ class HasiltransferBca extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => TransferDetails(),
+                          builder: (context) => const TransferDetails(),
                         ),
                       );
                     },

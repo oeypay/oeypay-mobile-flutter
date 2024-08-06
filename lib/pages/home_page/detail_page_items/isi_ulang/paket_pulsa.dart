@@ -30,7 +30,7 @@ class Paketpulsa extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Hasiltransaksipulsa(),
+                        builder: (context) => const Hasiltransaksipulsa(),
                       ),
                     );
                   },
@@ -38,7 +38,7 @@ class Paketpulsa extends StatelessWidget {
               ),
             );
           }),
-      child: Containerlistharga(
+      child: const Containerlistharga(
         price: '10.000',
         harga: 'Harga',
         totalHarga: 'Rp 12.000',

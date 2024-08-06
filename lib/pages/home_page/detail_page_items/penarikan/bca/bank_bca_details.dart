@@ -55,11 +55,11 @@ class _BankbcadetailsState extends State<Bankbcadetails> {
                         'assets/icons/Bank/bca.svg',
                         width: 50,
                       ),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('ATM BCA'),
+                          const Text('ATM BCA'),
                           Text(
                             'Metode Penarikan',
                             style: CustomTextStyles.textCard,
@@ -88,7 +88,7 @@ class _BankbcadetailsState extends State<Bankbcadetails> {
                         width: 35,
                         color: ColorName.yellowColor,
                       ),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -107,8 +107,8 @@ class _BankbcadetailsState extends State<Bankbcadetails> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(10),
-                margin: EdgeInsets.only(left: 20, right: 20),
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.only(left: 20, right: 20),
                 decoration: BoxDecoration(
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(20),
@@ -169,7 +169,7 @@ class _BankbcadetailsState extends State<Bankbcadetails> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PenarikanTunaiBca(),
+                                builder: (context) => const PenarikanTunaiBca(),
                               ),
                             );
                           },
@@ -195,10 +195,10 @@ class _BankbcadetailsState extends State<Bankbcadetails> {
       onTap: () => _updateNominal(nominal),
       child: Container(
         width: 100,
-        margin: EdgeInsets.all(5),
-        padding: EdgeInsets.all(8),
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.teal : Color(0xffF0F0F0),
+          color: isSelected ? Colors.teal : const Color(0xffF0F0F0),
           borderRadius: BorderRadius.circular(50),
         ),
         child: Center(

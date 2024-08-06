@@ -19,7 +19,7 @@ class PencarianKeberangkatan extends StatelessWidget {
         children: [
           Container(
             color: ColorName.yellowSmoth,
-            child: TextField(
+            child: const TextField(
               cursorColor: Colors.black,
               decoration: InputDecoration(
                 labelText: 'Cari ...',
@@ -29,7 +29,7 @@ class PencarianKeberangkatan extends StatelessWidget {
               ),
             ),
           ),
-          ListBandara(),
+          const ListBandara(),
         ],
       ),
     );
@@ -42,7 +42,7 @@ class ListBandara extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(
+      leading: const Icon(
         Icons.location_on_sharp,
         color: Colors.grey,
       ),

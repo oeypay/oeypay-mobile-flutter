@@ -7,13 +7,14 @@ import 'package:oepay/common/components/flushbar.dart';
 import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'package:oepay/pages/registerPages/pin_regis.dart';
+import 'package:oepay/pages/register_pages/pin_regis.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 import 'package:pinput/pinput.dart';
 
 class OTPConfirmationPage extends StatefulWidget {
   final String phone;
-  OTPConfirmationPage({Key? key, required this.phone}) : super(key: key);
+  final bool? sendOtp;
+  const OTPConfirmationPage({super.key, required this.phone, this.sendOtp});
   @override
   _OTPConfirmationPageState createState() => _OTPConfirmationPageState();
 }
@@ -27,6 +28,9 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
   @override
   void initState() {
     super.initState();
+    if (widget.sendOtp!) {
+      context.read<AuthCubit>().resendOtp(phoneNumber: widget.phone);
+    }
     _startCountdown();
   }
 
@@ -39,7 +43,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
   }
 
   void _startCountdown() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (_remainingTime > 0) {
           _remainingTime--;
@@ -55,7 +59,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
     final defaultPinTheme = PinTheme(
       width: 45,
       height: 45,
-      textStyle: TextStyle(
+      textStyle: const TextStyle(
         fontSize: 20,
         color: Colors.black,
         fontWeight: FontWeight.bold,
@@ -68,7 +72,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
 
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         title: "OTP",
         titleRight: '2/4',
         bgColor: ColorName.yellowColor,
@@ -128,7 +132,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
               );
             },
           ),
-          Space(30),
+          const Space(30),
           Center(
             child: Text(
               'Tidak Menerima OTP ?',
@@ -139,7 +143,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
               ),
             ),
           ),
-          Space(5),
+          const Space(5),
           if (_remainingTime == 0)
             Center(
               child: InkWell(
@@ -164,7 +168,7 @@ class _OTPConfirmationPageState extends State<OTPConfirmationPage> {
                 ),
               ),
             ),
-          Space(5),
+          const Space(5),
           if (_remainingTime != 0)
             Center(
               child: Text(

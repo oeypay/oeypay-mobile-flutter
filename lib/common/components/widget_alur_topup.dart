@@ -8,15 +8,15 @@ class CustomMessageContainer extends StatelessWidget {
   final String message;
 
   const CustomMessageContainer({
-    Key? key,
+    super.key,
     required this.message,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20, right: 20),
-      padding: EdgeInsets.all(10),
+      margin: const EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: ColorName.yellowSmoth,
@@ -36,17 +36,17 @@ class CustomExpandedTile extends StatelessWidget {
   final Widget contentWidgets;
 
   const CustomExpandedTile({
-    Key? key,
+    super.key,
     this.imag,
     required this.controller,
     required this.title,
     required this.contentWidgets,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return ExpandedTile(
-      theme: ExpandedTileThemeData(
+      theme: const ExpandedTileThemeData(
         headerColor: Colors.transparent,
         contentBackgroundColor: ColorName.yellowSmoth,
       ),
@@ -78,7 +78,7 @@ class CustomExpandedTile extends StatelessWidget {
 }
 
 class HelpSection extends StatelessWidget {
-  const HelpSection({Key? key}) : super(key: key);
+  const HelpSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +104,7 @@ class HelpSection extends StatelessWidget {
               ),
             ],
           ),
-          Icon(
+          const Icon(
             Icons.arrow_forward_ios_rounded,
             size: 17,
           ),
@@ -125,13 +125,13 @@ class CustomListTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 7),
+      margin: const EdgeInsets.only(bottom: 7),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
+          const Padding(
+            padding: EdgeInsets.only(right: 8),
             child: Icon(
               Icons.check_circle,
               color: Color(0xff039E8F),

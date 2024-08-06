@@ -20,6 +20,7 @@ class PenarikanTunaiBca extends StatefulWidget {
 class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
   ExpandedTileController _controller = ExpandedTileController();
 
+  @override
   void initState() {
     // initialize controller
     _controller = ExpandedTileController(isExpanded: true);
@@ -57,7 +58,7 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                               'assets/icons/Bank/bca.svg',
                               width: 50,
                             )),
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,14 +71,14 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                               'Metode Penarikan',
                               style: CustomTextStyles.textCard,
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Text(
                               'Kode transaksi',
                               style: CustomTextStyles.textCard,
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Container(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                   left: 20, right: 20, top: 10, bottom: 10),
                               decoration: BoxDecoration(
                                 color: ColorName.yellowSmoth,
@@ -93,7 +94,7 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Text(
@@ -131,14 +132,14 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                               'assets/icons/logo.svg',
                               width: 60,
                             ),
-                            SizedBox(width: 20),
+                            const SizedBox(width: 20),
                             Text(
                               '(Saldo: Rp. 5.000.000)',
                               style: CustomTextStyles.titleProfil,
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -152,7 +153,7 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -170,15 +171,15 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                     ),
                   ),
                 ),
-                CustomMessageContainer(
+                const CustomMessageContainer(
                   message:
                       'Silahkan tarik tunai sebelum 13.30 WIB. Jika gagal,  Saldo OeyPay akan dikembalikan.',
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 CustomExpandedTile(
                   controller: _controller,
                   title: 'Cara Tarik Tunai di ATM BCA',
-                  contentWidgets: Column(
+                  contentWidgets: const Column(
                     children: [
                       CustomListTitle(
                         title: 'Di ATM BCA, Pilih tarik tunai tanpa kartu.',
@@ -196,10 +197,10 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                     ],
                   ),
                 ),
-                HelpSection(),
-                SizedBox(height: 20),
-                Divider(),
-                SizedBox(height: 10),
+                const HelpSection(),
+                const SizedBox(height: 20),
+                const Divider(),
+                const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: ButtonCustom.filled(
@@ -209,7 +210,7 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Penarikandetails(),
+                          builder: (context) => const Penarikandetails(),
                         ),
                       );
                     },
@@ -218,7 +219,7 @@ class _PenarikanTunaiBcaState extends State<PenarikanTunaiBca> {
                     textColor: Colors.black,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
               ],
             ),
           )

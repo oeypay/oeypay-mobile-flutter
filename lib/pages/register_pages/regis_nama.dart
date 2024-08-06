@@ -6,7 +6,7 @@ import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_textField.dart';
 import 'package:oepay/common/components/flushbar.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/pages/registerPages/otp.dart';
+import 'package:oepay/pages/register_pages/otp.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 
 class KonfirmasiNama extends StatefulWidget {
@@ -26,7 +26,7 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         title: "Registrasi",
         titleRight: '1/4',
         bgColor: ColorName.yellowColor,
@@ -35,7 +35,7 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
         bloc: _authCubit,
         listener: (context, state) {
           if (state.statusAction.isSuccess()) {
-            showSnackBar(context, msg: 'Registrasi berhasil');
+            // showSnackBar(context, msg: 'Registrasi berhasil');
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
@@ -50,7 +50,7 @@ class _KonfirmasiNamaState extends State<KonfirmasiNama> {
         builder: (context, state) {
           return BodyAuth(
             children: [
-              AuthDesc(
+              const AuthDesc(
                 title: 'Nomor telepon kamu belum terdaftar di OeyPay',
                 desc: 'Yuk daftar sekarang',
               ),

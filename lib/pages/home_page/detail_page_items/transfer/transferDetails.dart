@@ -5,7 +5,6 @@ import 'package:oepay/common/components/widget_appbar.dart';
 import 'package:oepay/common/components/widget_item_topUp.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import '../penarikan/alfamart/penarikan_alfamart.dart';
 import 'bca/transferBca.dart';
 import 'sesamaOeyPay/sesamaOeyPay.dart';
 
@@ -36,7 +35,7 @@ class _TransferDetailsState extends State<TransferDetails> {
         'title': 'BANK BCA',
         'tag': '',
         'action': 'page',
-        'page': TransferBca(),
+        'page': const TransferBca(),
       },
       {
         'icon': SvgPicture.asset(
@@ -46,7 +45,7 @@ class _TransferDetailsState extends State<TransferDetails> {
         'title': 'BANK MANDIRI',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/mandiri.svg',
           virtualAccountTitle: 'Nomor Virtual Account MANDIRI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -69,7 +68,7 @@ class _TransferDetailsState extends State<TransferDetails> {
         'title': 'BANK PANIN',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/panin.svg',
           virtualAccountTitle: 'Nomor Virtual Account PANIN',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -92,7 +91,7 @@ class _TransferDetailsState extends State<TransferDetails> {
         'title': 'BANK NEGARA INDONESIA',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/bni.svg',
           virtualAccountTitle: 'Nomor Virtual Account BNI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -115,7 +114,7 @@ class _TransferDetailsState extends State<TransferDetails> {
         'title': 'BANK RAKYAT INDONESIA',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/bri.svg',
           virtualAccountTitle: 'Nomor Virtual Account BRI',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -138,7 +137,7 @@ class _TransferDetailsState extends State<TransferDetails> {
         'title': 'BANK PERMATA',
         'tag': '',
         'action': 'show',
-        'page': CustomShowModalBottomSheet(
+        'page': const CustomShowModalBottomSheet(
           iconik: 'assets/icons/Bank/permata.svg',
           virtualAccountTitle: 'Nomor Virtual Account PERMATA',
           virtualAccountNumber: '8883 82392 9823 3882',
@@ -194,7 +193,7 @@ class _TransferDetailsState extends State<TransferDetails> {
           SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -218,7 +217,7 @@ class _TransferDetailsState extends State<TransferDetails> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Rekening Bank',
                           style: TextStyle(
                             color: Colors.black,
@@ -247,7 +246,7 @@ class _TransferDetailsState extends State<TransferDetails> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Sesama OeyPay',
                           style: TextStyle(
                             color: Colors.black,
@@ -257,7 +256,7 @@ class _TransferDetailsState extends State<TransferDetails> {
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 if (!isVirtualAccount)
                   Wrap(
                     // spacing: 10.0,
@@ -279,7 +278,7 @@ class _TransferDetailsState extends State<TransferDetails> {
                     ],
                   )
                 else
-                  Wrap(
+                  const Wrap(
                     children: [
                       Sesamaoeypay(),
                     ],

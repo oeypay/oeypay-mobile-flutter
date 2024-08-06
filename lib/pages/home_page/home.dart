@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +15,7 @@ import 'detail_page_items/listrik/listrik_details.dart';
 import 'detail_page_items/penarikan/penarikan_details.dart';
 import 'detail_page_items/riwayat/riwayat_detail.dart';
 import 'detail_page_items/tiket/pemesanan_tiket.dart';
-import 'detail_page_items/topUp/virtualAccount/virtual_account_pages.dart';
+import 'detail_page_items/top_up/virtualAccount/virtual_account_pages.dart';
 import 'detail_page_items/transfer/transferDetails.dart';
 import 'item_lainnya_page.dart';
 import 'notofication_page.dart';
@@ -35,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     // Mengatur warna status bar ketika halaman diinisialisasi
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
+      const SystemUiOverlayStyle(
         statusBarColor: ColorName.light, // Warna background status bar
         statusBarIconBrightness: Brightness.light, // Warna ikon status bar
       ),
@@ -61,7 +59,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PulsaScreen(),
+              builder: (context) => const PulsaScreen(),
             ),
           );
         },
@@ -74,7 +72,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ListrikDetails(),
+              builder: (context) => const ListrikDetails(),
             ),
           );
         },
@@ -87,7 +85,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PemesananTiketPage(),
+              builder: (context) => const PemesananTiketPage(),
             ),
           );
         },
@@ -154,7 +152,7 @@ class _HomePageState extends State<HomePage> {
         body: Stack(
           children: [
             SingleChildScrollView(
-              padding: EdgeInsets.only(bottom: 120),
+              padding: const EdgeInsets.only(bottom: 120),
               child: Stack(
                 children: [
                   SvgPicture.asset(
@@ -166,16 +164,16 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         height: 175,
-                        padding: EdgeInsets.only(bottom: 10),
+                        padding: const EdgeInsets.only(bottom: 10),
                         decoration: BoxDecoration(
-                          border: Border(
+                          border: const Border(
                             bottom: BorderSide(
                               color: Colors.white,
                               width: 1.0,
                             ),
                           ),
                           color: ColorName.light.withOpacity(0.7),
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20),
                           ),
@@ -199,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                                         'Total Saldo',
                                         style: GoogleFonts.rubik(
                                           fontSize: 14.0,
-                                          color: Color(0xff606060),
+                                          color: const Color(0xff606060),
                                           fontWeight: FontWeight.w400,
                                         ),
                                       ),
@@ -238,7 +236,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 30, left: 15, right: 15),
+                        margin:
+                            const EdgeInsets.only(top: 30, left: 15, right: 15),
                         width: MediaQuery.of(context).size.width,
                         padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
@@ -255,7 +254,8 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Virtualaccountpages(),
+                                    builder: (context) =>
+                                        const Virtualaccountpages(),
                                   ),
                                 );
                               },
@@ -272,7 +272,8 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => TransferDetails(),
+                                    builder: (context) =>
+                                        const TransferDetails(),
                                   ),
                                 );
                               },
@@ -292,7 +293,8 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Penarikandetails(),
+                                    builder: (context) =>
+                                        const Penarikandetails(),
                                   ),
                                 );
                               },
@@ -311,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => RiwayatPage(),
+                                    builder: (context) => const RiwayatPage(),
                                   ),
                                 );
                               },
@@ -384,7 +386,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             const SizedBox(height: 5),
                             Container(
-                              padding: EdgeInsets.only(top: 10),
+                              padding: const EdgeInsets.only(top: 10),
                               decoration: BoxDecoration(
                                 color: ColorName.light,
                                 borderRadius: BorderRadius.circular(15),
@@ -433,7 +435,7 @@ class _HomePageState extends State<HomePage> {
                               }).toList(),
                             ),
                             const SizedBox(height: 15),
-                            RekomendasiPilihan(),
+                            const RekomendasiPilihan(),
                           ],
                         ),
                       ),
@@ -464,7 +466,8 @@ class NavbarHomePage extends StatelessWidget {
       children: [
         Container(
           // height: 55,
-          padding: EdgeInsets.only(top: 45, left: 20, right: 20, bottom: 10),
+          padding:
+              const EdgeInsets.only(top: 45, left: 20, right: 20, bottom: 10),
           decoration: BoxDecoration(
             color: bgColor ?? Colors.transparent,
           ),
@@ -480,7 +483,7 @@ class NavbarHomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NotificationsScreen(),
+                      builder: (context) => const NotificationsScreen(),
                     ),
                   );
                 },

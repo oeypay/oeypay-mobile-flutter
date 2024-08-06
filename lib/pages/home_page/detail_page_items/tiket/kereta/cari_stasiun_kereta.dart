@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
 
 import '../pesawat/cari_bandara.dart';
 
@@ -21,7 +20,7 @@ class PencarianStasiun extends StatelessWidget {
         children: [
           Container(
             color: ColorName.yellowSmoth,
-            child: TextField(
+            child: const TextField(
               cursorColor: Colors.black,
               decoration: InputDecoration(
                 labelText: 'Cari ...',
@@ -31,7 +30,7 @@ class PencarianStasiun extends StatelessWidget {
               ),
             ),
           ),
-          ListBandara(),
+          const ListBandara(),
         ],
       ),
     );

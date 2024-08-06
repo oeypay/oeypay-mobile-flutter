@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -88,7 +90,7 @@ class AuthCubit extends Cubit<AuthState> {
 
     final result = await ApiAuthProvider.signUp(
         name: name, phone: phone, referral: referral);
-    debugPrint('signUp data: name=${name}, phone=$phone, referral=${referral}');
+    debugPrint('signUp data: name=$name, phone=$phone, referral=$referral');
 
     if (result.success != null) {
       emit(state.copyWith(
@@ -107,6 +109,20 @@ class AuthCubit extends Cubit<AuthState> {
     if (result.value != null) {
       final LocalStorage storage = LocalStorage('local_data.json');
       await storage.setItem('user_phone', phone);
+      emit(state.copyWith(
+          status: BlocConnectionStatus.success, userModel: result.value));
+    } else {
+      emit(state.copyWith(
+          status: BlocConnectionStatus.failed, message: result.message));
+    }
+  }
+
+  Future<void> getUser() async {
+    emit(state.copyWith(status: BlocConnectionStatus.loading));
+
+    final result = await ApiAuthProvider.getUser();
+
+    if (result.value != null) {
       emit(state.copyWith(
           status: BlocConnectionStatus.success, userModel: result.value));
     } else {

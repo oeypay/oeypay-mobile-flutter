@@ -7,7 +7,7 @@ import 'package:oepay/common/components/keyboard.dart';
 import 'package:oepay/common/components/pinput.dart';
 import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/pages/registerPages/pin_regis_verify.dart';
+import 'package:oepay/pages/register_pages/pin_regis_verify.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 
 class PINProtectionPage extends StatefulWidget {
@@ -52,7 +52,7 @@ class _PINProtectionPageState extends State<PINProtectionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
-      appBar: AppbarDefault(
+      appBar: const AppbarDefault(
         title: "Buat PIN Kamu",
         titleRight: '3/4',
         bgColor: ColorName.yellowColor,
@@ -60,7 +60,7 @@ class _PINProtectionPageState extends State<PINProtectionPage> {
       body: BodyAuth(
         center: true,
         children: [
-          AuthDesc(
+          const AuthDesc(
             center: true,
             title: 'PIN ini untuk keamanan transaksi dan akun OeyPay',
           ),
@@ -91,10 +91,13 @@ class _PINProtectionPageState extends State<PINProtectionPage> {
               );
             },
           ),
-          Space(20),
+          const Space(20),
           CustomKeyboard(
             onKeyTap: _onKeyTap,
             onBackspace: _onBackspace,
+            onFinger: () {
+              showSnackBar(context, msg: 'Fitur ini belum tersedia');
+            },
           ),
         ],
       ),

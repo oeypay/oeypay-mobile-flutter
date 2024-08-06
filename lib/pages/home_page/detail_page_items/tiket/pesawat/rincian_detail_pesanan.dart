@@ -8,9 +8,11 @@ import '../../penarikan/bca/konfirmasi_penarikan_otp.dart';
 import 'hasilTransaksi_tiket_pesawat.dart';
 
 class RincianDetailPesananPage extends StatelessWidget {
+  const RincianDetailPesananPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _voucherController = TextEditingController();
+    final TextEditingController voucherController = TextEditingController();
     TextStyle textStyle = GoogleFonts.poppins(
       fontSize: 14,
       color: Colors.lime.shade900,
@@ -26,7 +28,7 @@ class RincianDetailPesananPage extends StatelessWidget {
           style: CustomTextStyles.titleProfilApp,
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new, color: Colors.black),
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -42,27 +44,27 @@ class RincianDetailPesananPage extends StatelessWidget {
                 children: [
                   Container(
                     color: ColorName.yellowSmoth,
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(Icons.flight, color: Colors.black),
-                            SizedBox(width: 20),
+                            const Icon(Icons.flight, color: Colors.black),
+                            const SizedBox(width: 20),
                             Text(
                               'Jakarta (CGK) > Surabaya (SUB)',
                               style: CustomTextStyles.titlesection,
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           'Sab, 8 Jul 2024 12.00 - 16.00',
                           style: textStyle,
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(
                           'Langsung . Ekonomi',
                           style: GoogleFonts.poppins(
@@ -83,18 +85,18 @@ class RincianDetailPesananPage extends StatelessWidget {
                           width: 20,
                           color: Colors.red.shade600,
                         ),
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
                         Text(
                           'Voucher',
                           style: CustomTextStyles.titlesection,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Padding(
                           padding: const EdgeInsets.only(top: 8.0, bottom: 8),
-                          child: Container(
+                          child: SizedBox(
                             width: 200,
                             child: TextFormField(
-                              controller: _voucherController,
+                              controller: voucherController,
                               decoration: InputDecoration(
                                 hintText: 'Gunakan / Masukkan Kode',
                                 hintStyle: GoogleFonts.poppins(fontSize: 12),
@@ -126,9 +128,8 @@ class RincianDetailPesananPage extends StatelessWidget {
                       style: CustomTextStyles.titlesection,
                     ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 16, right: 16, bottom: 10),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 16, right: 16, bottom: 10),
                     child: Divider(),
                   ),
                   Padding(
@@ -147,7 +148,7 @@ class RincianDetailPesananPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 16, right: 16, bottom: 10),
@@ -191,7 +192,7 @@ class RincianDetailPesananPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),
@@ -210,7 +211,7 @@ class RincianDetailPesananPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HasiltransaksitiketPesawat(),
+                      builder: (context) => const HasiltransaksitiketPesawat(),
                     ),
                   );
                 }),

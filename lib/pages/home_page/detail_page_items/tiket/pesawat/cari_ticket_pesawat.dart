@@ -27,14 +27,14 @@ class FlightTicketWidget extends StatelessWidget {
               BoxShadow(
                 color: Colors.blueGrey.withOpacity(0.2),
                 blurRadius: 1,
-                offset: Offset(0, 2),
+                offset: const Offset(0, 2),
               ),
             ]),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Icon(Icons.calendar_today, color: Colors.black),
                     SizedBox(width: 5),
                     Text(
@@ -44,7 +44,7 @@ class FlightTicketWidget extends StatelessWidget {
                   ],
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Icon(Icons.sort, color: Colors.black),
                     SizedBox(width: 5),
                     Text(
@@ -54,7 +54,7 @@ class FlightTicketWidget extends StatelessWidget {
                   ],
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Icon(Icons.filter_alt, color: Colors.black),
                     SizedBox(width: 5),
                     Text(
@@ -66,15 +66,15 @@ class FlightTicketWidget extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           GestureDetector(
             onTap: () => showBarModalBottomSheet(
               expand: false,
               context: context,
               backgroundColor: Colors.transparent,
-              builder: (context) => ShowModalPenerbangan(),
+              builder: (context) => const ShowModalPenerbangan(),
             ),
-            child: TicketCard(
+            child: const TicketCard(
               logoPath: 'assets/icons/garuda.png',
               price: 'Rp 800.000',
               departureStation: 'Jakarta, JKT48',

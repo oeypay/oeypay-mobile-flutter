@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class Widgetitemtopup extends StatelessWidget {
   final Map<String, dynamic> item;
 
-  const Widgetitemtopup({Key? key, required this.item}) : super(key: key);
+  const Widgetitemtopup({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {

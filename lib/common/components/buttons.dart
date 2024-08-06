@@ -176,13 +176,13 @@ class ButtonDefault extends StatelessWidget {
       splashFactory: NoSplash.splashFactory,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 15),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius ?? 100),
             color: bgColor ?? ColorName.black),
         child: Center(
           child: isLoading!
-              ? Loading()
+              ? const Loading()
               : Text(label ?? "Button",
                   style: TextStyle(
                       fontSize: 14,

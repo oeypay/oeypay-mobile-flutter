@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:oepay/common/components/show_dialog_pembayaran.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-
-import '../penarikan/bca/konfirmasi_penarikan_otp.dart';
-import 'hasil_transaksi_data.dart';
 
 class PaketData extends StatelessWidget {
   final void Function()? pressCard, pressDetail;
@@ -27,7 +23,7 @@ class PaketData extends StatelessWidget {
       onTap: pressCard,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -49,22 +45,24 @@ class PaketData extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               desc ?? '',
               style: CustomTextStyles.titleProfil,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Text(
                   price ?? '',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.w600),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
                   decoration: BoxDecoration(
                     color: Colors.pink.withOpacity(.2),
                     borderRadius: BorderRadius.circular(4),
@@ -86,11 +84,12 @@ class PaketData extends StatelessWidget {
                         decoration: TextDecoration.lineThrough),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 InkWell(
                   onTap: pressDetail,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         color: ColorName.yellowColor),

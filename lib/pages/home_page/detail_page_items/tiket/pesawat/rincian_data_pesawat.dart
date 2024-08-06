@@ -10,6 +10,8 @@ import 'rincian_penumpang.dart';
 import 'show_modal_penerbangan.dart';
 
 class RincianDataPesawat extends StatefulWidget {
+  const RincianDataPesawat({super.key});
+
   @override
   _RincianDataPesawatState createState() => _RincianDataPesawatState();
 }
@@ -29,7 +31,7 @@ class _RincianDataPesawatState extends State<RincianDataPesawat> {
           style: CustomTextStyles.titleProfilApp,
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -50,11 +52,11 @@ class _RincianDataPesawatState extends State<RincianDataPesawat> {
                   expand: false,
                   context: context,
                   backgroundColor: Colors.transparent,
-                  builder: (context) => ShowModalPenerbangan(),
+                  builder: (context) => const ShowModalPenerbangan(),
                 );
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ContactDetails(
               name: penumpangDataKontak?['nama'],
               email: penumpangDataKontak?['email'],
@@ -74,7 +76,7 @@ class _RincianDataPesawatState extends State<RincianDataPesawat> {
                 );
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             PassengerDetails(
               passengerData: penumpangData,
               onEdit: () async {
@@ -136,7 +138,7 @@ class _RincianDataPesawatState extends State<RincianDataPesawat> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    RincianDetailPesananPage(),
+                                    const RincianDetailPesananPage(),
                               ),
                             );
                           },

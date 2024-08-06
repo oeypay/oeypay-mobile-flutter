@@ -1,6 +1,5 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_container_card.dart';
@@ -27,7 +26,7 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.close),
+          icon: const Icon(Icons.close),
         ),
       ),
       body: SingleChildScrollView(
@@ -42,15 +41,15 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 20),
-                      Center(
+                      const SizedBox(height: 20),
+                      const Center(
                         child: Icon(
                           Icons.check_circle,
                           color: Colors.teal,
                           size: 30,
                         ),
                       ),
-                      Center(
+                      const Center(
                         child: Text(
                           'Transaksi Berhasil',
                           style: TextStyle(
@@ -60,10 +59,10 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Container(
                         color: ColorName.yellowColor,
-                        padding: EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(8),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -72,7 +71,7 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                               style: CustomTextStyles.titlesection,
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 5),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
@@ -88,12 +87,12 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                       ),
                       Container(
                         height: 50,
-                        padding: EdgeInsets.only(left: 16, right: 16),
+                        padding: const EdgeInsets.only(left: 16, right: 16),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(Icons.flight, color: Colors.black),
-                            SizedBox(width: 20),
+                            const Icon(Icons.flight, color: Colors.black),
+                            const SizedBox(width: 20),
                             Text(
                               'Jakarta (CGK) > Surabaya (SUB)',
                               style: CustomTextStyles.titlesection,
@@ -112,68 +111,68 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                             expand: false,
                             context: context,
                             backgroundColor: Colors.transparent,
-                            builder: (context) => ShowModalPenerbangan(),
+                            builder: (context) => const ShowModalPenerbangan(),
                           );
                         },
                       ),
                       ListTile(
-                        leading: Icon(Icons.phone_android),
+                        leading: const Icon(Icons.phone_android),
                         title: Text(
                           'Rincian Kontak',
                           style: CustomTextStyles.titlesection,
                         ),
                       ),
-                      Divider(),
-                      ValueRincianData(
+                      const Divider(),
+                      const ValueRincianData(
                         nama: 'Ahmad Kardawi',
                         data1: 'Email: ahmad@gmail.com',
                         data2: 'No Hp: 089787576565',
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 8,
                         width: double.infinity,
                         color: Colors.grey.shade200,
                       ),
                       ListTile(
-                        leading: Icon(Icons.group),
+                        leading: const Icon(Icons.group),
                         title: Text(
                           'Rincian Penumpang',
                           style: CustomTextStyles.titlesection,
                         ),
                       ),
-                      Divider(),
-                      ValueRincianData(
+                      const Divider(),
+                      const ValueRincianData(
                         tuan: 'Dewasa',
                         nama: 'Ahmad Kardawi',
                         data1: 'Nomor KTP/NIK: 5675345365645345',
                         data2: 'Tanggal Lahir: 07 Mey 2000',
                       ),
-                      SizedBox(height: 10),
-                      Divider(),
-                      ValueRincianData(
+                      const SizedBox(height: 10),
+                      const Divider(),
+                      const ValueRincianData(
                         tuan: 'Dewasa',
                         nama: 'Ahmad Kardawi',
                         data1: 'Nomor KTP/NIK: 5675345365645345',
                         data2: 'Tanggal Lahir: 07 Mey 2000',
                       ),
-                      SizedBox(height: 10),
-                      Divider(),
-                      ValueRincianData(
+                      const SizedBox(height: 10),
+                      const Divider(),
+                      const ValueRincianData(
                         tuan: 'Dewasa',
                         nama: 'Ahmad Kardawi',
                         data1: 'Nomor KTP/NIK: 5675345365645345',
                         data2: 'Tanggal Lahir: 07 Mey 2000',
                       ),
-                      SizedBox(height: 10),
-                      Divider(),
-                      ValueRincianData(
+                      const SizedBox(height: 10),
+                      const Divider(),
+                      const ValueRincianData(
                         tuan: 'Dewasa',
                         nama: 'Ahmad Kardawi',
                         data1: 'Nomor KTP/NIK: 5675345365645345',
                         data2: 'Tanggal Lahir: 07 Mey 2000',
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ),
@@ -188,7 +187,7 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                     textColor: Colors.black,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
               ],
             )
           ],

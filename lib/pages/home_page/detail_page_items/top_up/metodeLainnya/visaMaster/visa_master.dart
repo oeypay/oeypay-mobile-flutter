@@ -98,7 +98,7 @@ class _VisamasterState extends State<Visamaster> {
                           'assets/icons/provider/visa-master.svg',
                           width: 50,
                         ),
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -110,7 +110,7 @@ class _VisamasterState extends State<Visamaster> {
                               'Metode Top Up',
                               style: CustomTextStyles.textCard,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             Text(
@@ -139,8 +139,8 @@ class _VisamasterState extends State<Visamaster> {
                     color: ColorName.yellowSmoth.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  margin:
-                      EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                  margin: const EdgeInsets.only(
+                      left: 20, right: 20, top: 10, bottom: 10),
                   height: 50,
                   child: InputDecorator(
                     decoration: InputDecoration(
@@ -157,7 +157,7 @@ class _VisamasterState extends State<Visamaster> {
                     child: InkWell(
                       onTap: () => _showConfirmationDialog(context),
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         alignment: Alignment.centerLeft,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -166,14 +166,14 @@ class _VisamasterState extends State<Visamaster> {
                               _nominal ?? 'Pilih Nominal',
                               style: CustomTextStyles.titlesection,
                             ),
-                            Icon(Icons.arrow_drop_down),
+                            const Icon(Icons.arrow_drop_down),
                           ],
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Text(
