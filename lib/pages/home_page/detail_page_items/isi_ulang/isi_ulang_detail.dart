@@ -105,6 +105,8 @@ class _PulsaScreenState extends State<PulsaScreen> {
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / .7;
+    final double itemHeightOnly = (size.height - kToolbarHeight - 24) / 2;
+    final double itemWidthOnly = size.width / .3;
 
     return Scaffold(
       backgroundColor: ColorName.light,
@@ -268,7 +270,8 @@ class _PulsaScreenState extends State<PulsaScreen> {
                               // Paket Data options
                               GridItems(
                                 crossAxisCount: 1,
-                                childAspectRatio: 4 / 1.7,
+                                childAspectRatio:
+                                    (itemWidthOnly / itemHeightOnly),
                                 items: [
                                   for (var item in state.getListProduct!)
                                     PaketData(
