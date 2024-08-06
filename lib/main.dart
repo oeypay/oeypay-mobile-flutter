@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:oepay/common/constant/colors.dart';
-
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 import 'package:oepay/resources/cubit/menu/menu_cubit.dart';
-
 import 'pages/splash_screen_page.dart';
 
 void main() {

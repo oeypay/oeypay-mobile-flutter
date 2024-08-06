@@ -49,6 +49,23 @@ class StorageCore {
     }
   }
 
+  // Future<void> savePhone(dynamic object, String key) async {
+  //   await storage.setItem(key, object);
+  // }
+
+  // Future savePhone(dynamic object, String key) async {
+  //   try {
+  //     bool isStorageReady = await storage.ready;
+  //     if (isStorageReady) {
+  //       await storage.setItem(key, object);
+  //       log('sukses save $key');
+  //     }
+  //   } catch (e) {
+  //     debugPrint('error save$key : $e');
+  //     rethrow;
+  //   }
+  // }
+
   Future<void> clearLocalStorage() async {
     await storage.clear();
   }

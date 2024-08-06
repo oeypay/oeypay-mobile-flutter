@@ -9,10 +9,13 @@ part 'menu_state.dart';
 
 class MenuCubit extends Cubit<MenuState> {
   MenuCubit()
-      : super(const MenuState(
+      : super(
+          const MenuState(
             status: BlocConnectionStatus.initialized,
             loadMoreStatus: LoadMoreStatus.none,
-            statusAction: BlocConnectionStatus.initialized));
+            statusAction: BlocConnectionStatus.initialized,
+          ),
+        );
 
   Future<void> getAllMenus() async {
     emit(state.copyWith(status: BlocConnectionStatus.loading));

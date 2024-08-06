@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:oepay/common/components/app_bar.dart';
 import 'package:oepay/common/components/common_empty.dart';
 import 'package:oepay/common/components/common_loading_indicator.dart';
@@ -33,6 +34,13 @@ class _PulsaScreenState extends State<PulsaScreen> {
   String brand = '';
   String category = 'Pulsa';
   final TextEditingController _contactController = TextEditingController();
+  final LocalStorage storage = LocalStorage('local_data.json');
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPhoneNumber();
+  }
 
   void toggleSelection() {
     setState(() {
@@ -45,6 +53,20 @@ class _PulsaScreenState extends State<PulsaScreen> {
     setState(() {
       selectedPulsaOption = option;
     });
+  }
+
+  void _loadPhoneNumber() async {
+    await storage.ready;
+    final storedPhone = storage.getItem('user_phone');
+    if (storedPhone != null) {
+      print('nomor ${storedPhone}');
+      setState(() {
+        _contactController.text = storedPhone;
+        contact = storedPhone;
+        checkPhoneNumber(storedPhone);
+        _fetchData();
+      });
+    }
   }
 
   final Map<String, List<String>> phonePrefixes = {
@@ -129,7 +151,6 @@ class _PulsaScreenState extends State<PulsaScreen> {
                     brand = '';
                   });
                 }
-
                 print(
                     'data $brand - $contact - $category - leght ${_contactController.text.length}');
               },
@@ -137,8 +158,23 @@ class _PulsaScreenState extends State<PulsaScreen> {
               pressprefixIcon: () async {
                 Contact? contact = await _contactPicker.selectContact();
                 setState(() {
-                  _contacts = contact == null ? null : [contact];
-                  _contactController.text = contact!.phoneNumbers!.single;
+                  if (contact != null) {
+                    _contacts = [contact];
+                    String phoneNumber = contact.phoneNumbers!.single;
+
+                    // Menghapus tanda '+'
+                    phoneNumber = phoneNumber.replaceAll('+', '');
+
+                    // Mengganti '62' di awal nomor menjadi '0'
+                    if (phoneNumber.startsWith('62')) {
+                      phoneNumber = '0${phoneNumber.substring(2)}';
+                      print('nmr $phoneNumber');
+                    }
+
+                    _contactController.text = phoneNumber;
+                  } else {
+                    _contacts = [];
+                  }
                 });
               },
               presssuffixIcon: () {
