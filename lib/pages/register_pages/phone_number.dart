@@ -61,6 +61,7 @@ class _PhoneNumberFormState extends State<PhoneNumberForm> {
                           ),
                         ),
                       );
+            debugPrint(state.phoneNumberModel?.data?.status);
           } else if (state.statusAction.isFailed()) {
             showSnackBar(context,
                 msg: state.phoneNumberModel?.message.toString());

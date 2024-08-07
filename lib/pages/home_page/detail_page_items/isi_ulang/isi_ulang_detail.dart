@@ -59,7 +59,7 @@ class _PulsaScreenState extends State<PulsaScreen> {
     await storage.ready;
     final storedPhone = storage.getItem('user_phone');
     if (storedPhone != null) {
-      print('nomor ${storedPhone}');
+      debugPrint('nomor $storedPhone');
       setState(() {
         _contactController.text = storedPhone;
         contact = storedPhone;
@@ -108,7 +108,9 @@ class _PulsaScreenState extends State<PulsaScreen> {
             setState(() {
               brand = entry.key;
             });
-            if (_contactController.text.length == 7) _fetchData();
+            if (_contactController.text.length == 7 || phoneNumber.length > 6) {
+              _fetchData();
+            }
             return;
           }
         }
@@ -127,6 +129,8 @@ class _PulsaScreenState extends State<PulsaScreen> {
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / .7;
+    final double itemHeightOnly = (size.height - kToolbarHeight - 24) / 2;
+    final double itemWidthOnly = size.width / .3;
 
     return Scaffold(
       backgroundColor: ColorName.light,
@@ -160,14 +164,17 @@ class _PulsaScreenState extends State<PulsaScreen> {
                     _contacts = [contact];
                     String phoneNumber = contact.phoneNumbers!.single;
 
-                    // Menghapus tanda '+'
+                    // Menghapus tanda '+', '-', ' '
                     phoneNumber = phoneNumber.replaceAll('+', '');
+                    phoneNumber = phoneNumber.replaceAll('-', '');
+                    phoneNumber = phoneNumber.replaceAll(' ', '');
 
                     // Mengganti '62' di awal nomor menjadi '0'
                     if (phoneNumber.startsWith('62')) {
                       phoneNumber = '0${phoneNumber.substring(2)}';
-                      print('nmr $phoneNumber');
+                      debugPrint('nmr $phoneNumber');
                     }
+                    checkPhoneNumber(phoneNumber);
 
                     _contactController.text = phoneNumber;
                   } else {
@@ -304,7 +311,8 @@ class _PulsaScreenState extends State<PulsaScreen> {
                               // Paket Data options
                               GridItems(
                                 crossAxisCount: 1,
-                                childAspectRatio: 4 / 1.7,
+                                childAspectRatio:
+                                    (itemWidthOnly / itemHeightOnly),
                                 items: [
                                   for (var item in state.getListProduct!)
                                     PaketData(

@@ -1,15 +1,14 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/grid_components.dart';
-import 'package:oepay/common/components/rekomendasi_pilihan.dart';
 import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/pages/home_page/detail_page_items/content_home_page/banner_page.dart';
+import 'package:oepay/pages/home_page/detail_page_items/content_home_page/news_page.dart';
+import 'package:oepay/pages/home_page/detail_page_items/content_home_page/rekomendasi_page.dart';
 import 'detail_page_items/isi_ulang/isi_ulang_detail.dart';
 import 'detail_page_items/listrik/listrik_details.dart';
 import 'detail_page_items/penarikan/penarikan_details.dart';
@@ -28,24 +27,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    // Mengatur warna status bar ketika halaman diinisialisasi
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: ColorName.light, // Warna background status bar
-        statusBarIconBrightness: Brightness.light, // Warna ikon status bar
-      ),
-    );
-  }
-
-  final List<String> images = [
-    "assets/images/banner1.png",
-    "assets/images/banner2.png",
-    "assets/images/banner3.png",
-  ];
-
   double _opacity = 0.0;
 
   @override
@@ -94,33 +75,25 @@ class _HomePageState extends State<HomePage> {
         color: Colors.black,
         images: 'assets/icons/house-building.svg',
         title: 'Hotel',
-        onTap: () {
-          print('Pulsa tapped');
-        },
+        onTap: () {},
       ),
       CustomGridItem(
         color: Colors.purpleAccent.shade700,
         images: 'assets/icons/insert-credit-card.svg',
         title: 'Pinjaman',
-        onTap: () {
-          print('Kredit tapped');
-        },
+        onTap: () {},
       ),
       CustomGridItem(
         color: Colors.lightBlue.shade800,
         images: 'assets/icons/point-of-sale-bill.svg',
         title: 'Pembayaran',
-        onTap: () {
-          print('Tagihan tapped');
-        },
+        onTap: () {},
       ),
       CustomGridItem(
         color: Colors.lightGreen,
         images: 'assets/icons/ticket.svg',
         title: 'Voucher',
-        onTap: () {
-          print('Voucher tapped');
-        },
+        onTap: () {},
       ),
       CustomGridItem(
         color: Colors.pink,
@@ -151,298 +124,62 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: ColorName.light,
         body: Stack(
           children: [
-            SingleChildScrollView(
-              padding: const EdgeInsets.only(bottom: 120),
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    'assets/icons/oeypay-favicon.svg',
-                    fit: BoxFit.cover,
-                    width: MediaQuery.of(context).size.width,
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        height: 175,
-                        padding: const EdgeInsets.only(bottom: 10),
-                        decoration: BoxDecoration(
-                          border: const Border(
-                            bottom: BorderSide(
-                              color: Colors.white,
-                              width: 1.0,
-                            ),
-                          ),
-                          color: ColorName.light.withOpacity(0.7),
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 30, left: 20, right: 20),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Total Saldo',
-                                        style: GoogleFonts.rubik(
-                                          fontSize: 14.0,
-                                          color: const Color(0xff606060),
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                      const Space(5),
-                                      Text(
-                                        'Rp 5.000.000',
-                                        style: GoogleFonts.rubik(
-                                          fontSize: 18,
-                                          color: const Color.fromARGB(
-                                              255, 0, 0, 51),
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SvgPicture.asset(
-                                        'assets/icons/oeypay-favicon.svg',
-                                        width: 22,
-                                        color: Colors.black,
-                                      ),
-                                      const Space(5),
-                                      const Text(
-                                        'Points',
-                                        style:
-                                            TextStyle(fontSize: 12, height: 1),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+            BodyContentHomePage(
+              saldo: '5.000.000',
+              itemsMainMenu: [
+                MainMenuItem(
+                  label: 'Top Up',
+                  iconSvg: 'plus-circle.svg',
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Virtualaccountpages(),
                       ),
-                      Container(
-                        margin:
-                            const EdgeInsets.only(top: 30, left: 15, right: 15),
-                        width: MediaQuery.of(context).size.width,
-                        padding: const EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(50),
-                          border: Border.all(color: Colors.white),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Virtualaccountpages(),
-                                  ),
-                                );
-                              },
-                              child: const Column(
-                                children: [
-                                  Icon(Icons.add_circle_outline_outlined,
-                                      size: 30),
-                                  Text('TopUp', style: TextStyle(fontSize: 12)),
-                                ],
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const TransferDetails(),
-                                  ),
-                                );
-                              },
-                              child: Column(
-                                children: [
-                                  SvgPicture.asset(
-                                    'assets/icons/expense.svg',
-                                    width: 30,
-                                  ),
-                                  const Text('Transfer',
-                                      style: TextStyle(fontSize: 12)),
-                                ],
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Penarikandetails(),
-                                  ),
-                                );
-                              },
-                              child: const Column(
-                                children: [
-                                  Icon(Icons.account_balance_wallet_outlined,
-                                      size: 30),
-                                  Text('Penarikan',
-                                      style: TextStyle(fontSize: 12)),
-                                ],
-                              ),
-                            ),
-
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const RiwayatPage(),
-                                  ),
-                                );
-                              },
-                              child: Column(
-                                children: [
-                                  SvgPicture.asset(
-                                    'assets/icons/paper-plane.svg',
-                                    width: 25,
-                                  ),
-                                  // Image.asset(
-                                  //   'assets/icons/paper-plane.svg',
-                                  //   width: 30,
-                                  // ),
-                                  const Text('Riwayat',
-                                      style: TextStyle(fontSize: 12)),
-                                ],
-                              ),
-                            ),
-
-                            // Column(
-                            //   children: [
-                            //     SvgPicture.asset(
-                            //       'assets/icons/expense.svg',
-                            //       width: 25,
-                            //     ),
-                            //     const Text('Minta', style: TextStyle(fontSize: 12)),
-                            //   ],
-                            // ),
-                          ],
-                        ),
+                    );
+                  },
+                ),
+                MainMenuItem(
+                  label: 'Transfer',
+                  iconSvg: 'expense.svg',
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TransferDetails(),
                       ),
-                      const SizedBox(height: 20),
-                      CarouselSlider(
-                        options: CarouselOptions(
-                          height: 120,
-                          autoPlay: false,
-                          enableInfiniteScroll: true,
-                          viewportFraction: 0.7,
-                        ),
-                        items: images.map((imagePath) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Container(
-                                height: 120,
-                                width: double.infinity,
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
-                                    image: AssetImage(imagePath),
-                                    fit: BoxFit
-                                        .contain, // Mengatur gambar agar tidak tercrop
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        }).toList(),
+                    );
+                  },
+                ),
+                MainMenuItem(
+                  label: 'Penarikan',
+                  iconSvg: 'wallet.svg',
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Penarikandetails(),
                       ),
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Payment List',
-                              style: CustomTextStyles.titlesection,
-                            ),
-                            const SizedBox(height: 5),
-                            Container(
-                              padding: const EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                color: ColorName.light,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  width: 2,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              child: CustomGrid(items: gridItems),
-                            ),
-                            const SizedBox(height: 20),
-                            Text(
-                              'Promo & Discount',
-                              style: CustomTextStyles.titlesection,
-                            ),
-                            const SizedBox(height: 10),
-                            CarouselSlider(
-                              options: CarouselOptions(
-                                height: 120.0,
-                                enlargeCenterPage: true,
-                                autoPlay: true,
-                                aspectRatio: 16 / 10,
-                                autoPlayCurve: Curves.fastOutSlowIn,
-                                enableInfiniteScroll: true,
-                                autoPlayAnimationDuration:
-                                    const Duration(milliseconds: 800),
-                                viewportFraction: 0.8,
-                              ),
-                              items: images.map((imagePath) {
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                      width: double.infinity,
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 5.0),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        image: DecorationImage(
-                                          image: AssetImage(imagePath),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              }).toList(),
-                            ),
-                            const SizedBox(height: 15),
-                            const RekomendasiPilihan(),
-                          ],
-                        ),
+                    );
+                  },
+                ),
+                MainMenuItem(
+                  label: 'Riwayat',
+                  iconSvg: 'paper-plane.svg',
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RiwayatPage(),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    );
+                  },
+                ),
+              ],
+              itemsMenu: gridItems,
+              banner: const BannerPage(),
+              news: const NewsPage(),
+              rekomendasi: const RekomendasiPage(),
             ),
             NavbarHomePage(
               bgColor: ColorName.yellowColor.withOpacity(_opacity),
@@ -496,6 +233,180 @@ class NavbarHomePage extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class BodyContentHomePage extends StatelessWidget {
+  final String? saldo;
+  final List<Widget>? itemsMainMenu;
+  final Widget? banner, rekomendasi, news;
+  final List<CustomGridItem> itemsMenu;
+  const BodyContentHomePage(
+      {super.key,
+      this.saldo,
+      this.itemsMainMenu,
+      this.banner,
+      this.news,
+      required this.itemsMenu,
+      this.rekomendasi});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 120),
+      child: Stack(
+        children: [
+          SvgPicture.asset(
+            'assets/icons/oeypay-favicon.svg',
+            fit: BoxFit.cover,
+            width: MediaQuery.of(context).size.width,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 175,
+                padding: const EdgeInsets.only(bottom: 10),
+                decoration: BoxDecoration(
+                  border: const Border(
+                    bottom: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    ),
+                  ),
+                  color: ColorName.light.withOpacity(0.7),
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 30, left: 20, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Total Saldo',
+                                style: GoogleFonts.rubik(
+                                  fontSize: 14.0,
+                                  color: const Color(0xff606060),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const Space(5),
+                              Text(
+                                'Rp $saldo',
+                                style: GoogleFonts.rubik(
+                                  fontSize: 18,
+                                  color: const Color.fromARGB(255, 0, 0, 51),
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/icons/oeypay-favicon.svg',
+                                width: 22,
+                                colorFilter: const ColorFilter.mode(
+                                    Colors.black, BlendMode.srcIn),
+                              ),
+                              const Space(5),
+                              const Text(
+                                'Points',
+                                style: TextStyle(fontSize: 12, height: 1),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 30, left: 15, right: 15),
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(color: Colors.white),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: itemsMainMenu ?? [],
+                ),
+              ),
+              const SizedBox(height: 20),
+              banner ?? const SizedBox(),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Payment List',
+                      style: CustomTextStyles.titlesection,
+                    ),
+                    const SizedBox(height: 5),
+                    Container(
+                      padding: const EdgeInsets.only(top: 10),
+                      decoration: BoxDecoration(
+                        color: ColorName.light,
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          width: 2,
+                          color: Colors.white,
+                        ),
+                      ),
+                      child: CustomGrid(items: itemsMenu),
+                    ),
+                    news ?? const SizedBox(),
+                    const SizedBox(height: 10),
+                    rekomendasi ?? const SizedBox(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MainMenuItem extends StatelessWidget {
+  final String? label, iconSvg;
+
+  final void Function()? press;
+  const MainMenuItem({super.key, this.iconSvg, this.label, this.press});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: press,
+      child: Column(
+        children: [
+          SvgPicture.asset(
+            'assets/icons/$iconSvg',
+            width: 24,
+          ),
+          Text(label ?? '', style: const TextStyle(fontSize: 12)),
+        ],
+      ),
     );
   }
 }

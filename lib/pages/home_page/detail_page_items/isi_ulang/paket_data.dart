@@ -45,14 +45,14 @@ class PaketData extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
-            const SizedBox(height: 10),
+            const Spacer(),
             Text(
               desc ?? '',
               style: CustomTextStyles.titleProfil,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
-            const SizedBox(height: 10),
+            const Spacer(),
             Row(
               children: [
                 Text(
