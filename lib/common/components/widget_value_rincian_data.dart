@@ -7,6 +7,8 @@ class ValueRincianData extends StatelessWidget {
   final String data2;
   final String? tuan;
   final IconData? icon;
+  final String? kursi;
+  final String? nomorGerbong;
 
   const ValueRincianData({
     super.key,
@@ -15,6 +17,8 @@ class ValueRincianData extends StatelessWidget {
     required this.data2,
     this.icon,
     this.tuan,
+    this.kursi,
+    this.nomorGerbong,
   });
 
   @override
@@ -60,15 +64,35 @@ class ValueRincianData extends StatelessWidget {
                   data1,
                   style: CustomTextStyles.titleProfil,
                 ),
-                if (icon != null)
-                  const Icon(Icons.chevron_right)
-                else
-                  Container(),
+                if (kursi != null)
+                  Text(
+                    kursi!,
+                    style: CustomTextStyles.poppins(
+                      size: 12,
+                      color: Colors.red,
+                    ),
+                  ),
+                if (icon != null) const Icon(Icons.chevron_right)
+                // else
+                //   Container(),
               ],
             ),
-            Text(
-              data2,
-              style: CustomTextStyles.titleProfil,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  data2,
+                  style: CustomTextStyles.titleProfil,
+                ),
+                if (nomorGerbong != null)
+                  Text(
+                    nomorGerbong!,
+                    style: CustomTextStyles.poppins(
+                      size: 12,
+                      color: Colors.red,
+                    ),
+                  ),
+              ],
             ),
             const SizedBox(
               height: 10,

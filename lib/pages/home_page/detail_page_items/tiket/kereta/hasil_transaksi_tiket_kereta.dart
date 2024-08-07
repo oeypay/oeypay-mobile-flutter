@@ -2,11 +2,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_container_card.dart';
+import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/components/widget_appbar.dart';
+import 'package:oepay/common/components/widget_payment_tiket.dart';
 import 'package:oepay/common/components/widget_rincian_data.dart';
 import 'package:oepay/common/components/widget_value_rincian_data.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/pages/home_page/detail_page_items/tiket/kereta/lihat_tiket_kereta.dart';
 
 class HasiltransaksitiketKereta extends StatelessWidget {
   const HasiltransaksitiketKereta({super.key});
@@ -68,32 +71,27 @@ class HasiltransaksitiketKereta extends StatelessWidget {
                               'E-Tiket Keberangkatan',
                               style: CustomTextStyles.titlesection,
                             ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 5),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: const Color.fromARGB(255, 51, 46, 0),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LihatETiketKereta(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 5),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: const Color.fromARGB(255, 51, 46, 0),
+                                ),
+                                child: Text(
+                                  'Lihat e-tiket',
+                                  style: CustomTextStyles.textZone,
+                                ),
                               ),
-                              child: Text(
-                                'Lihat e-tiket',
-                                style: CustomTextStyles.textZone,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 50,
-                        padding: const EdgeInsets.only(left: 16, right: 16),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Icon(Icons.flight, color: Colors.black),
-                            const SizedBox(width: 20),
-                            Text(
-                              'Jakarta (CGK) > Surabaya (SUB)',
-                              style: CustomTextStyles.titlesection,
                             ),
                           ],
                         ),
@@ -156,27 +154,24 @@ class HasiltransaksitiketKereta extends StatelessWidget {
                         data2: 'Tanggal Lahir: 07 Mey 2000',
                       ),
                       const SizedBox(height: 10),
-                      const Divider(),
-                      const ValueRincianData(
-                        tuan: 'Dewasa',
-                        nama: 'Ahmad Kardawi',
-                        data1: 'Nomor KTP/NIK: 5675345365645345',
-                        data2: 'Tanggal Lahir: 07 Mey 2000',
-                      ),
-                      const SizedBox(height: 10),
-                      const Divider(),
-                      const ValueRincianData(
-                        tuan: 'Dewasa',
-                        nama: 'Ahmad Kardawi',
-                        data1: 'Nomor KTP/NIK: 5675345365645345',
-                        data2: 'Tanggal Lahir: 07 Mey 2000',
-                      ),
-                      const SizedBox(height: 10),
                     ],
                   ),
                 ),
+                Space(10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: DetailPembayaranWidget(
+                    colorBorder: Colors.blueGrey.shade200,
+                    balanceLabel: 'Sumber Dana (Saldo OeyPay)',
+                    balanceValue: 'Rp. 120.000.000',
+                    colorTotal: ColorName.yellowSmoth,
+                    totalOrderValue: 'Rp. 900.000',
+                    totalPaymentValue: 'Rp. 900.000',
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                   child: ButtonCustom.filled(
                     height: 40,
                     width: double.infinity,
@@ -188,7 +183,7 @@ class HasiltransaksitiketKereta extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
               ],
-            )
+            ),
           ],
         ),
       ),

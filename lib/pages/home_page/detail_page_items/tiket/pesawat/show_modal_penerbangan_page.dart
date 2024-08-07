@@ -5,7 +5,7 @@ import 'package:oepay/common/components/widget_alur_topup.dart';
 import 'package:oepay/common/components/widget_list_hasil_transaksi.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'rincian_data_pesawat.dart';
+import 'rincian_data_pesawat_page.dart';
 
 class ShowModalPenerbangan extends StatefulWidget {
   const ShowModalPenerbangan({super.key});
@@ -214,31 +214,11 @@ class FlightDetailsTab extends StatelessWidget {
           // SizedBox(height: 8),
 
           const Divider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset('assets/icons/garuda.png', width: 50),
-              const SizedBox(width: 8),
-              Column(
-                children: [
-                  Text(
-                    'G-630',
-                    style: CustomTextStyles.poppins(
-                        size: 13,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                  Text(
-                    'Ekonomi',
-                    style: CustomTextStyles.titleProfil,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const Divider(),
+
           const FlightSegmentDetails(
+            iconOval: 'assets/icons/mendarat.png',
             icon: 'assets/icons/landing.png',
+            image: 'assets/icons/garuda.png',
             departureCity: 'Jakarta (CGK)',
             departureAirport: 'Soekarno Hatta International Airport',
             departureTime: '12:00',
@@ -246,6 +226,8 @@ class FlightDetailsTab extends StatelessWidget {
             arrivalCity: 'Surabaya (SUB)',
             arrivalAirport: 'Juanda, Terminal 1A',
             arrivalTime: '20:00',
+            gerbong: 'G-630',
+            kelas: 'ekonomi',
           ),
           const Divider(),
         ],
@@ -352,7 +334,15 @@ class FlightSegmentDetails extends StatelessWidget {
   final String arrivalCity;
   final String arrivalAirport;
   final String arrivalTime;
-  final String icon;
+  final String? icon;
+  final String? image;
+  final String? stasiun;
+  final String? gerbong;
+  final String? kelas;
+  final String? tglPergi;
+  final String? tglPulang;
+  final String? iconOval;
+  final IconData? icondata;
 
   const FlightSegmentDetails({
     super.key,
@@ -363,97 +353,185 @@ class FlightSegmentDetails extends StatelessWidget {
     required this.arrivalCity,
     required this.arrivalAirport,
     required this.arrivalTime,
-    required this.icon,
+    this.icon,
+    required this.gerbong,
+    required this.kelas,
+    this.icondata,
+    this.image,
+    this.stasiun,
+    this.tglPergi,
+    this.tglPulang,
+    this.iconOval,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
       children: [
-        Column(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset(
-              // 'assets/icons/landing.png',
-              icon,
-              width: 20,
-            ),
-            const Dash(
-              direction: Axis.vertical,
-              length: 150,
-            ),
-            Image.asset(
-              // 'assets/icons/mendarat.png',
-              icon,
-              width: 20,
-            ),
-          ],
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            image != null
+                ? Image.asset(image!, width: 50)
+                : Text(stasiun!, style: CustomTextStyles.titlesection),
+            const SizedBox(width: 8),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          departureCity,
-                          style: CustomTextStyles.titlesection,
-                        ),
-                        Text(
-                          departureAirport,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: CustomTextStyles.titleProfil,
-                        ),
-                      ],
-                    ),
-                    Text(
-                      departureTime,
-                      style: CustomTextStyles.titleItem,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 50),
                 Text(
-                  duration,
-                  style: CustomTextStyles.textCard,
+                  gerbong!,
+                  style: CustomTextStyles.poppins(
+                      size: 13,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
-                const SizedBox(height: 50),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          arrivalCity,
-                          style: CustomTextStyles.titlesection,
-                        ),
-                        Text(
-                          arrivalAirport,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: CustomTextStyles.titleProfil,
-                        ),
-                      ],
-                    ),
-                    Text(
-                      arrivalTime,
-                      style: CustomTextStyles.titleItem,
-                    ),
-                  ],
+                Text(
+                  kelas!,
+                  style: CustomTextStyles.titleProfil,
                 ),
               ],
             ),
-          ),
+          ],
+        ),
+        const Divider(),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              children: [
+                if (icon != null)
+                  Image.asset(
+                    // 'assets/icons/landing.png',
+                    icon!,
+                    width: 20,
+                  )
+                else
+                  Container(
+                    padding: EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: ColorName.yellowColor,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Icon(
+                      icondata,
+                      size: 20,
+                    ),
+                  ),
+                const Dash(
+                  direction: Axis.vertical,
+                  length: 150,
+                ),
+                if (iconOval != null)
+                  Image.asset(
+                    // 'assets/icons/mendarat.png',
+                    iconOval!,
+                    width: 20,
+                  )
+                else
+                  Container(
+                    padding: EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: ColorName.yellowColor,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Icon(
+                      icondata,
+                      size: 20,
+                    ),
+                  ),
+              ],
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                departureCity,
+                                style: CustomTextStyles.titlesection,
+                              ),
+                              Text(
+                                departureAirport,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: CustomTextStyles.titleProfil,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              departureTime,
+                              style: CustomTextStyles.titleItem,
+                            ),
+                            if (tglPergi != null && tglPergi!.isNotEmpty) ...[
+                              Text(
+                                tglPergi!,
+                                style: CustomTextStyles.titleItem,
+                              ),
+                            ]
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 50),
+                    Text(
+                      duration,
+                      style: CustomTextStyles.textCard,
+                    ),
+                    const SizedBox(height: 50),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              arrivalCity,
+                              style: CustomTextStyles.titlesection,
+                            ),
+                            Text(
+                              arrivalAirport,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: CustomTextStyles.titleProfil,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              arrivalTime,
+                              style: CustomTextStyles.titleItem,
+                            ),
+                            if (tglPergi != null && tglPergi!.isNotEmpty) ...[
+                              Text(
+                                tglPergi!,
+                                style: CustomTextStyles.titleItem,
+                              ),
+                            ],
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );

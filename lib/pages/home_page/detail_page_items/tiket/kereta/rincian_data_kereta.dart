@@ -3,8 +3,8 @@ import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/widget_rincian_data.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import '../pesawat/rincian_kontak.dart';
-import '../pesawat/rincian_penumpang.dart';
+import '../pesawat/rincian_kontak_page.dart';
+import '../pesawat/rincian_penumpang_page.dart';
 import 'pilih_kursi.dart';
 
 class RincianDataKereta extends StatefulWidget {
@@ -135,7 +135,7 @@ class _RincianDataKeretaState extends State<RincianDataKereta> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const PilihKursi(),
+                                builder: (context) => PilihKursi(),
                               ),
                             );
                           },

@@ -3,7 +3,7 @@ import 'package:oepay/common/components/custom_container_card.dart';
 import 'package:oepay/common/components/widget_appbar.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'kereta/tiket_kereta.dart';
-import 'pesawat/tiket_pesawat.dart';
+import 'pesawat/tiket_pesawat_page.dart';
 
 class PemesananTiketPage extends StatefulWidget {
   const PemesananTiketPage({super.key});

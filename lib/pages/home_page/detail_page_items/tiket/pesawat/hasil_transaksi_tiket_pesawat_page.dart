@@ -4,11 +4,13 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_container_card.dart';
 import 'package:oepay/common/components/widget_appbar.dart';
+import 'package:oepay/common/components/widget_payment_tiket.dart';
 import 'package:oepay/common/components/widget_rincian_data.dart';
 import 'package:oepay/common/components/widget_value_rincian_data.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'show_modal_penerbangan.dart';
+import 'package:oepay/pages/home_page/detail_page_items/tiket/pesawat/lihat_tiket_pesawat_pages.dart';
+import 'show_modal_penerbangan_page.dart';
 
 class HasiltransaksitiketPesawat extends StatelessWidget {
   const HasiltransaksitiketPesawat({super.key});
@@ -70,16 +72,26 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                               'E-Tiket Keberangkatan',
                               style: CustomTextStyles.titlesection,
                             ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 5),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: const Color.fromARGB(255, 51, 46, 0),
-                              ),
-                              child: Text(
-                                'Lihat e-tiket',
-                                style: CustomTextStyles.textZone,
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LihatETiketPesawat(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 5),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: const Color.fromARGB(255, 51, 46, 0),
+                                ),
+                                child: Text(
+                                  'Lihat e-tiket',
+                                  style: CustomTextStyles.textZone,
+                                ),
                               ),
                             ),
                           ],
@@ -157,27 +169,24 @@ class HasiltransaksitiketPesawat extends StatelessWidget {
                         data2: 'Tanggal Lahir: 07 Mey 2000',
                       ),
                       const SizedBox(height: 10),
-                      const Divider(),
-                      const ValueRincianData(
-                        tuan: 'Dewasa',
-                        nama: 'Ahmad Kardawi',
-                        data1: 'Nomor KTP/NIK: 5675345365645345',
-                        data2: 'Tanggal Lahir: 07 Mey 2000',
-                      ),
-                      const SizedBox(height: 10),
-                      const Divider(),
-                      const ValueRincianData(
-                        tuan: 'Dewasa',
-                        nama: 'Ahmad Kardawi',
-                        data1: 'Nomor KTP/NIK: 5675345365645345',
-                        data2: 'Tanggal Lahir: 07 Mey 2000',
-                      ),
-                      const SizedBox(height: 10),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: DetailPembayaranWidget(
+                    colorBorder: Colors.blueGrey.shade200,
+                    balanceLabel: 'Sumber Dana (Saldo OeyPay)',
+                    balanceValue: 'Rp. 1000.000',
+                    colorTotal: ColorName.yellowSmoth,
+                    totalOrderValue: 'Rp. 900.000',
+                    voucher: '-Rp. 5000',
+                    totalPaymentValue: 'Rp. 900.000',
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
                   child: ButtonCustom.filled(
                     height: 40,
                     width: double.infinity,

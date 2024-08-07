@@ -4,10 +4,10 @@ import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/widget_rincian_data.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
-import 'rincian_detail_pesanan.dart';
-import 'rincian_kontak.dart';
-import 'rincian_penumpang.dart';
-import 'show_modal_penerbangan.dart';
+import 'detail_pesanan_tiket_pesawat_page.dart';
+import 'rincian_kontak_page.dart';
+import 'rincian_penumpang_page.dart';
+import 'show_modal_penerbangan_page.dart';
 
 class RincianDataPesawat extends StatefulWidget {
   const RincianDataPesawat({super.key});
@@ -138,7 +138,7 @@ class _RincianDataPesawatState extends State<RincianDataPesawat> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const RincianDetailPesananPage(),
+                                    const DetailPesananTiketPesawatPage(),
                               ),
                             );
                           },

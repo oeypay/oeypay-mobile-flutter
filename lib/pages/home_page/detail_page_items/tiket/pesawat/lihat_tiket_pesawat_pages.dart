@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 
 import '../../../../../common/components/widget_value_rincian_data.dart';
 import '../pesawat/show_modal_penerbangan_page.dart';
 
-class LihatETiketKereta extends StatelessWidget {
-  const LihatETiketKereta({super.key});
+class LihatETiketPesawat extends StatelessWidget {
+  const LihatETiketPesawat({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class LihatETiketKereta extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorName.yellowColor,
         title: Text(
-          'Tiket Kereta',
+          'Tiket Pesawat',
           style: CustomTextStyles.titleProfilApp,
         ),
       ),
@@ -27,10 +28,7 @@ class LihatETiketKereta extends StatelessWidget {
                 'Tiket Keberangkatan',
                 style: CustomTextStyles.titlesection,
               ),
-              leading: Icon(
-                Icons.train,
-                color: Colors.lime.shade900,
-              ),
+              leading: Image.asset('assets/icons/landing.png'),
               subtitle: Row(
                 children: [
                   const Icon(
@@ -78,12 +76,12 @@ class LihatETiketKereta extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: FlightSegmentDetails(
                 // image: 'assets/icons/garuda.png',
-                // iconOval: 'assets/icons/landing.png',
-                icondata: Icons.location_on,
+                iconOval: 'assets/icons/mendarat.png',
+                // icondata: Icons.location_on,
                 stasiun: 'Fajar Utama YK(144)',
                 gerbong: 'G-30',
                 kelas: 'ekonomi',
-                // icon: 'assets/icons/landing.png',
+                icon: 'assets/icons/landing.png',
                 departureCity: 'Jakarta (CGK)',
                 departureAirport: 'Soekarno Hatta International Airport',
                 departureTime: '12:00',

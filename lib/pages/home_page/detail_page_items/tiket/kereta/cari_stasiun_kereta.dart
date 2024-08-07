@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
 
-import '../pesawat/cari_bandara.dart';
+import '../pesawat/cari_bandara_page.dart';
 
 class PencarianStasiun extends StatelessWidget {
   final String title;

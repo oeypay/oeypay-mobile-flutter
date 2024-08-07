@@ -3,7 +3,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/common/constant/styleText.dart';
 import '../../../../../common/components/tiket_custom_card.dart';
-import 'show_modal_penerbangan.dart';
+import 'show_modal_penerbangan_page.dart';
 
 class FlightTicketWidget extends StatelessWidget {
   const FlightTicketWidget({super.key});

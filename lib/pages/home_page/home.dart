@@ -14,7 +14,7 @@ import 'detail_page_items/isi_ulang/isi_ulang_detail.dart';
 import 'detail_page_items/listrik/listrik_details.dart';
 import 'detail_page_items/penarikan/penarikan_details.dart';
 import 'detail_page_items/riwayat/riwayat_detail.dart';
-import 'detail_page_items/tiket/pemesanan_tiket.dart';
+import 'detail_page_items/tiket/pemesanan_tiket_page.dart';
 import 'detail_page_items/top_up/virtualAccount/virtual_account_pages.dart';
 import 'detail_page_items/transfer/transferDetails.dart';
 import 'item_lainnya_page.dart';
