@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oepay/common/constant/styleText.dart';
+
+import '../../../../common/components/common_empty.dart';
+import '../../../../common/components/common_failed.dart';
+import '../../../../common/components/common_loading_indicator.dart';
+import '../../../../resources/cubit/pages_menu/pages_cubit.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({super.key});
@@ -9,6 +15,21 @@ class NewsPage extends StatefulWidget {
 }
 
 class _NewsPageState extends State<NewsPage> {
+  final PagesCubit _pagesCubit = PagesCubit();
+  String idCategory = '521e43c3-cbc1-441c-a043-c5bd2923539b';
+  final String defaultImages =
+      "https://is3.cloudhost.id/oey/pages/1723092768_banner1.png";
+
+  void _fetchData() async {
+    await _pagesCubit.getBanner(categoryId: idCategory);
+  }
+
+  @override
+  void initState() {
+    _fetchData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,41 +40,40 @@ class _NewsPageState extends State<NewsPage> {
           style: CustomTextStyles.titlesection,
         ),
         const SizedBox(height: 20),
-        SizedBox(
-          height: 280.0, // Atur tinggi sesuai kebutuhan
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: const [
-              PromoCard(
-                title: 'Belanja Paket Pulsa Pake OeyPay',
-                imageUrl: 'assets/images/promo1.png',
-                description: 'Cashback/Diskon s.d. 500rb',
-                buttonLabel: 'OVO',
+        BlocBuilder<PagesCubit, PagesState>(
+          bloc: _pagesCubit,
+          builder: (context, state) {
+            if (state.status.isInitializedOrLoading()) {
+              return const CommonLoadingIndicator();
+            }
+            if (state.status.isFailed()) {
+              return const CommonFailed();
+            }
+            if (state.status.isEmpty()) {
+              return CommonEmpty(
+                pressReload: () {
+                  _fetchData();
+                },
+              );
+            }
+            return SizedBox(
+              height: 280.0, // Atur tinggi sesuai kebutuhan
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  for (var item in state.getListPages!)
+                    PromoCard(
+                      title: item.title ?? '',
+                      imageUrl: item.image ?? '',
+                      description: item.description ?? '',
+                      buttonLabel: item.content ?? '',
+                    ),
+                  SizedBox(width: 16.0),
+                  SizedBox(width: 15),
+                ],
               ),
-              SizedBox(width: 16.0),
-              PromoCard(
-                title: 'Belanja Token Listrik Pake OeyPay',
-                imageUrl: 'assets/images/promo2.png',
-                description: 'Cashback s.d. 50rb',
-                buttonLabel: 'OVO',
-              ),
-              SizedBox(width: 16.0),
-              PromoCard(
-                title: 'Jajan Belanja Pulsa Pake OeyPay',
-                imageUrl: 'assets/images/promo3.png',
-                description: 'Cashback s.d. 50rb',
-                buttonLabel: 'OVO',
-              ),
-              SizedBox(width: 16.0),
-              PromoCard(
-                title: 'Jajan Voucher Game Hemat Pake OeyPay',
-                imageUrl: 'assets/images/promo4.png',
-                description: 'Cashback s.d. 50rb',
-                buttonLabel: 'OVO',
-              ),
-              SizedBox(width: 15),
-            ],
-          ),
+            );
+          },
         ),
       ],
     );
@@ -90,7 +110,7 @@ class PromoCard extends StatelessWidget {
           ClipRRect(
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10), topRight: Radius.circular(15)),
-            child: Image.asset(
+            child: Image.network(
               imageUrl,
               // width: 200,
             ),

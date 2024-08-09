@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,8 +6,6 @@ import 'package:oepay/common/constant/enums.dart';
 import 'package:oepay/resources/models/auth/phone_number_model.dart';
 import 'package:oepay/resources/models/user_model/user_model.dart';
 import 'package:oepay/resources/provider/auth_provider.dart';
-import 'package:oepay/resources/provider/storage_util.dart';
-
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {

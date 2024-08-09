@@ -50,7 +50,7 @@ dependencies:
   flutter_onboarding_slider: ^1.0.11
   flutter_svg: ^2.0.10+1
   font_awesome_flutter: ^10.7.0
-  freezed_annotation: ^2.4.4
+  # freezed_annotation: ^2.4.4
   google_fonts: ^6.2.1
   http: ^1.2.2
   # expandable: ^5.0.1

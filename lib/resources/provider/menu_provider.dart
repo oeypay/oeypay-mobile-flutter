@@ -40,14 +40,16 @@ class ApiMenuProvider {
     try {
       debugPrint("getProduct");
 
-      var response = await Dio().get('${baseUrl}v1/product',
-          queryParameters: {
-            "category": category,
-            "brand": brand,
-          },
-          options: Options(
-            headers: {"Authorization": "Bearer ${UserModel.token}"},
-          ));
+      var response = await Dio().get(
+        '${baseUrl}v1/product',
+        queryParameters: {
+          "category": category,
+          "brand": brand,
+        },
+        options: Options(
+          headers: {"Authorization": "Bearer ${UserModel.token}"},
+        ),
+      );
 
       if (kDebugMode) {
         print(response.data['data']);

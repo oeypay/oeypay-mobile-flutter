@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/resources/cubit/auth/auth_cubit.dart';
 import 'package:oepay/resources/cubit/menu/menu_cubit.dart';
+import 'package:oepay/resources/cubit/pages_menu/pages_cubit.dart';
 import 'pages/splash_screen_page.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthCubit>(create: (context) => AuthCubit()),
         BlocProvider<MenuCubit>(create: (context) => MenuCubit()),
+        BlocProvider<PagesCubit>(create: (context) => PagesCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

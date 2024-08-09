@@ -357,11 +357,11 @@ class BodyContentHomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(height: 5),
                     Text(
                       'Payment List',
                       style: CustomTextStyles.titlesection,
                     ),
-                    const SizedBox(height: 5),
                     Container(
                       padding: const EdgeInsets.only(top: 10),
                       decoration: BoxDecoration(
