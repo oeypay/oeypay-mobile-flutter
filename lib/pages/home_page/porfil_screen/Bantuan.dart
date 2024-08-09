@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 import 'faq_details.dart';
 import 'guide_details.dart';

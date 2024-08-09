@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/grid_components.dart';
 import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'package:oepay/pages/home_page/detail_page_items/content_home_page/banner_page.dart';
 import 'package:oepay/pages/home_page/detail_page_items/content_home_page/news_page.dart';
 import 'package:oepay/pages/home_page/detail_page_items/content_home_page/rekomendasi_page.dart';

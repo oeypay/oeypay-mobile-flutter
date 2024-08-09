@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/widget_alur_topup.dart';
 import 'package:oepay/common/constant/colors.dart';
-import '../constant/styleText.dart';
+import '../constant/style_text.dart';
 
 class TicketSelectionBottomSheet extends StatefulWidget {
   final int adultCount;

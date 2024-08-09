@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 class ValueRincianData extends StatelessWidget {
   final String nama;

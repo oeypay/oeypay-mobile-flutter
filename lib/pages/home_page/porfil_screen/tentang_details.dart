@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 class TentangDetails extends StatelessWidget {
   const TentangDetails({super.key});

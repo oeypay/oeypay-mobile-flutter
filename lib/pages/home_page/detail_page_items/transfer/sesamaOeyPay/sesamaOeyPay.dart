@@ -5,7 +5,7 @@ import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_container_card.dart';
 import 'package:oepay/common/components/custom_textField.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import '../../penarikan/bca/konfirmasi_penarikan_otp.dart';
 import '../bca/hasilTransferBca.dart';
 import '../bca/transferBca.dart';

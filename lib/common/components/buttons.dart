@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/components/loading.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import '../constant/colors.dart';
 
 enum ButtonStyle { filled, custom }

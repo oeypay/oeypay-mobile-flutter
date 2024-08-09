@@ -5,7 +5,7 @@ import 'package:oepay/common/components/form_field_tiket.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/show_custom_tiket_pesawat.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'cari_bandara_page.dart';
 import 'cari_ticket_pesawat_page.dart';
 

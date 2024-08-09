@@ -8,7 +8,7 @@ import 'package:oepay/common/components/widget_payment_tiket.dart';
 import 'package:oepay/common/components/widget_rincian_data.dart';
 import 'package:oepay/common/components/widget_value_rincian_data.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'package:oepay/pages/home_page/detail_page_items/tiket/pesawat/lihat_tiket_pesawat_pages.dart';
 import 'show_modal_penerbangan_page.dart';
 

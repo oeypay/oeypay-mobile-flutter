@@ -5,7 +5,7 @@ import 'package:oepay/common/components/custom_container_card.dart';
 import 'package:oepay/common/components/widget_alur_topup.dart';
 import 'package:oepay/common/components/widget_appbar.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 // models/top_up_model.dart
 class TopUpModel {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 class RincianKontakPage extends StatelessWidget {
   final TextEditingController _nameController =

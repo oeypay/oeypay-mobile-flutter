@@ -10,7 +10,7 @@ import 'package:oepay/common/components/container_list_harga.dart';
 import 'package:oepay/common/components/show_dialog_pembayaran.dart';
 import 'package:oepay/common/components/space.dart';
 import 'package:oepay/common/constant/number_format.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:oepay/pages/home_page/detail_page_items/isi_ulang/hasil_transaksi_data.dart';
 import 'package:oepay/pages/home_page/detail_page_items/isi_ulang/hasil_transaksi_pulsa.dart';

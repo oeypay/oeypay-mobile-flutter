@@ -7,7 +7,7 @@ import 'package:oepay/common/components/widget_alur_topup.dart';
 import 'package:oepay/common/components/widget_appbar.dart';
 import 'package:oepay/common/components/widget_list_hasil_transaksi.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 import '../transferDetails.dart';
 

@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/custom_textField.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'package:oepay/pages/Settings/security_page.dart';
 import 'package:oepay/pages/register_pages/phone_number.dart';
 import 'package:oepay/resources/models/user_model/user_model.dart';

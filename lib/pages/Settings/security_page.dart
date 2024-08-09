@@ -16,7 +16,6 @@ class _SecuritySettingsPageState extends State<SecuritySettingsPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     auth = LocalAuthentication();
     auth.isDeviceSupported().then(

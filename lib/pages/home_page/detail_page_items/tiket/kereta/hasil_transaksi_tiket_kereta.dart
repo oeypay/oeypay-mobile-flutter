@@ -8,7 +8,7 @@ import 'package:oepay/common/components/widget_payment_tiket.dart';
 import 'package:oepay/common/components/widget_rincian_data.dart';
 import 'package:oepay/common/components/widget_value_rincian_data.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'package:oepay/pages/home_page/detail_page_items/tiket/kereta/lihat_tiket_kereta.dart';
 
 class HasiltransaksitiketKereta extends StatelessWidget {

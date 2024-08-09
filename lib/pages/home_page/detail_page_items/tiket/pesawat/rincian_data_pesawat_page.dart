@@ -3,7 +3,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/widget_rincian_data.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'detail_pesanan_tiket_pesawat_page.dart';
 import 'rincian_kontak_page.dart';
 import 'rincian_penumpang_page.dart';

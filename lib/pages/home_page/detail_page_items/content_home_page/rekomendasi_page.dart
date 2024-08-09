@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oepay/common/components/common_empty.dart';
 import 'package:oepay/common/components/common_failed.dart';
 import 'package:oepay/common/components/common_loading_indicator.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'package:oepay/resources/cubit/pages_menu/pages_cubit.dart';
 
 class RekomendasiPage extends StatefulWidget {

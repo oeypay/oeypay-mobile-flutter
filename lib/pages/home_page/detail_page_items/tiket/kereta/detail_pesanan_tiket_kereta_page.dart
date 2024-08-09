@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'package:oepay/pages/home_page/detail_page_items/tiket/kereta/hasil_transaksi_tiket_kereta.dart';
 import '../../../../../common/components/widget_payment_tiket.dart';
 import '../../../../../common/components/widgte_detail_pesanan_tiket.dart';

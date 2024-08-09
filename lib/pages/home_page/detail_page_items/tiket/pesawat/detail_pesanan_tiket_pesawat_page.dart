@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/widget_payment_tiket.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import '../../../../../common/components/widgte_detail_pesanan_tiket.dart';
 import '../../penarikan/bca/konfirmasi_penarikan_otp.dart';
 import 'hasil_transaksi_tiket_pesawat_page.dart';

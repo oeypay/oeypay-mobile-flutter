@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import '../../../../../common/components/tiket_custom_card.dart';
 import 'rincian_data_kereta.dart';
 

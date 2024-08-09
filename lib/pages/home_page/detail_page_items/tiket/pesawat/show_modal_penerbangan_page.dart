@@ -4,7 +4,7 @@ import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/widget_alur_topup.dart';
 import 'package:oepay/common/components/widget_list_hasil_transaksi.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'rincian_data_pesawat_page.dart';
 
 class ShowModalPenerbangan extends StatefulWidget {

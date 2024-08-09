@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/widget_rincian_data.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import '../pesawat/rincian_kontak_page.dart';
 import '../pesawat/rincian_penumpang_page.dart';
 import 'pilih_kursi.dart';

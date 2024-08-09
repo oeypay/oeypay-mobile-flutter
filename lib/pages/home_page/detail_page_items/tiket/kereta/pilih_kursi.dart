@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/components/space.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 import 'package:oepay/pages/home_page/detail_page_items/tiket/kereta/detail_pesanan_tiket_kereta_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:oepay/common/components/buttons.dart';

@@ -4,7 +4,7 @@ import 'package:oepay/common/components/buttons.dart';
 import 'package:oepay/common/components/garis_putus.dart';
 import 'package:oepay/common/components/widget_appbar.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 import '../../menungu_pembayaran.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 import '../../../../../common/components/widget_value_rincian_data.dart';
 import '../pesawat/show_modal_penerbangan_page.dart';

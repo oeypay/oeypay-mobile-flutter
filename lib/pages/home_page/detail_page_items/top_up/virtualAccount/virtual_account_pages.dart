@@ -4,7 +4,7 @@ import 'package:oepay/common/components/show_dialog_pembayaran.dart';
 import 'package:oepay/common/components/widget_appbar.dart';
 import 'package:oepay/common/components/widget_item_topUp.dart';
 import 'package:oepay/common/constant/colors.dart';
-import 'package:oepay/common/constant/styleText.dart';
+import 'package:oepay/common/constant/style_text.dart';
 
 import '../metodeLainnya/metode_lainnya.dart';
 

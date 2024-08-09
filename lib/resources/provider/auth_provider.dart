@@ -62,6 +62,7 @@ class ApiAuthProvider {
       await StorageCore().saveObject({
         "value": response.data['data']['access_token'],
       }, 'token');
+      //  TODO: implemetasi auth
 
       // await StorageCore().savePhone({
       //   "value": response.data['data']['user']['phone'],
