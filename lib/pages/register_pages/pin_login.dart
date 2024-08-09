@@ -50,6 +50,8 @@ class _PinLoginPageState extends State<PinLoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    var pages = "ButtonCustomBar";
+
     return Scaffold(
       backgroundColor: ColorName.yellowColor,
       appBar: const AppbarDefault(

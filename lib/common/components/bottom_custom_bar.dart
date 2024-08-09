@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:oepay/common/constant/colors.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
-import '../../pages/home_page/history.dart';
+import '../../pages/home_page/history_page.dart';
 import '../../pages/home_page/home.dart';
 import '../../pages/home_page/merchan_page.dart';
 import '../../pages/home_page/porfil_screen/profile_page.dart';
